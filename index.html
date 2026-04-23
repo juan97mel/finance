@@ -1187,6 +1187,134 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 /* Add section at bottom */
 .cat-add-section { border-top: 1.5px solid rgba(177,177,248,.2); padding-top: 16px; margin-top: 12px; }
 
+
+/* ===== PROFILE CARD ============================================ */
+.cuenta-profile-card { align-items: center; }
+.avatar-edit-badge {
+  position: absolute; bottom: 0; right: 0;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  font-size: 10px; display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(245,244,255,.97);
+}
+.profile-edit-btn {
+  background: var(--lav-lt); border: 1.5px solid rgba(177,177,248,.4);
+  color: var(--navy); border-radius: 9px; width: 34px; height: 34px;
+  cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .12s;
+}
+.profile-edit-btn:active { background: var(--lavender); }
+.profile-edit-card {
+  margin: 0 16px 10px;
+  background: rgba(255,255,255,.7); border: 1.5px solid rgba(177,177,248,.3);
+  border-radius: var(--r2); padding: 16px;
+}
+.profile-avatar-edit { text-align: center; }
+.cuenta-avatar img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: 50%;
+}
+
+
+/* ===== PROJECTION REDESIGN =========================================== */
+/* Annual summary card */
+.psum-ttl {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,.55); font-weight: 700; margin-bottom: 10px;
+}
+.psum-bal {
+  font-family: var(--display); font-size: 38px; font-weight: 800;
+  letter-spacing: -2px; line-height: 1; margin-bottom: 4px;
+}
+.psum-sub {
+  font-size: 12px; color: rgba(255,255,255,.45); font-weight: 500; margin-bottom: 20px;
+}
+.psum-row-grid {
+  display: flex; align-items: stretch; gap: 0;
+  background: rgba(255,255,255,.07); border-radius: var(--r2);
+  border: 1px solid rgba(255,255,255,.1); overflow: hidden;
+}
+.psum-col {
+  flex: 1; padding: 12px 10px; text-align: center;
+}
+.psum-divider { width: 1px; background: rgba(255,255,255,.1); flex-shrink: 0; }
+.psum-col-lbl { font-size: 10px; color: rgba(255,255,255,.45); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-bottom: 5px; }
+.psum-col-val { font-family: var(--display); font-size: 14px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 2px; }
+.psum-col-note { font-size: 10px; color: rgba(255,255,255,.4); font-weight: 500; }
+/* Force positive/negative colors to work inside navy hero */
+.proj-card .positive { color: #3BF759 !important; }
+.proj-card .negative { color: #FF9A9A !important; }
+
+/* Month section title */
+.pm-section-ttl {
+  font-family: var(--display); font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--navy-mid); font-weight: 700;
+  padding: 20px 16px 10px;
+}
+/* Month cards */
+.pm-card {
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); border-radius: var(--r3);
+  margin: 0 16px 10px; padding: 16px 18px;
+  box-shadow: var(--shdw-sm);
+}
+.pm-card-cur {
+  border-color: var(--periwinkle);
+  box-shadow: 0 0 0 1px var(--periwinkle), var(--shdw-sm);
+}
+.pm-card-proj { opacity: .75; }
+.pm-card-hdr {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+}
+.pm-card-mon {
+  font-family: var(--display); font-size: 15px; font-weight: 800;
+  color: var(--t1); flex: 1;
+}
+.pm-badge-real {
+  font-size: 9px; font-weight: 700; letter-spacing: .5px;
+  background: rgba(59,247,89,.18); color: var(--green-dk);
+  border-radius: 4px; padding: 2px 7px; flex-shrink: 0;
+}
+.pm-badge-proj {
+  font-size: 9px; font-weight: 700; letter-spacing: .5px;
+  background: rgba(177,177,248,.2); color: var(--navy-mid);
+  border-radius: 4px; padding: 2px 7px; flex-shrink: 0;
+}
+.pm-card-bal {
+  font-family: var(--display); font-size: 15px; font-weight: 800;
+  letter-spacing: -.5px; flex-shrink: 0;
+}
+/* Bar rows */
+.pm-bars-v2 { display: flex; flex-direction: column; gap: 9px; }
+.pm-bar-row { display: flex; align-items: center; gap: 10px; }
+.pm-bar-lbl {
+  font-size: 11px; color: var(--t3); font-weight: 600;
+  width: 56px; flex-shrink: 0;
+}
+.pm-bar-track {
+  flex: 1; height: 7px; background: rgba(177,177,248,.18);
+  border-radius: 4px; overflow: hidden;
+}
+.pm-bar-fill { height: 100%; border-radius: 4px; transition: width .4s ease; }
+.pm-inc-fill { background: linear-gradient(90deg, #3BF759, #22c55e); }
+.pm-exp-fill { background: linear-gradient(90deg, #FF9A9A, #ef4444); }
+.pm-bar-amt {
+  font-family: var(--display); font-size: 12px; font-weight: 800;
+  width: 78px; text-align: right; flex-shrink: 0; letter-spacing: -.3px;
+}
+
+
+.pm-ver-mas {
+  display: block; width: calc(100% - 32px); margin: 0 16px 16px;
+  padding: 14px; border-radius: var(--r3);
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); box-shadow: var(--shdw-sm);
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  color: var(--navy); cursor: pointer; transition: all .12s;
+  letter-spacing: .2px;
+}
+.pm-ver-mas:active { opacity: .75; }
+
 </style>
 </head>
 <body>
@@ -1352,12 +1480,34 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
     <div class="topbar" style="padding-bottom:14px">
       <span class="app-name">Mi cuenta</span>
     </div>
-    <div class="cuenta-profile-card">
-      <div class="cuenta-avatar">&#128100;</div>
-      <div>
-        <div class="cuenta-pname">Mis Finanzas</div>
-        <div class="cuenta-psub">Finanzas personales 2026</div>
+    <div class="cuenta-profile-card" id="profileCard">
+      <div class="cuenta-avatar" id="profileAvatar" onclick="document.getElementById('avatarInput').click()" style="cursor:pointer;position:relative">
+        <span id="profileAvatarContent">&#128100;</span>
+        <div class="avatar-edit-badge">&#9998;</div>
       </div>
+      <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)"/>
+      <div style="flex:1;min-width:0">
+        <div class="cuenta-pname" id="profileName">Mis Finanzas</div>
+        <div class="cuenta-psub" id="profileEmail">Finanzas personales 2026</div>
+      </div>
+      <button class="profile-edit-btn" onclick="openProfileEdit()">&#9998;</button>
+    </div>
+    <!-- Profile edit form (hidden) -->
+    <div class="profile-edit-card" id="profileEditCard" style="display:none">
+      <div class="rec-form-hdr">
+        <span class="rec-form-title">Editar perfil</span>
+        <button class="close-btn" onclick="closeProfileEdit()">&#215;</button>
+      </div>
+      <div class="profile-avatar-edit">
+        <div class="cuenta-avatar" id="profileAvatarEdit" onclick="document.getElementById('avatarInput').click()" style="cursor:pointer;position:relative;margin:0 auto 16px">
+          <span id="profileAvatarEditContent">&#128100;</span>
+          <div class="avatar-edit-badge">&#128247;</div>
+        </div>
+      </div>
+      <input class="f-input" id="editName"  placeholder="Nombre" maxlength="40" autocomplete="off"/>
+      <input class="f-input" id="editEmail" placeholder="Email" type="email" maxlength="60" autocomplete="off" inputmode="email"/>
+      <input class="f-input" id="editPhone" placeholder="Tel&#233;fono" type="tel" maxlength="20" autocomplete="off" inputmode="tel"/>
+      <button class="goals-save-btn" onclick="saveProfile()">Guardar perfil</button>
     </div>
     <div class="cuenta-stat-card">
       <div class="cst-lbl">Ahorro acumulado 2026</div>
@@ -4035,6 +4185,240 @@ function saveSubEdit(catId, idx, oldVal){
   catOpenIds[catId] = true;
   renderCatTree();
   showToast('Sub-categor\u00eda actualizada \u2713');
+}
+</script>
+
+
+<script id="v19-fixes">
+/* ==================================================================
+   FIX: Replace ALL setStgTab / setMgrTab with single final versions
+   that call no previous override (breaks the infinite recursion chain)
+
+   PROFILE: name / email / phone / avatar
+   ================================================================== */
+
+/* ── DEFINITIVE setStgTab ── */
+function setStgTab(tab){
+  currentStgTab = tab;
+  /* tab buttons */
+  [['Gen','general'],['Rec','recurring'],['Cats','cats']].forEach(function(p){
+    var btn = document.getElementById('stgTab'+p[0]);
+    if(btn) btn.className = 'stg-tab' + (tab===p[1] ? ' active' : '');
+    var pnl = document.getElementById('stgPanel'+p[1].charAt(0).toUpperCase()+p[1].slice(1));
+    if(pnl) pnl.style.display = tab===p[1] ? 'block' : 'none';
+  });
+  /* side effects */
+  if(tab==='recurring'){
+    setRecurType('expense');
+    initRecurForm();
+    renderRecurList();
+  }
+  if(tab==='cats'){
+    mgrType = 'expense';
+    setMgrTab('expense');
+  }
+}
+
+/* ── DEFINITIVE setMgrTab ── */
+function setMgrTab(t){
+  mgrType = t;
+  var expBtn = document.getElementById('mgrTabExp');
+  var incBtn = document.getElementById('mgrTabInc');
+  if(expBtn) expBtn.className = 'cat-tab' + (t==='expense' ? ' active' : '');
+  if(incBtn) incBtn.className = 'cat-tab' + (t==='income'  ? ' active' : '');
+  var emo = document.getElementById('mgrEmoji');
+  var nm  = document.getElementById('mgrName');
+  if(emo) emo.value = '';
+  if(nm)  nm.value  = '';
+  catEditingId = null;
+  renderCatTree();
+  /* update subcat mgr cats if open */
+  if(typeof subcatMgrOpen !== 'undefined' && subcatMgrOpen) populateSubcatMgrCats();
+}
+
+/* ════════════════════════════════════════════════════════════
+   PROFILE
+   ════════════════════════════════════════════════════════════ */
+var PROFILE_KEY = 'fin_profile';
+
+function loadProfile(){
+  try{ var r=localStorage.getItem(PROFILE_KEY); return r?JSON.parse(r):{name:'Mis Finanzas',email:'',phone:'',avatar:''}; }
+  catch(e){ return {name:'Mis Finanzas',email:'',phone:'',avatar:''}; }
+}
+function saveProfileData(o){ localStorage.setItem(PROFILE_KEY,JSON.stringify(o)); }
+
+function applyProfile(){
+  var p = loadProfile();
+  /* main card */
+  var nameEl  = document.getElementById('profileName');
+  var emailEl = document.getElementById('profileEmail');
+  if(nameEl)  nameEl.textContent  = p.name  || 'Mis Finanzas';
+  if(emailEl) emailEl.textContent = p.email || 'Finanzas personales 2026';
+  /* avatar */
+  setAvatarDisplay(p.avatar, 'profileAvatarContent');
+  setAvatarDisplay(p.avatar, 'profileAvatarEditContent');
+}
+
+function setAvatarDisplay(avatarData, elId){
+  var el = document.getElementById(elId);
+  if(!el) return;
+  if(avatarData && avatarData.startsWith('data:')){
+    el.innerHTML = '<img src="'+avatarData+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>';
+  } else {
+    el.innerHTML = '&#128100;';
+  }
+}
+
+function openProfileEdit(){
+  var p = loadProfile();
+  var ni = document.getElementById('editName');
+  var ei = document.getElementById('editEmail');
+  var pi = document.getElementById('editPhone');
+  if(ni) ni.value = p.name  || '';
+  if(ei) ei.value = p.email || '';
+  if(pi) pi.value = p.phone || '';
+  applyProfile();
+  document.getElementById('profileEditCard').style.display = 'block';
+  if(ni) ni.focus();
+}
+function closeProfileEdit(){
+  document.getElementById('profileEditCard').style.display = 'none';
+}
+function saveProfile(){
+  var p = loadProfile();
+  var ni = document.getElementById('editName');
+  var ei = document.getElementById('editEmail');
+  var pi = document.getElementById('editPhone');
+  p.name  = (ni?ni.value.trim():p.name)  || 'Mis Finanzas';
+  p.email = ei?ei.value.trim():p.email;
+  p.phone = pi?pi.value.trim():p.phone;
+  saveProfileData(p);
+  applyProfile();
+  closeProfileEdit();
+  showToast('Perfil actualizado \u2713');
+}
+
+function handleAvatarUpload(event){
+  var file = event.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var p = loadProfile();
+    p.avatar = e.target.result;
+    saveProfileData(p);
+    applyProfile();
+    showToast('Foto actualizada \u2713');
+  };
+  reader.readAsDataURL(file);
+  event.target.value = ''; /* reset so same file can be re-selected */
+}
+
+/* Load profile on init */
+document.addEventListener('DOMContentLoaded', function(){ applyProfile(); });
+setTimeout(applyProfile, 100);
+
+/* Also apply when cuenta tab opens */
+var _origRenderCuenta = typeof renderCuenta === 'function' ? renderCuenta : null;
+function renderCuenta(){
+  if(_origRenderCuenta) _origRenderCuenta();
+  applyProfile();
+}
+</script>
+
+
+<script id="proj-redesign">
+/* Redesigned renderProjected — months in glass cards, better contrast */
+function renderProjected(){
+  var real=[];
+  for(var m=0;m<12;m++){
+    injectRecurring(curYear,m);
+    var txs=loadMonth(curYear,m).transactions||[];
+    if(!txs.length)continue;
+    var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0),
+        fixed=txs.filter(function(t){return t.type==='expense'&&isFixedExpenseCat(t.cat);}).reduce(function(s,t){return s+t.amount;},0),
+        vari=txs.filter(function(t){return t.type==='expense'&&!isFixedExpenseCat(t.cat);}).reduce(function(s,t){return s+t.amount;},0);
+    if(inc>0||fixed>0||vari>0)real.push({m:m,inc:inc,fixed:fixed,vari:vari});
+  }
+  var n=real.length;
+  var avgI=n>0?real.reduce(function(s,d){return s+d.inc;},0)/n:0;
+  var avgF=n>0?real.reduce(function(s,d){return s+d.fixed;},0)/n:0;
+  var avgV=n>0?real.reduce(function(s,d){return s+d.vari;},0)/n:0;
+  var avgE=avgF+avgV,pI=avgI*12,pE=(avgF+avgV)*12,pB=pI-pE;
+  var sr=pI>0?Math.round(((pI-pE)/pI)*100):0;
+  var basisEl=document.getElementById('projBasis');
+  if(basisEl)basisEl.textContent=n>0?'Basado en '+n+' mes'+(n!==1?'es':''):'';
+
+  if(!n){
+    document.getElementById('projSummary').innerHTML=
+      '<div style="text-align:center;padding:32px 20px;color:var(--t3);font-size:14px">'
+      +'Registr\u00e1 al menos un mes para ver la proyecci\u00f3n</div>';
+    document.getElementById('projMonths').innerHTML='';
+    return;
+  }
+
+  /* ── Annual summary card (original style) ── */
+  document.getElementById('projSummary').innerHTML=
+    '<div class="proj-head">Proyecci\u00f3n \u00b7 '+curYear+'</div>'
+    +'<div class="proj-row"><span class="proj-lbl">Ingresos</span><div><div class="proj-val positive">'+fmtMoney(pI)+'</div><div class="proj-note">'+fmtMoney(avgI)+'/mes</div></div></div>'
+    +'<div class="proj-row sub"><span class="proj-lbl">Gastos fijos</span><div><div class="proj-val negative">'+fmtMoney(avgF*12)+'</div><div class="proj-note">'+fmtMoney(avgF)+'/mes</div></div></div>'
+    +'<div class="proj-row sub"><span class="proj-lbl">Gastos variables</span><div><div class="proj-val negative">'+fmtMoney(avgV*12)+'</div><div class="proj-note">'+fmtMoney(avgV)+'/mes</div></div></div>'
+    +'<div class="proj-row"><span class="proj-lbl">Balance proyectado</span><div><div class="proj-val '+(pB>=0?'positive':'negative')+'">'+(pB<0?'-':'')+fmtMoney(pB)+'</div><div class="proj-note">Tasa de ahorro: '+sr+'%</div></div></div>';
+
+  /* ── Month-by-month cards (reverse order, 5 + expand) ── */
+  var mx=Math.max(avgI,avgE,1);
+  real.forEach(function(d){if(d.inc>mx)mx=d.inc;if(d.fixed+d.vari>mx)mx=d.fixed+d.vari;});
+
+  /* Build months in reverse: Nov → Oct → ... → Ene */
+  var months=[];
+  for(var m=11;m>=0;m--){
+    var r=null;
+    for(var k=0;k<real.length;k++){if(real[k].m===m){r=real[k];break;}}
+    var isR=r!==null;
+    var inc=isR?r.inc:avgI, exp=isR?(r.fixed+r.vari):avgE, b=inc-exp;
+    var ip=Math.round((inc/mx)*100), ep=Math.round((exp/mx)*100);
+    var balCol2=b>=0?'var(--green-dk)':'var(--red-dk)';
+    var isCur=(m===curMonth);
+    months.push({m:m,isR:isR,inc:inc,exp:exp,b:b,ip:ip,ep:ep,balCol:balCol2,isCur:isCur});
+  }
+
+  function buildMonthCard(mo){
+    return '<div class="pm-card'+(mo.isCur?' pm-card-cur':'')+(mo.isR?'':' pm-card-proj')+'">'
+      +'<div class="pm-card-hdr">'
+      +'<span class="pm-card-mon">'+MONTHS[mo.m]+'</span>'
+      +(mo.isR?'<span class="pm-badge-real">Real</span>':'<span class="pm-badge-proj">Proyectado</span>')
+      +'<span class="pm-card-bal" style="color:'+mo.balCol+'">'+(mo.b<0?'-':'+')+fmtMoney(mo.b)+'</span>'
+      +'</div>'
+      +'<div class="pm-bars-v2">'
+      +'<div class="pm-bar-row">'
+      +'<span class="pm-bar-lbl">Ingresos</span>'
+      +'<div class="pm-bar-track"><div class="pm-bar-fill pm-inc-fill" style="width:'+mo.ip+'%"></div></div>'
+      +'<span class="pm-bar-amt positive">'+fmtMoney(mo.inc)+'</span>'
+      +'</div>'
+      +'<div class="pm-bar-row">'
+      +'<span class="pm-bar-lbl">Gastos</span>'
+      +'<div class="pm-bar-track"><div class="pm-bar-fill pm-exp-fill" style="width:'+mo.ep+'%"></div></div>'
+      +'<span class="pm-bar-amt negative">'+fmtMoney(mo.exp)+'</span>'
+      +'</div>'
+      +'</div>'
+      +'</div>';
+  }
+
+  var ph='<div class="pm-section-ttl">Mes a mes</div>';
+  var first5=months.slice(0,5);
+  var rest=months.slice(5);
+  first5.forEach(function(mo){ph+=buildMonthCard(mo);});
+  if(rest.length){
+    ph+='<div id="pmRestWrap" style="display:none">';
+    rest.forEach(function(mo){ph+=buildMonthCard(mo);});
+    ph+='</div>';
+    ph+='<button class="pm-ver-mas" onclick="'
+      +"var w=document.getElementById('pmRestWrap');var b=this;"
+      +"if(w.style.display==='none'){w.style.display='block';b.textContent='Ver menos \u2227';}"
+      +"else{w.style.display='none';b.textContent='Ver todos los meses \u2228';}"
+      +'">Ver todos los meses \u2228</button>';
+  }
+  document.getElementById('projMonths').innerHTML=ph;
+
 }
 </script>
 
