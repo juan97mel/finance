@@ -214,15 +214,15 @@ body::after{
   border-radius:var(--r4);padding:5px 12px;
   font-size:12px;font-weight:700;letter-spacing:.2px;
 }
-.spill-g{background:rgba(59,247,89,.18);border:1px solid rgba(59,247,89,.35);color:#5EFF6E;}
-.spill-r{background:rgba(255,102,102,.18);border:1px solid rgba(255,102,102,.30);color:#ffb3b3;}
+.spill-g{background:rgba(22,163,74,.12);border:1px solid rgba(22,163,74,.3);color:#15803d;}
+.spill-r{background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.25);color:#b91c1c;}
 /* goal section */
 #heroGoal{position:relative;z-index:1;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);}
 .goal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
 .goal-lbl{font-size:10px;color:rgba(255,255,255,.48);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
 .goal-badge{font-family:var(--display);font-size:12px;font-weight:800;padding:3px 10px;border-radius:var(--r4);border:1px solid;}
 .gpb-g{color:#5EFF6E;border-color:rgba(94,255,110,.4);background:rgba(94,255,110,.12);}
-.gpb-y{color:#FFE270;border-color:rgba(255,226,112,.4);background:rgba(255,226,112,.12);}
+.gpb-y{color:#a16207;border-color:rgba(255,226,112,.4);background:rgba(255,226,112,.12);}
 .gpb-r{color:#ffb3b3;border-color:rgba(255,179,179,.4);background:rgba(255,179,179,.12);}
 .goal-track{background:rgba(255,255,255,.12);border-radius:var(--r4);height:5px;overflow:hidden;margin-bottom:7px;}
 .goal-fill{height:100%;border-radius:var(--r4);transition:width .5s ease;}
@@ -1578,7 +1578,7 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 .gfx-score-badge.score-mid { border-color: rgba(255,226,112,.5);}
 .gfx-score-badge.score-lo  { border-color: rgba(255,102,102,.5);}
 .gfx-score-num.score-hi    { color: #3BF759; }
-.gfx-score-num.score-mid   { color: #FFE270; }
+.gfx-score-num.score-mid   { color: #b45309; }
 .gfx-score-num.score-lo    { color: #FF9A9A; }
 
 /* Streak pill in section header */
@@ -1751,9 +1751,129 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 .gfx-ach-chip-em { font-size: 14px; }
 .gfx-ach-chip-locked-em { font-size: 14px; filter: grayscale(1); opacity: .4; }
 
+
+/* ===== POLISH A — animated score, limit alerts, score trend ======= */
+
+/* Score badge count-up animation */
+@keyframes gfxScorePop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+.gfx-score-pop { animation: gfxScorePop .35s cubic-bezier(.32,.72,0,1); }
+
+/* Limit alert banner — appears above cat list when close to limit */
+.gfx-limit-alert {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: var(--r2); margin-bottom: 6px;
+  font-size: 12px; font-weight: 600; line-height: 1.3;
+}
+.gfx-limit-alert.warn {
+  background: rgba(252,126,36,.1); border: 1px solid rgba(252,126,36,.3); color: #944800;
+}
+.gfx-limit-alert.over {
+  background: rgba(255,68,68,.1); border: 1px solid rgba(255,68,68,.3); color: #a00;
+}
+.gfx-la-icon { font-size: 16px; flex-shrink: 0; }
+.gfx-la-body { flex: 1; }
+
+/* Score trend dot chart */
+.gfx-trend-body { padding: 10px 16px 14px; }
+.gfx-trend-svg  { width: 100%; height: auto; display: block; }
+
+
+/* ===== SPLASH SCREEN ============================================== */
+#splashScreen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--navy);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  transition: opacity .4s ease;
+}
+#splashScreen.fade-out { opacity: 0; pointer-events: none; }
+.splash-content { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.splash-logo-wrap { margin-bottom: 8px; }
+.splash-icon { width: 80px; height: 80px; }
+.splash-name {
+  font-family: var(--display); font-size: 28px; font-weight: 800;
+  color: #fff; letter-spacing: -.5px;
+}
+.splash-tagline { font-size: 14px; color: rgba(255,255,255,.45); font-weight: 500; }
+.splash-bar-wrap {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: rgba(255,255,255,.1);
+}
+.splash-bar {
+  height: 100%; background: var(--periwinkle);
+  width: 0%; transition: width .8s cubic-bezier(.32,.72,0,1);
+  border-radius: 0 2px 2px 0;
+}
+
+/* ===== ONBOARDING REDESIGN ======================================== */
+#onboardingScreen {
+  /* keep existing layout, just patch inner elements */
+}
+.onb-dots {
+  display: flex; gap: 6px; margin-bottom: 32px;
+}
+.onb-dot-step {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,.25); transition: all .25s;
+}
+.onb-dot-step.active {
+  width: 20px; border-radius: 3px; background: #fff;
+}
+.onb-step { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.onb-step-icon { font-size: 56px; margin-bottom: 20px; line-height: 1; }
+.onb-step-title {
+  font-family: var(--display); font-size: 28px; font-weight: 800;
+  color: #fff; text-align: center; line-height: 1.2; margin-bottom: 14px;
+}
+.onb-step-sub {
+  font-size: 15px; color: rgba(255,255,255,.6); text-align: center;
+  line-height: 1.6; margin-bottom: 36px;
+}
+/* Currency cards */
+.onb-currency-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  width: 100%; margin-bottom: 28px;
+}
+.onb-currency-card {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 20px 16px; border-radius: 16px;
+  border: 2px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  cursor: pointer; font-family: var(--sans); transition: all .15s;
+}
+.onb-currency-card.active {
+  border-color: #fff; background: rgba(255,255,255,.18);
+}
+.onb-currency-card:active { transform: scale(.97); }
+.onb-cur-sym {
+  font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff;
+}
+.onb-cur-name { font-size: 13px; color: rgba(255,255,255,.6); font-weight: 600; }
+
 </style>
 </head>
 <body>
+
+<!-- SPLASH SCREEN -->
+<div id="splashScreen">
+  <div class="splash-content">
+    <div class="splash-logo-wrap">
+      <svg class="splash-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,.12)"/>
+        <circle cx="32" cy="32" r="22" fill="rgba(255,255,255,.15)"/>
+        <text x="32" y="40" text-anchor="middle" font-size="26" font-family="sans-serif">💰</text>
+      </svg>
+    </div>
+    <div class="splash-name">Mis Finanzas</div>
+    <div class="splash-tagline">Tu dinero, tu control</div>
+  </div>
+  <div class="splash-bar-wrap">
+    <div class="splash-bar" id="splashBar"></div>
+  </div>
+</div>
 
 <!-- PIN -->
 <div id="pinScreen">
@@ -1780,17 +1900,56 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 
 <!-- ONBOARDING -->
 <div id="onboardingScreen">
-  <div class="onb-icon">&#127919;</div>
-  <div class="onb-title">Tu meta para 2026</div>
-  <div class="onb-sub">&#191;Cu&#225;nto quer&#233;s ahorrar?<br>Pod&#233;s cambiarlo cuando quieras.</div>
-  <div class="onb-toggle">
-    <button class="onb-type-btn active" id="onbTypeMon" onclick="setOnbType('monthly')">Por mes</button>
-    <button class="onb-type-btn" id="onbTypeAnn" onclick="setOnbType('annual')">Anual 2026</button>
+  <!-- Step dots -->
+  <div class="onb-dots">
+    <div class="onb-dot-step active" id="onbDot0"></div>
+    <div class="onb-dot-step" id="onbDot1"></div>
+    <div class="onb-dot-step" id="onbDot2"></div>
   </div>
-  <div class="onb-amount-wrap"><span class="onb-sym">$</span><input class="onb-input" id="onbAmount" type="number" placeholder="0" min="0" inputmode="decimal"/></div>
-  <div class="onb-hint" id="onbHint">Ingres&#225; el monto en pesos</div>
-  <button class="onb-btn" onclick="completeOnboarding(false)">Empezar</button>
-  <span class="onb-skip" onclick="completeOnboarding(true)">Saltar por ahora</span>
+
+  <!-- Step 0: Welcome -->
+  <div class="onb-step" id="onbStep0">
+    <div class="onb-step-icon">💸</div>
+    <div class="onb-step-title">Bienvenido a<br>Mis Finanzas</div>
+    <div class="onb-step-sub">Registr&#225; ingresos y gastos,<br>cumpl&#237; tus metas y mejor&#225;<br>tu salud financiera.</div>
+    <button class="onb-btn" onclick="onbGoStep(1)">Comenzar</button>
+  </div>
+
+  <!-- Step 1: Currency -->
+  <div class="onb-step" id="onbStep1" style="display:none">
+    <div class="onb-step-icon">🪙</div>
+    <div class="onb-step-title">&#191;En qu&#233; moneda<br>manejas tu plata?</div>
+    <div class="onb-currency-cards">
+      <button class="onb-currency-card active" id="onbCurARS" onclick="onbSetCurrency('ARS')">
+        <span class="onb-cur-sym">$</span>
+        <span class="onb-cur-name">Pesos ARS</span>
+      </button>
+      <button class="onb-currency-card" id="onbCurUSD" onclick="onbSetCurrency('USD')">
+        <span class="onb-cur-sym">US$</span>
+        <span class="onb-cur-name">D&#243;lares USD</span>
+      </button>
+    </div>
+    <button class="onb-btn" onclick="onbGoStep(2)">Continuar</button>
+    <span class="onb-skip" onclick="onbGoStep(2)">Saltar</span>
+  </div>
+
+  <!-- Step 2: Goal -->
+  <div class="onb-step" id="onbStep2" style="display:none">
+    <div class="onb-step-icon">🎯</div>
+    <div class="onb-step-title">&#191;Cu&#225;nto quer&#233;s<br>ahorrar?</div>
+    <div class="onb-toggle">
+      <button class="onb-type-btn active" id="onbTypeMon" onclick="setOnbType('monthly')">Por mes</button>
+      <button class="onb-type-btn" id="onbTypeAnn" onclick="setOnbType('annual')">Anual 2026</button>
+    </div>
+    <div class="onb-amount-wrap">
+      <span class="onb-sym">$</span>
+      <input class="onb-input" id="onbAmount" type="text" inputmode="decimal"
+             placeholder="0" autocomplete="off" oninput="fmtAmtInput(this)"/>
+    </div>
+    <div class="onb-hint" id="onbHint">Pod&#233;s cambiarlo cuando quieras</div>
+    <button class="onb-btn" onclick="completeOnboarding(false)">Empezar</button>
+    <span class="onb-skip" onclick="completeOnboarding(true)">Saltar por ahora</span>
+  </div>
 </div>
 
 <!-- MAIN APP -->
@@ -1902,6 +2061,7 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
     <div id="projChart" class="proj-chart-wrap"></div>
     <div id="projChartInc" class="proj-chart-wrap" style="margin-top:10px"></div>
     <div id="projChartExp" class="proj-chart-wrap" style="margin-top:10px"></div>
+    <div id="projChartScore" class="proj-chart-wrap" style="margin-top:10px"></div>
     <div id="projInsight"></div>
   </div>
 
@@ -5148,7 +5308,7 @@ function buildCategoryCard(expCats,catTotals,totE){
     var lim=lims[c.id]||0,limHtml='';
     if(lim>0){
       var lpct=Math.min(100,Math.round((a/lim)*100));
-      var lcol=lpct>=100?'#FF4444':lpct>=80?'#FC7E24':'#3BF759';
+      var lcol=lpct>=100?'#dc2626':lpct>=80?'#c2410c':'#16a34a';
       limHtml='<div class="cc-lim-wrap">'
         +'<div class="cc-lim-bar"><div class="cc-lim-fill" style="width:'+lpct+'%;background:'+lcol+'"></div></div>'
         +'<span class="cc-lim-pct" style="color:'+lcol+'">'+lpct+'%</span>'
@@ -5564,7 +5724,7 @@ GFX.showScoreDetail = function(){
   /* Ring */
   var ring = document.getElementById('gfxScoreRing');
   if(ring){
-    var col = score>=80?'#3BF759':score>=50?'#FFE270':'#FF9A9A';
+    var col = score>=80?'#16a34a':score>=50?'#b45309':'#dc2626';
     var pct = score;
     ring.style.background = 'conic-gradient('+col+' '+pct+'%, rgba(177,177,248,.15) 0%)';
   }
@@ -5749,7 +5909,7 @@ GFX.renderCuentaSection = function(){
   var total  = GFX_ACHIEVEMENTS.length;
 
   /* Score + streak card */
-  var col = score>=80?'#3BF759':score>=50?'#FFE270':'#FF9A9A';
+  var col = score>=80?'#16a34a':score>=50?'#b45309':'#dc2626';
   var html = '<div class="gfx-cuenta-card">'
     /* Score row */
     +'<div class="gfx-cs-score-row" onclick="GFX.showScoreDetail()">'
@@ -5828,6 +5988,268 @@ GFX._scoreLabel = function(score){
 })();
 
 console.log('[GFX] Phase 3 loaded.');
+</script>
+
+
+<script id="gfx-polish">
+/* ==================================================================
+   GFX POLISH — Phase A
+   1. Score badge number animation (count-up + pop)
+   2. 75/90% limit alerts above category list in home
+   3. Score history trend chart in Reportes
+   ================================================================== */
+
+/* ── 1. Animated score badge ── */
+var _prevScore = null;
+var _scoreCountTimer = null;
+
+GFX.renderScoreBadge = function(){
+  var score = GFX.computeScore();
+  var state = GFX.load();
+  state.score = score;
+  GFX.save(state);
+
+  var badge = document.getElementById('gfxScoreBadge');
+  var num   = document.getElementById('gfxScoreNum');
+  if(!badge || !num) return;
+
+  var tier = score>=80?'hi':score>=50?'mid':'lo';
+  badge.className = 'gfx-score-badge score-'+tier;
+  num.className   = 'gfx-score-num score-'+tier;
+
+  /* Animate if score changed */
+  if(_prevScore !== null && _prevScore !== score){
+    var start = _prevScore, end = score, steps = 20;
+    var step = (end - start) / steps, cur = start;
+    clearInterval(_scoreCountTimer);
+    _scoreCountTimer = setInterval(function(){
+      cur += step;
+      var done = step > 0 ? cur >= end : cur <= end;
+      num.textContent = Math.round(done ? end : cur);
+      if(done){
+        clearInterval(_scoreCountTimer);
+        num.textContent = end;
+        /* Pop animation */
+        num.classList.remove('gfx-score-pop');
+        void num.offsetWidth; /* reflow */
+        num.classList.add('gfx-score-pop');
+        setTimeout(function(){ num.classList.remove('gfx-score-pop'); }, 400);
+      }
+    }, 18);
+  } else {
+    num.textContent = score;
+  }
+  _prevScore = score;
+};
+
+/* ── 2. Limit proximity alerts injected above cat list ── */
+GFX.renderLimitAlerts = function(){
+  /* Find or create alert container inside home-lower, above catSection */
+  var catSection = document.getElementById('catSection');
+  if(!catSection) return;
+  var parent = catSection.parentElement;
+  if(!parent) return;
+
+  var existing = document.getElementById('gfxLimitAlerts');
+  if(!existing){
+    var alertDiv = document.createElement('div');
+    alertDiv.id = 'gfxLimitAlerts';
+    parent.insertBefore(alertDiv, catSection);
+    existing = alertDiv;
+  }
+
+  var now = new Date(), y = now.getFullYear(), m = now.getMonth();
+  var txs = loadMonth(y, m).transactions || [];
+  var lims = loadCatLimits();
+  var keys = Object.keys(lims);
+  if(!keys.length){ existing.innerHTML = ''; return; }
+
+  var catTotals = {};
+  txs.filter(function(t){ return t.type==='expense'; })
+     .forEach(function(t){ catTotals[t.cat] = (catTotals[t.cat]||0) + t.amount; });
+
+  var alerts = [];
+  keys.forEach(function(cid){
+    var spent = catTotals[cid] || 0;
+    var lim   = lims[cid];
+    var pct   = Math.round((spent / lim) * 100);
+    var cat   = getCat('expense', cid);
+    if(pct >= 100){
+      alerts.push({ type:'over', emoji:cat.emoji, label:cat.label, pct:pct });
+    } else if(pct >= 75){
+      alerts.push({ type:'warn', emoji:cat.emoji, label:cat.label, pct:pct });
+    }
+  });
+
+  if(!alerts.length){ existing.innerHTML = ''; return; }
+
+  var h = '';
+  /* Show max 2 most critical alerts */
+  alerts.sort(function(a,b){ return b.pct - a.pct; }).slice(0,2).forEach(function(a){
+    var msg = a.type==='over'
+      ? 'Superaste el l\u00edmite de '+a.label+' ('+a.pct+'%)'
+      : 'Vas al '+a.pct+'% del l\u00edmite de '+a.label;
+    h += '<div class="gfx-limit-alert '+a.type+'">'
+      +'<span class="gfx-la-icon">'+a.emoji+'</span>'
+      +'<span class="gfx-la-body">'+msg+'</span>'
+      +'</div>';
+  });
+  existing.innerHTML = h;
+};
+
+/* ── 3. Score history trend chart in Reportes ── */
+GFX.renderScoreTrend = function(el){
+  if(!el) return;
+  var state = GFX.load();
+  var hist  = state.scoreHistory || [];
+
+  /* Add current month if not already present */
+  var now   = new Date();
+  var curYM = now.getFullYear()+'-'+now.getMonth();
+  var hasCur = hist.filter(function(h){ return h.ym===curYM; }).length > 0;
+  var display = hist.slice();
+  if(!hasCur) display.push({ ym:curYM, score: state.score });
+
+  if(display.length < 2){
+    el.innerHTML = '<div class="proj-chart-hdr"><span class="proj-chart-ttl">Tendencia del score</span></div>'
+      +'<div style="padding:16px 18px;font-size:12px;color:var(--t3)">Registr\u00e1 durante al menos 2 meses para ver la tendencia.</div>';
+    return;
+  }
+
+  /* Keep last 12 entries */
+  display = display.slice(-12);
+
+  var W=340, H=80, pad=10;
+  var maxS=100, minS=0;
+  var pts = display.map(function(h, i){
+    var x = pad + (i/(display.length-1))*(W-pad*2);
+    var y = H - pad - ((h.score-minS)/(maxS-minS))*(H-pad*2);
+    return { x:x.toFixed(1), y:y.toFixed(1), score:h.score, ym:h.ym };
+  });
+
+  /* Build polyline */
+  var polyline = pts.map(function(p){ return p.x+','+p.y; }).join(' ');
+  /* Fill area */
+  var fillPath = 'M '+pts[0].x+','+H+' L '+polyline+' L '+pts[pts.length-1].x+','+H+' Z';
+
+  var svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" class="gfx-trend-svg">'
+    /* Gradient fill */
+    +'<defs><linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">'
+    +'<stop offset="0%" stop-color="#7979FF" stop-opacity="0.25"/>'
+    +'<stop offset="100%" stop-color="#7979FF" stop-opacity="0"/>'
+    +'</linearGradient></defs>'
+    +'<path d="'+fillPath+'" fill="url(#trendGrad)"/>'
+    /* Line */
+    +'<polyline points="'+polyline+'" fill="none" stroke="#7979FF" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+
+  /* Dots + labels */
+  pts.forEach(function(p, i){
+    var col = p.score>=80?'#16a34a':p.score>=50?'#b45309':'#dc2626';
+    svg += '<circle cx="'+p.x+'" cy="'+p.y+'" r="4" fill="'+col+'" stroke="#fff" stroke-width="1.5"/>';
+    /* Score label above dot */
+    svg += '<text x="'+p.x+'" y="'+(parseFloat(p.y)-8)+'" text-anchor="middle"'
+         +' font-size="8" font-family="var(--sans)" font-weight="800" fill="'+col+'">'+p.score+'</text>';
+    /* Month label below chart */
+    var parts = p.ym.split('-');
+    var lbl = MONTHS_SHORT[parseInt(parts[1])];
+    svg += '<text x="'+p.x+'" y="'+(H-1)+'" text-anchor="middle"'
+         +' font-size="7" font-family="var(--sans)" font-weight="600" fill="rgba(35,63,120,.45)">'+lbl+'</text>';
+  });
+
+  svg += '</svg>';
+
+  el.innerHTML = '<div class="proj-chart-hdr">'
+    +'<span class="proj-chart-ttl">Tendencia del score</span>'
+    +'</div>'
+    +'<div class="gfx-trend-body">'+svg+'</div>';
+};
+
+/* ── Wire renderLimitAlerts into renderMonthly ── */
+(function(){
+  var _orig = renderMonthly;
+  renderMonthly = function(){
+    _orig();
+    try{ GFX.renderLimitAlerts(); }catch(e){}
+  };
+})();
+
+/* ── Wire score trend into renderReportes ── */
+(function(){
+  var _orig = renderReportes;
+  renderReportes = function(){
+    _orig();
+    setTimeout(function(){
+      try{ GFX.renderScoreTrend(document.getElementById('projChartScore')); }catch(e){}
+    }, 60);
+  };
+})();
+
+console.log('[GFX] Polish loaded.');
+</script>
+
+
+<script id="splash-onboarding">
+/* ==================================================================
+   SPLASH + ONBOARDING
+   ================================================================== */
+
+/* ── Splash ── */
+(function(){
+  var bar = document.getElementById('splashBar');
+  var splash = document.getElementById('splashScreen');
+  if(!bar || !splash) return;
+  /* Animate bar */
+  setTimeout(function(){ bar.style.width = '100%'; }, 50);
+  /* Hide after 1.2s */
+  setTimeout(function(){
+    splash.classList.add('fade-out');
+    setTimeout(function(){ splash.style.display = 'none'; }, 420);
+  }, 1200);
+})();
+
+/* ── Onboarding step navigation ── */
+var _onbCurrency = 'ARS';
+
+function onbGoStep(step){
+  [0,1,2].forEach(function(i){
+    var s = document.getElementById('onbStep'+i);
+    var d = document.getElementById('onbDot'+i);
+    if(s) s.style.display = i===step ? 'flex' : 'none';
+    if(d) d.className = 'onb-dot-step' + (i===step?' active':'');
+  });
+  /* Focus amount on step 2 */
+  if(step===2) setTimeout(function(){
+    var inp = document.getElementById('onbAmount');
+    if(inp) inp.focus();
+  }, 300);
+}
+
+function onbSetCurrency(c){
+  _onbCurrency = c;
+  var ars = document.getElementById('onbCurARS');
+  var usd = document.getElementById('onbCurUSD');
+  if(ars) ars.className = 'onb-currency-card' + (c==='ARS'?' active':'');
+  if(usd) usd.className = 'onb-currency-card' + (c==='USD'?' active':'');
+}
+
+/* Override completeOnboarding to also save currency */
+var _origCompleteOnb = completeOnboarding;
+completeOnboarding = function(skip){
+  /* Apply currency choice */
+  var s = loadSettings();
+  s.currency = _onbCurrency;
+  persistSettings(s);
+  _origCompleteOnb(skip);
+};
+
+/* Override showOnboarding to start at step 0 */
+function showOnboarding(){
+  document.getElementById('onboardingScreen').style.display = 'flex';
+  onbGoStep(0);
+  setOnbType('monthly');
+  var inp = document.getElementById('onbAmount');
+  if(inp) inp.value = '';
+}
 </script>
 
 </body>
