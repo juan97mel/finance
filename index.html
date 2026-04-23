@@ -1547,6 +1547,210 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 .cc-lim-fill { height: 100%; border-radius: 2px; transition: width .4s ease; }
 .cc-lim-pct { font-size: 9px; font-weight: 800; flex-shrink: 0; min-width: 28px; text-align: right; }
 
+
+/* ===== GFX PHASE 2 ================================================ */
+
+/* Hero top right grouping */
+.hero-top-right {
+  display: flex; align-items: center; gap: 8px;
+}
+
+/* Score badge — lives in hero (dark bg) */
+.gfx-score-badge {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px; padding: 5px 10px;
+  cursor: pointer; transition: background .15s;
+  min-width: 44px;
+}
+.gfx-score-badge:active { background: rgba(255,255,255,.2); }
+.gfx-score-num {
+  font-family: var(--display); font-size: 17px; font-weight: 800;
+  color: #fff; line-height: 1;
+}
+.gfx-score-lbl {
+  font-size: 8px; color: rgba(255,255,255,.5); letter-spacing: 1px;
+  text-transform: uppercase; font-weight: 700; margin-top: 1px;
+}
+/* Color states */
+.gfx-score-badge.score-hi  { border-color: rgba(59,247,89,.5);  }
+.gfx-score-badge.score-mid { border-color: rgba(255,226,112,.5);}
+.gfx-score-badge.score-lo  { border-color: rgba(255,102,102,.5);}
+.gfx-score-num.score-hi    { color: #3BF759; }
+.gfx-score-num.score-mid   { color: #FFE270; }
+.gfx-score-num.score-lo    { color: #FF9A9A; }
+
+/* Streak pill in section header */
+.sec-lbl-wrap {
+  display: flex; align-items: center; gap: 7px;
+}
+.gfx-streak-pill {
+  font-size: 10px; font-weight: 800; letter-spacing: .3px;
+  background: rgba(255,140,0,.12); color: #FC7E24;
+  border: 1px solid rgba(255,140,0,.25);
+  border-radius: 20px; padding: 2px 8px;
+  white-space: nowrap;
+}
+
+/* Achievement popup */
+.gfx-achievement-popup {
+  position: fixed; top: -90px; left: 50%; transform: translateX(-50%);
+  z-index: 200; transition: top .4s cubic-bezier(.32,.72,0,1);
+  pointer-events: none;
+}
+.gfx-achievement-popup.show { top: calc(env(safe-area-inset-top, 0px) + 16px); }
+.gfx-ach-inner {
+  background: rgba(245,244,255,.97);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(177,177,248,.4);
+  border-radius: 16px; padding: 12px 18px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 8px 32px rgba(35,63,120,.18);
+  min-width: 240px; max-width: calc(100vw - 48px);
+}
+.gfx-ach-emoji { font-size: 28px; flex-shrink: 0; }
+.gfx-ach-body  { flex: 1; min-width: 0; }
+.gfx-ach-ttl   { font-size: 10px; color: var(--periwinkle); font-weight: 700;
+                  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.gfx-ach-lbl   { font-size: 14px; font-weight: 700; color: var(--t1); }
+
+/* Score detail sheet */
+.gfx-score-sheet { padding-bottom: max(calc(env(safe-area-inset-bottom,0px)+28px),40px); }
+.gfx-score-hdr {
+  display: flex; align-items: center; gap: 18px;
+  padding: 4px 0 20px; border-bottom: 1px solid rgba(177,177,248,.2);
+  margin-bottom: 20px;
+}
+.gfx-score-ring {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: conic-gradient(var(--periwinkle) 0%, rgba(177,177,248,.18) 0%);
+  /* updated by JS */ position: relative;
+}
+.gfx-score-ring::after {
+  content: ''; position: absolute;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(245,244,255,.97);
+}
+.gfx-score-detail-num {
+  font-family: var(--display); font-size: 44px; font-weight: 800;
+  letter-spacing: -2px; line-height: 1; color: var(--t1);
+}
+.gfx-score-detail-lbl { font-size: 12px; color: var(--t3); font-weight: 600; margin-top: 3px; }
+
+/* Pillars */
+.gfx-pillar-row {
+  display: flex; align-items: center; gap: 10px; padding: 10px 0;
+  border-bottom: 1px solid rgba(177,177,248,.15);
+}
+.gfx-pillar-row:last-child { border-bottom: none; }
+.gfx-pillar-lbl { font-size: 13px; font-weight: 500; color: var(--t2); flex: 1; }
+.gfx-pillar-track { width: 80px; height: 6px; background: rgba(177,177,248,.2); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.gfx-pillar-fill  { height: 100%; border-radius: 3px; transition: width .5s ease; }
+.gfx-pillar-pts   { font-family: var(--display); font-size: 12px; font-weight: 800; color: var(--t1); min-width: 36px; text-align: right; flex-shrink: 0; }
+
+/* Streak section */
+.gfx-streak-section {
+  background: rgba(255,140,0,.06); border: 1px solid rgba(255,140,0,.2);
+  border-radius: var(--r2); padding: 14px 16px;
+  display: flex; align-items: center; gap: 14px; margin: 16px 0;
+}
+.gfx-streak-fire { font-size: 28px; flex-shrink: 0; }
+.gfx-streak-body { flex: 1; }
+.gfx-streak-days { font-family: var(--display); font-size: 22px; font-weight: 800; color: #FC7E24; letter-spacing: -.5px; line-height: 1; }
+.gfx-streak-sub  { font-size: 12px; color: var(--t3); font-weight: 500; margin-top: 2px; }
+.gfx-streak-best { text-align: right; }
+.gfx-streak-best-num { font-family: var(--display); font-size: 16px; font-weight: 800; color: var(--t2); }
+.gfx-streak-best-lbl { font-size: 10px; color: var(--t4); font-weight: 600; }
+
+/* Achievement list */
+.gfx-ach-list-hdr { font-family: var(--display); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy-mid); font-weight: 700; margin-bottom: 10px; }
+.gfx-ach-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 0; border-bottom: 1px solid rgba(177,177,248,.15);
+}
+.gfx-ach-item:last-child { border-bottom: none; }
+.gfx-ach-item-em { font-size: 22px; width: 32px; text-align: center; flex-shrink: 0; }
+.gfx-ach-item-nm { font-size: 14px; font-weight: 600; color: var(--t1); }
+.gfx-ach-item-dt { font-size: 11px; color: var(--t3); margin-top: 2px; }
+.gfx-ach-locked  { opacity: .35; }
+
+/* Close btn */
+.gfx-close-btn {
+  width: 100%; padding: 15px; border-radius: var(--r4); border: none;
+  background: var(--lav-lt); border: 1.5px solid rgba(177,177,248,.4);
+  color: var(--navy); font-size: 14px; font-weight: 700;
+  cursor: pointer; font-family: var(--sans); margin-top: 18px; transition: all .12s;
+}
+.gfx-close-btn:active { background: var(--lavender); }
+
+
+/* ===== GFX PHASE 3 — CUENTA SECTION ============================== */
+.gfx-cuenta-card {
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); border-radius: var(--r3);
+  box-shadow: var(--shdw-sm); overflow: hidden; margin-bottom: 10px;
+}
+/* Score summary row */
+.gfx-cs-score-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px; border-bottom: 1px solid rgba(177,177,248,.18);
+  cursor: pointer;
+}
+.gfx-cs-score-row:active { background: rgba(177,177,248,.06); }
+.gfx-cs-ring-sm {
+  width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.gfx-cs-ring-sm::after {
+  content: ''; position: absolute;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(245,244,255,.95);
+}
+.gfx-cs-ring-num {
+  position: relative; z-index: 1;
+  font-family: var(--display); font-size: 16px; font-weight: 800; color: var(--t1);
+}
+.gfx-cs-info { flex: 1; }
+.gfx-cs-lbl { font-size: 15px; font-weight: 700; color: var(--t1); margin-bottom: 3px; }
+.gfx-cs-sub { font-size: 12px; color: var(--t3); font-weight: 500; }
+.gfx-cs-arrow { font-size: 18px; color: var(--t3); }
+
+/* Streak row */
+.gfx-cs-streak-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px;
+}
+.gfx-cs-streak-icon { font-size: 22px; flex-shrink: 0; }
+.gfx-cs-streak-info { flex: 1; }
+.gfx-cs-streak-val { font-family: var(--display); font-size: 16px; font-weight: 800; color: #FC7E24; }
+.gfx-cs-streak-lbl { font-size: 12px; color: var(--t3); font-weight: 500; margin-top: 1px; }
+.gfx-cs-streak-best { text-align: right; flex-shrink: 0; }
+.gfx-cs-streak-best-n { font-family: var(--display); font-size: 14px; font-weight: 800; color: var(--t2); }
+.gfx-cs-streak-best-l { font-size: 10px; color: var(--t4); font-weight: 600; }
+
+/* Achievements mini-list */
+.gfx-ach-hdr-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px 8px;
+}
+.gfx-ach-mini-ttl { font-family: var(--display); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy-mid); font-weight: 700; }
+.gfx-ach-mini-count { font-size: 11px; color: var(--t3); font-weight: 600; }
+.gfx-ach-mini-grid { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 16px; }
+.gfx-ach-chip {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 20px;
+  background: rgba(177,177,248,.1); border: 1px solid rgba(177,177,248,.25);
+  font-size: 12px; font-weight: 600; color: var(--t2);
+}
+.gfx-ach-chip.earned {
+  background: rgba(59,247,89,.1); border-color: rgba(59,247,89,.3); color: var(--green-dk);
+}
+.gfx-ach-chip-em { font-size: 14px; }
+.gfx-ach-chip-locked-em { font-size: 14px; filter: grayscale(1); opacity: .4; }
+
 </style>
 </head>
 <body>
@@ -1609,9 +1813,15 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
           <span class="hero-eyebrow" id="heroEyebrow">Balance del mes</span>
           <span class="hero-mode-chev" id="heroModeChev">&#8964;</span>
         </button>
-        <div class="cur-pill">
-          <button class="cur-pill-btn" id="curBtnARS" onclick="quickSetCurrency('ARS')">ARS</button>
-          <button class="cur-pill-btn" id="curBtnUSD" onclick="quickSetCurrency('USD')">USD</button>
+        <div class="hero-top-right">
+          <div class="gfx-score-badge" id="gfxScoreBadge" onclick="GFX.showScoreDetail()" title="Score financiero">
+            <span class="gfx-score-num" id="gfxScoreNum">—</span>
+            <span class="gfx-score-lbl">score</span>
+          </div>
+          <div class="cur-pill">
+            <button class="cur-pill-btn" id="curBtnARS" onclick="quickSetCurrency('ARS')">ARS</button>
+            <button class="cur-pill-btn" id="curBtnUSD" onclick="quickSetCurrency('USD')">USD</button>
+          </div>
         </div>
       </div>
       <div class="hero-balance" id="balAmt">$0</div>
@@ -1653,7 +1863,10 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 
       <!-- Últimos movimientos -->
       <div class="home-section-hdr">
-        <span class="sec-lbl">&#218;ltimos movimientos</span>
+        <div class="sec-lbl-wrap">
+          <span class="sec-lbl">&#218;ltimos movimientos</span>
+          <span class="gfx-streak-pill" id="gfxStreakPill" style="display:none"></span>
+        </div>
         <button class="ver-todos-btn" id="verTodosBtn" onclick="goToTransactions()" style="display:none">Ver todos</button>
       </div>
       <div class="tx-list" id="txList"></div>
@@ -1769,7 +1982,9 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
         <span class="cr-arrow">&#8250;</span>
       </button>
     </div>
-    <div style="text-align:center;padding:24px 20px 0;font-size:10px;color:var(--t4);letter-spacing:1px">MIS FINANZAS v1.0</div>
+    <!-- GFX: Score + Achievements in Cuenta -->
+    <div id="gfxCuentaSection" style="margin:10px 16px 0"></div>
+    <div style="text-align:center;padding:20px 20px 0;font-size:10px;color:var(--t4);letter-spacing:1px">MIS FINANZAS v1.0</div>
   </div>
 
 </div>
@@ -4953,6 +5168,666 @@ function buildCategoryCard(expCats,catTotals,totE){
 }
 /* over-limit style */
 (function(){var s=document.createElement('style');s.textContent='.cc-over{color:var(--red-dk)!important;font-weight:800!important;}';document.head.appendChild(s);})();
+</script>
+
+
+<script id="gfx-engine">
+/* ==================================================================
+   GFX ENGINE — Phase 1
+   Gamification layer. Reads from existing fin_* data.
+   Writes only to fin_gamification.
+   NEVER calls renderMonthly or any existing render function.
+   ================================================================== */
+
+var GFX_KEY = 'fin_gamification';
+
+/* ── Default state ── */
+var GFX_DEFAULT = {
+  score: 0,
+  scoreHistory: [],
+  streak: {
+    current: 0,
+    longest: 0,
+    lastActivityDate: null,     /* "YYYY-MM-DD" */
+    monthlyStreak: 0,           /* months without exceeding any limit */
+    lastMonthChecked: null      /* "YYYY-M" */
+  },
+  achievements: [],
+  liveGoals: {
+    savingsGoalPct: 0,
+    categoryAlerts: {}
+  }
+};
+
+/* ── I/O ── */
+var GFX = {};
+
+GFX.load = function(){
+  try {
+    var r = localStorage.getItem(GFX_KEY);
+    if(!r) return JSON.parse(JSON.stringify(GFX_DEFAULT));
+    var stored = JSON.parse(r);
+    /* merge with defaults so new fields are never missing */
+    var def = JSON.parse(JSON.stringify(GFX_DEFAULT));
+    stored.streak   = Object.assign({}, def.streak,    stored.streak   || {});
+    stored.liveGoals= Object.assign({}, def.liveGoals, stored.liveGoals|| {});
+    if(!stored.achievements) stored.achievements = [];
+    if(!stored.scoreHistory)  stored.scoreHistory  = [];
+    return stored;
+  } catch(e) { return JSON.parse(JSON.stringify(GFX_DEFAULT)); }
+};
+
+GFX.save = function(state){
+  try { localStorage.setItem(GFX_KEY, JSON.stringify(state)); } catch(e){}
+};
+
+/* ── Score engine (0–100) ──────────────────────────────────────────
+   Pillars:
+     A. Savings rate vs goal         (0–40 pts)
+     B. Category limit discipline    (0–25 pts)
+     C. Data completeness            (0–20 pts)  — txs registered this month
+     D. Streak bonus                 (0–15 pts)
+   ────────────────────────────────────────────────────────────────── */
+GFX.computeScore = function(){
+  var now = new Date();
+  var y   = now.getFullYear(), m = now.getMonth();
+  var s   = loadSettings();
+  var txs = loadMonth(y, m).transactions || [];
+  var inc = txs.filter(function(t){ return t.type==='income'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+  var exp = txs.filter(function(t){ return t.type==='expense'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+  var bal = inc - exp;
+
+  /* A — Savings rate */
+  var goalARS = s.goalType==='annual' ? s.annualGoal/12 : s.monthlyGoal;
+  var scoreA  = 0;
+  if(goalARS > 0){
+    scoreA = Math.min(40, Math.round((bal / goalARS) * 40));
+    if(scoreA < 0) scoreA = 0;
+  } else if(inc > 0) {
+    /* no goal set — reward positive balance */
+    scoreA = bal > 0 ? 20 : 0;
+  }
+
+  /* B — Category limits */
+  var lims    = loadCatLimits();
+  var limKeys = Object.keys(lims);
+  var scoreB  = 25; /* start perfect, deduct per overage */
+  if(limKeys.length > 0){
+    var catTotals = {};
+    txs.filter(function(t){ return t.type==='expense'; })
+       .forEach(function(t){ catTotals[t.cat] = (catTotals[t.cat]||0) + t.amount; });
+    var over = 0;
+    limKeys.forEach(function(cid){
+      var spent = catTotals[cid] || 0;
+      if(spent > lims[cid]) over++;
+    });
+    scoreB = Math.max(0, 25 - Math.round((over / limKeys.length) * 25));
+  }
+
+  /* C — Data completeness (at least 5 txs this month = full score) */
+  var scoreC = Math.min(20, Math.round((txs.length / 5) * 20));
+
+  /* D — Streak bonus */
+  var gfx    = GFX.load();
+  var scoreD = Math.min(15, gfx.streak.current * 3);
+
+  return Math.min(100, scoreA + scoreB + scoreC + scoreD);
+};
+
+/* ── Streak logic ── */
+GFX.updateDailyStreak = function(state){
+  var today = (function(){
+    var d = new Date();
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  })();
+  var last = state.streak.lastActivityDate;
+  if(last === today) return; /* already counted today */
+
+  if(last){
+    var lastD  = new Date(last);
+    var diff   = Math.round((new Date(today) - lastD) / 86400000);
+    if(diff === 1){
+      state.streak.current++;  /* consecutive day */
+    } else {
+      state.streak.current = 1;  /* reset */
+    }
+  } else {
+    state.streak.current = 1;  /* first ever */
+  }
+  if(state.streak.current > state.streak.longest)
+    state.streak.longest = state.streak.current;
+  state.streak.lastActivityDate = today;
+};
+
+/* ── Achievement definitions ── */
+var GFX_ACHIEVEMENTS = [
+  { id:'first_tx',     label:'Primera transacción',     emoji:'🎯', condition: function(state,txs){ return txs.length >= 1; } },
+  { id:'streak_3',     label:'3 días seguidos',         emoji:'🔥', condition: function(state)    { return state.streak.current >= 3; } },
+  { id:'streak_7',     label:'Racha de 7 días',         emoji:'⚡', condition: function(state)    { return state.streak.current >= 7; } },
+  { id:'no_overrun',   label:'Mes sin exceder límites', emoji:'🛡', condition: function(state,txs,lims){
+      var keys=Object.keys(lims); if(!keys.length) return false;
+      var totals={};
+      txs.filter(function(t){return t.type==='expense';}).forEach(function(t){totals[t.cat]=(totals[t.cat]||0)+t.amount;});
+      return keys.every(function(k){ return (totals[k]||0) <= lims[k]; });
+  }},
+  { id:'score_80',     label:'Score financiero 80+',   emoji:'🏆', condition: function(state)    { return state.score >= 80; } },
+  { id:'score_100',    label:'Score perfecto',          emoji:'💎', condition: function(state)    { return state.score >= 100; } },
+];
+
+GFX.checkAchievements = function(state){
+  var now  = new Date(), y = now.getFullYear(), m = now.getMonth();
+  var txs  = loadMonth(y, m).transactions || [];
+  var lims = loadCatLimits();
+  var unlocked = state.achievements.map(function(a){ return a.id; });
+  var newOnes  = [];
+  GFX_ACHIEVEMENTS.forEach(function(def){
+    if(unlocked.indexOf(def.id) !== -1) return; /* already earned */
+    try {
+      if(def.condition(state, txs, lims)){
+        var earned = { id:def.id, label:def.label, emoji:def.emoji, unlockedAt:Date.now() };
+        state.achievements.push(earned);
+        newOnes.push(earned);
+      }
+    } catch(e){}
+  });
+  return newOnes;
+};
+
+/* ── Event hooks (called by existing functions) ── */
+GFX.onTxAdded = function(tx){
+  var state = GFX.load();
+  GFX.updateDailyStreak(state);
+  state.score = GFX.computeScore();
+  var newAchievements = GFX.checkAchievements(state);
+  GFX.save(state);
+
+  /* Surface new achievements via a dedicated visual (Phase 2) */
+  /* For now: console log so we can verify the engine works */
+  if(newAchievements.length){
+    newAchievements.forEach(function(a){
+      console.log('[GFX] Achievement unlocked:', a.emoji, a.label);
+    });
+  }
+  console.log('[GFX] Score after tx:', state.score, '| Streak:', state.streak.current);
+};
+
+GFX.onTxDeleted = function(){
+  var state = GFX.load();
+  state.score = GFX.computeScore();
+  GFX.save(state);
+  console.log('[GFX] Score after delete:', state.score);
+};
+
+GFX.onMonthClosed = function(prevYear, prevMonth){
+  var state = GFX.load();
+  var ym    = prevYear+'-'+prevMonth;
+  if(state.streak.lastMonthChecked === ym) return; /* idempotent */
+  state.streak.lastMonthChecked = ym;
+
+  /* Check if prev month had no limit overruns → monthly streak */
+  var txs  = loadMonth(prevYear, prevMonth).transactions || [];
+  var lims = loadCatLimits();
+  var keys = Object.keys(lims);
+  var clean = true;
+  if(keys.length){
+    var totals={};
+    txs.filter(function(t){return t.type==='expense';}).forEach(function(t){totals[t.cat]=(totals[t.cat]||0)+t.amount;});
+    keys.forEach(function(k){ if((totals[k]||0)>lims[k]) clean=false; });
+  }
+  if(clean && txs.length > 0) state.streak.monthlyStreak++;
+  else state.streak.monthlyStreak = 0;
+
+  /* Snapshot score for history */
+  var already = state.scoreHistory.filter(function(h){ return h.ym===ym; }).length > 0;
+  if(!already) state.scoreHistory.push({ ym:ym, score:state.score });
+  if(state.scoreHistory.length > 24) state.scoreHistory.shift(); /* keep 2 years */
+
+  GFX.save(state);
+  console.log('[GFX] Month closed:', ym, '| Monthly streak:', state.streak.monthlyStreak);
+};
+
+GFX.getStreakStatus = function(){
+  var state = GFX.load();
+  return {
+    daily:   state.streak.current,
+    longest: state.streak.longest,
+    monthly: state.streak.monthlyStreak
+  };
+};
+
+GFX.getScore = function(){ return GFX.load().score; };
+
+console.log('[GFX] Engine loaded.');
+</script>
+
+<script id="gfx-hooks">
+/* ==================================================================
+   GFX HOOKS — inject into existing functions without modifying them.
+   Strategy: override the LAST active version, keep all logic intact,
+   add GFX calls at safe points only.
+   ================================================================== */
+
+/* ── Hook addTx (active: v13-amount-format) ── */
+(function(){
+  var _orig = addTx;
+  addTx = function(){
+    var wasEditing = (editingTxId !== null);
+    _orig();
+    /* Only fire for NEW transactions, not edits */
+    if(!wasEditing){
+      try { GFX.onTxAdded(); } catch(e){}
+    }
+  };
+})();
+
+/* ── Hook delTx (active: v12-fixes) ── */
+(function(){
+  var _orig = delTx;
+  delTx = function(id){
+    _orig(id);
+    try { GFX.onTxDeleted(); } catch(e){}
+  };
+})();
+
+/* ── Hook checkPrevMonthOnOpen (active: v16-balance-features) ── */
+(function(){
+  var _orig = checkPrevMonthOnOpen;
+  checkPrevMonthOnOpen = function(){
+    _orig();
+    /* Extract prev month from fin_last_open before it was updated.
+       At this point _orig already ran and updated fin_last_open.
+       We use scoreHistory + streak instead — onMonthClosed is safe
+       to call with the last stored date if it differs from current */
+    var now  = new Date();
+    var curYM= now.getFullYear()+'-'+now.getMonth();
+    /* Read the previous value that _orig saved */
+    var state = GFX.load();
+    if(state.streak.lastMonthChecked !== curYM){
+      /* Use a small timeout so modal renders first */
+      var prev = state.streak.lastMonthChecked;
+      if(prev){
+        var parts = prev.split('-');
+        var ly=parseInt(parts[0]), lm=parseInt(parts[1]);
+        setTimeout(function(){ try{ GFX.onMonthClosed(ly,lm); }catch(e){} }, 800);
+      }
+    }
+  };
+})();
+
+/* ── Init: compute score on app load ── */
+(function(){
+  var orig_enterApp = enterApp;
+  enterApp = function(){
+    orig_enterApp();
+    setTimeout(function(){
+      try {
+        var state = GFX.load();
+        state.score = GFX.computeScore();
+        GFX.save(state);
+        console.log('[GFX] Initial score:', state.score, '| Daily streak:', state.streak.current);
+      } catch(e){}
+    }, 300);
+  };
+})();
+
+console.log('[GFX] Hooks installed.');
+</script>
+
+
+<!-- GFX ACHIEVEMENT POPUP -->
+<div id="gfxAchievementPopup" class="gfx-achievement-popup">
+  <div class="gfx-ach-inner">
+    <span class="gfx-ach-emoji" id="gfxAchEmoji"></span>
+    <div class="gfx-ach-body">
+      <div class="gfx-ach-ttl">Logro desbloqueado</div>
+      <div class="gfx-ach-lbl" id="gfxAchLabel"></div>
+    </div>
+  </div>
+</div>
+<!-- GFX SCORE DETAIL SHEET -->
+<div class="overlay" id="gfxScoreOverlay">
+  <div class="sheet gfx-score-sheet">
+    <div class="handle"></div>
+    <div class="gfx-score-hdr">
+      <div class="gfx-score-ring" id="gfxScoreRing"></div>
+      <div>
+        <div class="gfx-score-detail-num" id="gfxScoreDetailNum">—</div>
+        <div class="gfx-score-detail-lbl">Score financiero</div>
+      </div>
+    </div>
+    <div id="gfxScorePillars"></div>
+    <div class="gfx-streak-section" id="gfxStreakSection"></div>
+    <div class="gfx-ach-list-hdr">Logros</div>
+    <div id="gfxAchList"></div>
+    <button class="gfx-close-btn" onclick="document.getElementById('gfxScoreOverlay').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+
+<script id="gfx-phase2">
+/* ==================================================================
+   GFX PHASE 2 — UI layer
+   Score badge, achievement popup, streak pill, score detail sheet
+   ================================================================== */
+
+/* ── Score badge update ── */
+GFX.renderScoreBadge = function(){
+  var score = GFX.computeScore();
+  /* also persist */
+  var state = GFX.load();
+  state.score = score;
+  GFX.save(state);
+
+  var badge  = document.getElementById('gfxScoreBadge');
+  var num    = document.getElementById('gfxScoreNum');
+  if(!badge||!num) return;
+  num.textContent = score;
+  var tier = score>=80?'hi':score>=50?'mid':'lo';
+  badge.className  = 'gfx-score-badge score-'+tier;
+  num.className    = 'gfx-score-num score-'+tier;
+};
+
+/* ── Streak pill update ── */
+GFX.renderStreakPill = function(){
+  var pill = document.getElementById('gfxStreakPill');
+  if(!pill) return;
+  var streak = GFX.getStreakStatus();
+  if(streak.daily >= 2){
+    pill.textContent = '🔥 ' + streak.daily + ' días';
+    pill.style.display = 'inline';
+  } else {
+    pill.style.display = 'none';
+  }
+};
+
+/* ── Achievement popup ── */
+var _achTimer = null;
+GFX.showAchievement = function(ach){
+  var popup = document.getElementById('gfxAchievementPopup');
+  var emoji = document.getElementById('gfxAchEmoji');
+  var label = document.getElementById('gfxAchLabel');
+  if(!popup||!emoji||!label) return;
+  emoji.textContent = ach.emoji;
+  label.textContent = ach.label;
+  popup.classList.add('show');
+  clearTimeout(_achTimer);
+  _achTimer = setTimeout(function(){ popup.classList.remove('show'); }, 3200);
+};
+
+/* ── Score detail sheet ── */
+GFX.showScoreDetail = function(){
+  var state = GFX.load();
+  var score = GFX.computeScore();
+  state.score = score;
+  GFX.save(state);
+
+  /* Ring */
+  var ring = document.getElementById('gfxScoreRing');
+  if(ring){
+    var col = score>=80?'#3BF759':score>=50?'#FFE270':'#FF9A9A';
+    var pct = score;
+    ring.style.background = 'conic-gradient('+col+' '+pct+'%, rgba(177,177,248,.15) 0%)';
+  }
+  document.getElementById('gfxScoreDetailNum').textContent = score;
+
+  /* Pillars — compute each */
+  var now=new Date(),y=now.getFullYear(),m=now.getMonth();
+  var s=loadSettings(),txs=loadMonth(y,m).transactions||[];
+  var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(a,t){return a+t.amount;},0);
+  var exp=txs.filter(function(t){return t.type==='expense';}).reduce(function(a,t){return a+t.amount;},0);
+  var bal=inc-exp;
+  var goalARS=s.goalType==='annual'?s.annualGoal/12:s.monthlyGoal;
+  var scoreA=goalARS>0?Math.min(40,Math.max(0,Math.round((bal/goalARS)*40))):inc>0&&bal>0?20:0;
+  var lims=loadCatLimits(),limKeys=Object.keys(lims),scoreB=25;
+  if(limKeys.length){
+    var totals={};
+    txs.filter(function(t){return t.type==='expense';}).forEach(function(t){totals[t.cat]=(totals[t.cat]||0)+t.amount;});
+    var over=0; limKeys.forEach(function(k){if((totals[k]||0)>lims[k])over++;});
+    scoreB=Math.max(0,25-Math.round((over/limKeys.length)*25));
+  }
+  var scoreC=Math.min(20,Math.round((txs.length/5)*20));
+  var scoreD=Math.min(15,state.streak.current*3);
+
+  var pillars=[
+    {lbl:'Ahorro vs meta',       pts:scoreA, max:40, col:'#3BF759'},
+    {lbl:'Límites respetados',   pts:scoreB, max:25, col:'#7979FF'},
+    {lbl:'Movimientos registrados',pts:scoreC,max:20, col:'#FFE270'},
+    {lbl:'Racha diaria',         pts:scoreD, max:15, col:'#FC7E24'},
+  ];
+  var ph='';
+  pillars.forEach(function(p){
+    var pct=Math.round((p.pts/p.max)*100);
+    ph+='<div class="gfx-pillar-row">'
+      +'<span class="gfx-pillar-lbl">'+p.lbl+'</span>'
+      +'<div class="gfx-pillar-track"><div class="gfx-pillar-fill" style="width:'+pct+'%;background:'+p.col+'"></div></div>'
+      +'<span class="gfx-pillar-pts">'+p.pts+'/'+p.max+'</span>'
+      +'</div>';
+  });
+  document.getElementById('gfxScorePillars').innerHTML=ph;
+
+  /* Streak */
+  var sk=GFX.getStreakStatus();
+  document.getElementById('gfxStreakSection').innerHTML=
+    '<div class="gfx-streak-fire">🔥</div>'
+    +'<div class="gfx-streak-body">'
+    +'<div class="gfx-streak-days">'+sk.daily+'</div>'
+    +'<div class="gfx-streak-sub">días consecutivos</div>'
+    +'</div>'
+    +'<div class="gfx-streak-best">'
+    +'<div class="gfx-streak-best-num">'+state.streak.longest+'</div>'
+    +'<div class="gfx-streak-best-lbl">récord</div>'
+    +'</div>';
+
+  /* Achievements */
+  var earned=state.achievements.map(function(a){return a.id;});
+  var ah='';
+  GFX_ACHIEVEMENTS.forEach(function(def){
+    var done=earned.indexOf(def.id)!==-1;
+    var achData=done?state.achievements.filter(function(a){return a.id===def.id;})[0]:null;
+    var dtStr='';
+    if(achData){
+      var d=new Date(achData.unlockedAt);
+      dtStr=d.getDate()+' '+MONTHS_SHORT[d.getMonth()]+' '+d.getFullYear();
+    }
+    ah+='<div class="gfx-ach-item'+(done?'':' gfx-ach-locked')+'">'
+      +'<span class="gfx-ach-item-em">'+def.emoji+'</span>'
+      +'<div><div class="gfx-ach-item-nm">'+def.label+'</div>'
+      +(dtStr?'<div class="gfx-ach-item-dt">'+dtStr+'</div>':'')
+      +'</div></div>';
+  });
+  document.getElementById('gfxAchList').innerHTML=ah;
+
+  document.getElementById('gfxScoreOverlay').classList.add('open');
+};
+document.getElementById('gfxScoreOverlay').addEventListener('click',function(e){
+  if(e.target===this) this.classList.remove('open');
+});
+
+/* ── Wire up: call after every renderMonthly ── */
+(function(){
+  var origRM = renderMonthly;
+  renderMonthly = function(){
+    origRM();
+    try{ GFX.renderScoreBadge(); GFX.renderStreakPill(); }catch(e){}
+  };
+})();
+
+/* ── Wire up: show achievement after addTx ── */
+(function(){
+  var origAT = addTx;
+  addTx = function(){
+    var wasEditing = (editingTxId!==null);
+    var stateBefore = GFX.load();
+    var achsBefore  = stateBefore.achievements.map(function(a){return a.id;});
+    origAT();
+    if(!wasEditing){
+      setTimeout(function(){
+        try{
+          var stateAfter = GFX.load();
+          stateAfter.achievements.forEach(function(a){
+            if(achsBefore.indexOf(a.id)===-1) GFX.showAchievement(a);
+          });
+          GFX.renderScoreBadge();
+          GFX.renderStreakPill();
+        }catch(e){}
+      }, 400);
+    }
+  };
+})();
+
+console.log('[GFX] Phase 2 UI loaded.');
+</script>
+
+
+<script id="gfx-phase3">
+/* ==================================================================
+   GFX PHASE 3
+   - Daily streak on every app open (not just on tx)
+   - Monthly streak correctly wired
+   - Achievements displayed in Cuenta
+   - renderCuenta hook to inject GFX section
+   ================================================================== */
+
+/* ── Fix: update daily streak on every app open ──────────────────── */
+(function(){
+  var _orig = enterApp;
+  enterApp = function(){
+    _orig();
+    setTimeout(function(){
+      try {
+        var state = GFX.load();
+        var prevStreak = state.streak.current;
+        GFX.updateDailyStreak(state);  /* safe to call multiple times — idempotent per day */
+        state.score = GFX.computeScore();
+        var newAchs = GFX.checkAchievements(state);
+        GFX.save(state);
+        if(state.streak.current !== prevStreak){
+          GFX.renderStreakPill();
+          GFX.renderScoreBadge();
+        }
+        /* Surface achievements earned just by opening the app */
+        newAchs.forEach(function(a){
+          setTimeout(function(){ GFX.showAchievement(a); }, 800);
+        });
+      } catch(e){ console.warn('[GFX P3] enterApp hook error', e); }
+    }, 350);
+  };
+})();
+
+/* ── Fix: month-closed hook should read fin_last_open BEFORE _orig runs ── */
+/* Patch the hook installed in gfx-hooks by replacing checkPrevMonthOnOpen once more */
+(function(){
+  var _orig = checkPrevMonthOnOpen;
+  checkPrevMonthOnOpen = function(){
+    /* Read current stored value BEFORE _orig overwrites it */
+    var storedYM = localStorage.getItem('fin_last_open');
+    var now      = new Date();
+    var curYM    = now.getFullYear() + '-' + now.getMonth();
+    _orig();  /* runs original logic + previous gfx-hooks wrapper */
+    /* If month changed → fire onMonthClosed with the PREVIOUS month */
+    if(storedYM && storedYM !== curYM){
+      var parts = storedYM.split('-');
+      var ly=parseInt(parts[0]), lm=parseInt(parts[1]);
+      setTimeout(function(){
+        try{ GFX.onMonthClosed(ly, lm); }catch(e){}
+      }, 1000);
+    }
+  };
+})();
+
+/* ── Render GFX section in Cuenta ── */
+GFX.renderCuentaSection = function(){
+  var el = document.getElementById('gfxCuentaSection');
+  if(!el) return;
+  var state = GFX.load();
+  var score = GFX.computeScore();
+  state.score = score;
+  GFX.save(state);
+
+  var sk = GFX.getStreakStatus();
+  var earned = state.achievements;
+  var total  = GFX_ACHIEVEMENTS.length;
+
+  /* Score + streak card */
+  var col = score>=80?'#3BF759':score>=50?'#FFE270':'#FF9A9A';
+  var html = '<div class="gfx-cuenta-card">'
+    /* Score row */
+    +'<div class="gfx-cs-score-row" onclick="GFX.showScoreDetail()">'
+    +'<div class="gfx-cs-ring-sm" style="background:conic-gradient('+col+' '+score+'%,rgba(177,177,248,.15) 0%)">'
+    +'<span class="gfx-cs-ring-num">'+score+'</span>'
+    +'</div>'
+    +'<div class="gfx-cs-info">'
+    +'<div class="gfx-cs-lbl">Score financiero</div>'
+    +'<div class="gfx-cs-sub">'+GFX._scoreLabel(score)+'</div>'
+    +'</div>'
+    +'<span class="gfx-cs-arrow">›</span>'
+    +'</div>'
+    /* Streak row */
+    +'<div class="gfx-cs-streak-row">'
+    +'<span class="gfx-cs-streak-icon">'+(sk.daily>=3?'🔥':'📅')+'</span>'
+    +'<div class="gfx-cs-streak-info">'
+    +'<div class="gfx-cs-streak-val">'+sk.daily+' día'+(sk.daily!==1?'s':'')+' seguido'+(sk.daily!==1?'s':'')+'</div>'
+    +'<div class="gfx-cs-streak-lbl">Racha activa · Récord: '+sk.longest+' días</div>'
+    +'</div>'
+    +(sk.monthly>0
+      ? '<div class="gfx-cs-streak-best"><div class="gfx-cs-streak-best-n">'+sk.monthly+'</div><div class="gfx-cs-streak-best-l">meses sin pasarse</div></div>'
+      : '')
+    +'</div>'
+    +'</div>';
+
+  /* Achievements card */
+  html += '<div class="gfx-cuenta-card">'
+    +'<div class="gfx-ach-hdr-row">'
+    +'<span class="gfx-ach-mini-ttl">Logros</span>'
+    +'<span class="gfx-ach-mini-count">'+earned.length+'/'+total+'</span>'
+    +'</div>'
+    +'<div class="gfx-ach-mini-grid">';
+
+  var earnedIds = earned.map(function(a){ return a.id; });
+  GFX_ACHIEVEMENTS.forEach(function(def){
+    var done = earnedIds.indexOf(def.id) !== -1;
+    html += '<div class="gfx-ach-chip'+(done?' earned':'')+'">'
+      +'<span class="'+(done?'gfx-ach-chip-em':'gfx-ach-chip-locked-em')+'">'+def.emoji+'</span>'
+      +def.label
+      +'</div>';
+  });
+  html += '</div></div>';
+
+  el.innerHTML = html;
+};
+
+/* Score label helper */
+GFX._scoreLabel = function(score){
+  if(score>=90) return 'Excepcional — seguí así 🏆';
+  if(score>=80) return 'Muy bien — en camino perfecto';
+  if(score>=60) return 'Bien — hay margen para mejorar';
+  if(score>=40) return 'Regular — revisá tus límites';
+  return 'Por debajo de la meta — ajustá el presupuesto';
+};
+
+/* ── Hook renderCuenta to append GFX section ── */
+(function(){
+  var _orig = renderCuenta;
+  renderCuenta = function(){
+    _orig();
+    setTimeout(function(){
+      try{ GFX.renderCuentaSection(); }catch(e){}
+    }, 50);
+  };
+})();
+
+/* ── Also update renderScoreBadge + streak after delTx ── */
+(function(){
+  var _orig = delTx;
+  delTx = function(id){
+    _orig(id);
+    setTimeout(function(){
+      try{ GFX.renderScoreBadge(); GFX.renderStreakPill(); }catch(e){}
+    }, 100);
+  };
+})();
+
+console.log('[GFX] Phase 3 loaded.');
 </script>
 
 </body>
