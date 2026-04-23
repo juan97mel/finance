@@ -1416,6 +1416,137 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 .proj-row.sub .proj-val { font-size: 14px !important; }
 .proj-note { color: rgba(255,255,255,.35) !important; font-size: 11px !important; }
 
+
+/* ===== HOME MONTH NAV ============================================= */
+.home-month-nav {
+  display: flex; align-items: center; gap: 2px;
+}
+.home-nav-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 22px; color: var(--navy-mid); padding: 4px 8px;
+  line-height: 1; border-radius: 8px; transition: opacity .12s;
+}
+.home-nav-btn:active { opacity: .5; }
+
+/* ===== MOVIMIENTOS SPACING ======================================= */
+.tx-view-summary {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px; padding: 14px 16px 4px;
+}
+.tx-sum-card {
+  background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-bdr); border-radius: var(--r2);
+  padding: 14px 12px; box-shadow: var(--shdw-sm); text-align: center;
+}
+.tx-sum-lbl {
+  font-size: 9px; color: var(--t3); letter-spacing: 1.5px;
+  text-transform: uppercase; font-weight: 700; margin-bottom: 5px;
+}
+.tx-sum-val {
+  font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: -.3px;
+}
+/* Tx list in Movimientos — more breathing room */
+#txListFull .tx-card {
+  margin-bottom: 8px;
+  border-radius: var(--r3) !important;
+  padding: 14px 16px !important;
+}
+#txListFull .tx-body-col { gap: 5px; }
+#txListFull .tx-desc { font-size: 14px !important; }
+#txListFull .tx-meta { font-size: 12px !important; }
+#txListFull .tx-amt { font-size: 14px !important; font-weight: 800 !important; }
+/* section header spacing in tx view */
+#view-transactions .sec-head {
+  padding: 18px 16px 8px;
+}
+
+
+/* ===== GOALS SHEET REDESIGN ======================================= */
+.goal-type-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-bottom: 16px;
+}
+.goal-type-card {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 4px; padding: 16px 14px; border-radius: var(--r3);
+  border: 2px solid rgba(177,177,248,.3);
+  background: rgba(255,255,255,.6);
+  cursor: pointer; font-family: var(--sans);
+  transition: all .15s; position: relative; text-align: left;
+}
+.goal-type-card.selected {
+  border-color: var(--periwinkle);
+  background: rgba(121,121,255,.08);
+}
+.goal-type-card:active { transform: scale(.97); }
+.gtc-icon { font-size: 22px; margin-bottom: 4px; }
+.gtc-lbl { font-size: 13px; font-weight: 700; color: var(--t1); }
+.gtc-desc { font-size: 11px; color: var(--t3); font-weight: 500; line-height: 1.3; }
+.gtc-check {
+  position: absolute; top: 10px; right: 10px;
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid rgba(177,177,248,.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: #fff; font-weight: 800;
+  transition: all .15s;
+}
+.goal-type-card.selected .gtc-check {
+  background: var(--periwinkle); border-color: var(--periwinkle);
+}
+.goal-type-card.selected .gtc-check::after { content: '✓'; }
+
+/* Amount wrap */
+.goals-amt-wrap { position: relative; margin-bottom: 8px; }
+.goals-amt-sym {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  font-family: var(--display); font-size: 22px; color: var(--t3);
+  pointer-events: none; font-weight: 800;
+}
+.goals-amt-inp { padding-left: 46px !important; font-family: var(--display) !important; font-size: 26px !important; font-weight: 800 !important; }
+.goals-curr-val { font-size: 12px; color: var(--t3); margin-bottom: 14px; font-weight: 500; min-height: 18px; }
+
+/* Limits section */
+.goals-limits-sect {
+  margin-top: 20px; padding-top: 18px;
+  border-top: 1.5px solid rgba(177,177,248,.2);
+}
+.goals-limits-hdr {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.goals-sec-sub-inline {
+  font-size: 11px; color: var(--t3); font-weight: 600;
+}
+/* Limit items */
+.gl-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(177,177,248,.15); }
+.gl-item:last-child { border-bottom: none; }
+.gl-em { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+.gl-nm { flex: 1; font-size: 13px; font-weight: 500; color: var(--t2); min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.gl-sym { font-size: 12px; color: var(--t3); font-weight: 600; flex-shrink: 0; }
+.gl-inp {
+  width: 86px; flex-shrink: 0;
+  background: rgba(255,255,255,.8); border: 1.5px solid rgba(177,177,248,.3);
+  border-radius: 8px; padding: 7px 10px;
+  font-family: var(--display); font-size: 12px; font-weight: 700;
+  color: var(--t1); text-align: right; outline: none;
+  -webkit-appearance: none; appearance: none;
+}
+.gl-inp:focus { border-color: var(--periwinkle); }
+.goals-save-lims-btn {
+  width: 100%; padding: 13px; border-radius: var(--r4); border: none;
+  background: var(--lav-lt); color: var(--navy);
+  border: 1.5px solid rgba(177,177,248,.4);
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  font-family: var(--sans); margin-top: 14px; transition: all .12s;
+}
+.goals-save-lims-btn:active { background: var(--lavender); }
+
+/* ===== LIMIT PROGRESS BARS IN HOME CAT CARD ====================== */
+.cc-lim-wrap { margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+.cc-lim-bar { flex: 1; height: 4px; background: rgba(177,177,248,.2); border-radius: 2px; overflow: hidden; }
+.cc-lim-fill { height: 100%; border-radius: 2px; transition: width .4s ease; }
+.cc-lim-pct { font-size: 9px; font-weight: 800; flex-shrink: 0; min-width: 28px; text-align: right; }
+
 </style>
 </head>
 <body>
@@ -1465,7 +1596,11 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
   <div class="view active" id="view-monthly">
     <div class="topbar topbar-clean">
       <span class="app-name">Mis Finanzas</span>
-      <span class="home-period" id="monthLabel"></span>
+      <div class="home-month-nav">
+        <button class="home-nav-btn" onclick="changeMonth(-1)">&#8249;</button>
+        <span class="home-period" id="monthLabel"></span>
+        <button class="home-nav-btn" onclick="changeMonth(1)">&#8250;</button>
+      </div>
     </div>
 
     <div class="hero-card">
@@ -1552,6 +1687,8 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
     </div>
     <div class="proj-card" id="projSummary"></div>
     <div id="projChart" class="proj-chart-wrap"></div>
+    <div id="projChartInc" class="proj-chart-wrap" style="margin-top:10px"></div>
+    <div id="projChartExp" class="proj-chart-wrap" style="margin-top:10px"></div>
     <div id="projInsight"></div>
   </div>
 
@@ -1560,7 +1697,6 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
     <div class="topbar">
       <span class="app-name">Movimientos</span>
       <div class="topbar-right">
-        <button class="tbar-btn" onclick="openSettings('general')">&#9881;</button>
         <div class="month-nav">
           <button class="nav-btn" onclick="changeMonth(-1)">&#8249;</button>
           <span class="month-lbl" id="txMonthLabel"></span>
@@ -3784,26 +3920,41 @@ function renderMonthly(){
       <button class="close-btn" onclick="closeGoalsSheet()">&#215;</button>
     </div>
 
-    <!-- Savings goal -->
-    <div class="goals-section">
-      <div class="goals-sec-ttl">&#127919; Meta de ahorro</div>
-      <div class="goals-type-row">
-        <button class="goals-type-btn" id="goalsBtnMon" onclick="setGoalsType('monthly')">Mensual</button>
-        <button class="goals-type-btn" id="goalsBtnAnn" onclick="setGoalsType('annual')">Anual 2026</button>
-      </div>
-      <div class="goals-amt-row">
-        <span class="goals-sym">$</span>
+    <!-- Goal type cards -->
+    <div class="goal-type-cards" id="goalTypeCards">
+      <button class="goal-type-card" id="goalCardMon" onclick="setGoalsType('monthly')">
+        <span class="gtc-icon">&#128197;</span>
+        <span class="gtc-lbl">Meta mensual</span>
+        <span class="gtc-desc">Cuánto quer&#233;s ahorrar por mes</span>
+        <span class="gtc-check" id="gtcCheckMon"></span>
+      </button>
+      <button class="goal-type-card" id="goalCardAnn" onclick="setGoalsType('annual')">
+        <span class="gtc-icon">&#127942;</span>
+        <span class="gtc-lbl">Meta anual 2026</span>
+        <span class="gtc-desc">Objetivo total para el a&#241;o</span>
+        <span class="gtc-check" id="gtcCheckAnn"></span>
+      </button>
+    </div>
+
+    <!-- Amount input -->
+    <div class="goals-section" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
+      <div class="goals-amt-wrap">
+        <span class="goals-amt-sym">$</span>
         <input class="f-input goals-amt-inp" id="goalsAmt" type="text" inputmode="decimal"
                placeholder="0" autocomplete="off" oninput="fmtAmtInput(this)"/>
       </div>
+      <div class="goals-curr-val" id="goalsCurrVal"></div>
       <button class="goals-save-btn" onclick="saveGoalFromSheet()">Guardar meta</button>
     </div>
 
     <!-- Spending limits by category -->
-    <div class="goals-section">
-      <div class="goals-sec-ttl">&#128683; L&#237;mites de gasto por categor&#237;a</div>
-      <div class="goals-sec-sub">Definí el m&#225;ximo mensual por categor&#237;a</div>
+    <div class="goals-limits-sect">
+      <div class="goals-limits-hdr">
+        <span class="goals-sec-ttl">&#128683; L&#237;mites por categor&#237;a</span>
+        <span class="goals-sec-sub-inline">Mensual</span>
+      </div>
       <div id="goalsLimitsList"></div>
+      <button class="goals-save-lims-btn" onclick="saveAllLimits()">Guardar l&#237;mites</button>
     </div>
   </div>
 </div>
@@ -4564,6 +4715,244 @@ function renderReportes(){
   ih+='</div></div>';
   insEl.innerHTML=ih;
 }
+</script>
+
+
+
+
+
+<script id="reportes-final">
+/* ==================================================================
+   DEFINITIVE renderReportes — no wrapper, no recursion
+   + Goals sheet UI
+   + History charts
+   + Category limit bars in home
+   ================================================================== */
+
+/* ── History bar chart (SVG) ── */
+function buildHistoryChart(el, data12, color, title){
+  if(!el) return;
+  var maxV=Math.max.apply(null,data12.map(function(d){return d.v;}))||1;
+  var now=new Date(),H=120,W=360,slotW=W/12,bw=14;
+  var svg='<svg viewBox="0 0 '+W+' '+(H+14)+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">';
+  [0.5,1].forEach(function(f){
+    var y=(H*(1-f)).toFixed(1);
+    svg+='<line x1="0" y1="'+y+'" x2="'+W+'" y2="'+y+'" stroke="rgba(177,177,248,.15)" stroke-width="0.8" stroke-dasharray="3,3"/>';
+    var lbl=Math.round(maxV*f);
+    var ls=lbl>=1000000?(lbl/1000000).toFixed(1)+'M':lbl>=1000?Math.round(lbl/1000)+'k':''+lbl;
+    svg+='<text x="2" y="'+(parseFloat(y)-3)+'" font-size="6.5" font-family="var(--sans)" font-weight="600" fill="rgba(177,177,248,.5)">'+ls+'</text>';
+  });
+  data12.forEach(function(d,i){
+    var cx=(i+0.5)*slotW;
+    var bH=Math.max(2,(d.v/maxV)*(H-4));
+    var isCur=(i===now.getMonth()&&d.year===now.getFullYear());
+    var alpha=d.v>0?(isCur?1:0.7):0.12;
+    svg+='<rect x="'+(cx-bw/2).toFixed(1)+'" y="'+(H-bH).toFixed(1)+'" width="'+bw+'" height="'+bH.toFixed(1)+'" rx="3" fill="'+color+'" opacity="'+alpha+'"/>';
+    svg+='<text x="'+cx.toFixed(1)+'" y="'+(H+11)+'" text-anchor="middle" font-size="7" font-family="var(--sans)" font-weight="'+(isCur?800:600)+'" fill="rgba(35,63,120,'+(isCur?0.75:0.4)+')">'+MONTHS_SHORT[i]+'</text>';
+  });
+  svg+='</svg>';
+  el.innerHTML='<div class="proj-chart-hdr"><span class="proj-chart-ttl">'+title+'</span></div>'
+    +'<div class="proj-chart-canvas-wrap" style="padding:6px 16px 12px">'+svg+'</div>';
+}
+
+/* ── DEFINITIVE renderReportes ── */
+function renderReportes(){
+  /* ─ Calc averages ─ */
+  var real=[];
+  for(var m=0;m<12;m++){
+    injectRecurring(curYear,m);
+    var txs=loadMonth(curYear,m).transactions||[];
+    if(!txs.length)continue;
+    var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0),
+        exp=txs.filter(function(t){return t.type==='expense';}).reduce(function(s,t){return s+t.amount;},0);
+    if(inc>0||exp>0)real.push({m:m,inc:inc,exp:exp});
+  }
+  var n=real.length;
+  var avgI=n>0?real.reduce(function(s,d){return s+d.inc;},0)/n:0;
+  var avgE=n>0?real.reduce(function(s,d){return s+d.exp;},0)/n:0;
+  var avgB=avgI-avgE,pI=avgI*12,pE=avgE*12,pB=pI-pE,sr=pI>0?Math.round(((pI-pE)/pI)*100):0;
+  var basisEl=document.getElementById('projBasis');
+  if(basisEl)basisEl.textContent=n>0?'Basado en '+n+' mes'+(n!==1?'es':''):'';
+  var sumEl=document.getElementById('projSummary');
+  var chartEl=document.getElementById('projChart');
+  var incEl=document.getElementById('projChartInc');
+  var expEl=document.getElementById('projChartExp');
+  var insEl=document.getElementById('projInsight');
+  if(!sumEl)return;
+
+  if(!n){
+    sumEl.innerHTML='<div style="text-align:center;padding:28px 0;color:rgba(255,255,255,.4);font-size:14px">Registr\u00e1 al menos un mes para ver la proyecci\u00f3n</div>';
+    if(chartEl)chartEl.innerHTML='';
+    if(incEl)incEl.innerHTML='';
+    if(expEl)expEl.innerHTML='';
+    if(insEl)insEl.innerHTML='';
+    return;
+  }
+
+  /* ─ Summary card ─ */
+  sumEl.innerHTML='<div class="proj-head">Proyecci\u00f3n anual '+curYear+'</div>'
+    +'<div class="proj-row"><span class="proj-lbl">Ingresos proyectados</span><div>'
+    +'<div class="proj-val positive">'+fmtMoney(pI)+'</div>'
+    +'<div class="proj-note">'+fmtMoney(avgI)+'/mes</div></div></div>'
+    +'<div class="proj-row sub"><span class="proj-lbl">Gastos proyectados</span><div>'
+    +'<div class="proj-val negative">'+fmtMoney(pE)+'</div>'
+    +'<div class="proj-note">'+fmtMoney(avgE)+'/mes</div></div></div>'
+    +'<div class="proj-row"><span class="proj-lbl">Balance proyectado</span><div>'
+    +'<div class="proj-val '+(pB>=0?'positive':'negative')+'">'+(pB<0?'-':'')+fmtMoney(pB)+'</div>'
+    +'<div class="proj-note">Ahorro '+sr+'%</div></div></div>';
+
+  /* ─ Main inc vs exp chart ─ */
+  if(chartEl) renderProjChart(chartEl,real,avgI,avgE);
+
+  /* ─ History charts ─ */
+  var incData=[],expData=[];
+  for(var m2=0;m2<12;m2++){
+    var txs2=loadMonth(curYear,m2).transactions||[];
+    var i2=txs2.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0);
+    var e2=txs2.filter(function(t){return t.type==='expense';}).reduce(function(s,t){return s+t.amount;},0);
+    incData.push({v:i2,year:curYear});
+    expData.push({v:e2,year:curYear});
+  }
+  buildHistoryChart(incEl,incData,'rgba(59,247,89,1)','Ingresos mes a mes \u00b7 '+curYear);
+  buildHistoryChart(expEl,expData,'rgba(255,102,102,1)','Gastos mes a mes \u00b7 '+curYear);
+
+  /* ─ Insight ─ */
+  var s=loadSettings();
+  var goalARS=s.goalType==='annual'?s.annualGoal:(s.monthlyGoal*12);
+  var now=new Date(),accSaved=0;
+  for(var y=2024;y<=now.getFullYear();y++){
+    var mxM=(y===now.getFullYear())?now.getMonth():11;
+    for(var mm=0;mm<=mxM;mm++){
+      var txs3=loadMonth(y,mm).transactions||[];
+      accSaved+=txs3.filter(function(t){return t.type==='income';}).reduce(function(s2,t){return s2+t.amount;},0)
+               -txs3.filter(function(t){return t.type==='expense';}).reduce(function(s2,t){return s2+t.amount;},0);
+    }
+  }
+  if(!insEl)return;
+  if(!goalARS||goalARS<=0){
+    insEl.innerHTML='<div class="proj-insight-card"><div class="insight-empty"><div class="insight-empty-icon">\uD83C\uDFAF</div><div class="insight-empty-ttl">Sin meta configurada</div><div class="insight-empty-sub">Configur\u00e1 una meta para ver cu\u00e1ndo la alcanz\u00e1s.</div><button class="insight-cta-btn" onclick="openGoalsSheet()">Configurar meta</button></div></div>';
+    return;
+  }
+  if(avgB<=0){
+    insEl.innerHTML='<div class="proj-insight-card"><div class="insight-empty"><div class="insight-empty-icon">\u26A0\uFE0F</div><div class="insight-empty-ttl">Sin ahorro proyectado</div><div class="insight-empty-sub">Los gastos superan los ingresos.</div></div></div>';
+    return;
+  }
+  var pct=Math.min(100,Math.max(0,Math.round((accSaved/goalARS)*100)));
+  var fillCol=pct>=80?'#3BF759':pct>=50?'#FFE270':'#7979FF';
+  var rem=Math.max(0,goalARS-accSaved),mLeft=rem>0?Math.ceil(rem/avgB):0;
+  var tDate=new Date(now.getFullYear(),now.getMonth()+mLeft,1);
+  var tName=mLeft===0?'\u00a1Meta alcanzada!':MONTHS[tDate.getMonth()]+' '+tDate.getFullYear();
+  var reached=accSaved>=goalARS;
+  var ih='<div class="proj-insight-card"><div class="insight-banner">'
+    +'<div class="insight-eyebrow"><span class="insight-eyebrow-dot"></span>Cu\u00e1ndo lleg\u00e1s a la meta</div>'
+    +'<div class="insight-headline" style="color:'+(reached?'var(--green-dk)':'var(--navy)')+'">'+(mLeft===0?'\u00a1Meta alcanzada!':tName)+'</div>'
+    +'<div class="insight-tagline">'+(reached?'Meta de '+fmtMoney(goalARS)+' alcanzada':'Ahorrando '+fmtMoney(avgB)+'/mes \u00b7 '+(mLeft===1?'1 mes m\u00e1s':mLeft+' meses m\u00e1s'))+'</div></div>'
+    +'<div class="insight-prog-section"><div class="insight-prog-top"><span class="insight-prog-lbl">Progreso</span><span class="insight-prog-pct">'+fmtMoney(accSaved)+' / '+fmtMoney(goalARS)+'</span></div>'
+    +'<div class="insight-track"><div class="insight-fill" style="width:'+pct+'%;background:'+fillCol+'"></div></div></div>'
+    +'<div class="insight-milestones">';
+  [{pct:25,lbl:'Primer cuarto'},{pct:50,lbl:'Mitad del camino'},{pct:75,lbl:'Casi llegando'},{pct:100,lbl:'Meta completa'}].forEach(function(ms){
+    var msG=goalARS*(ms.pct/100),msDone=accSaved>=msG;
+    var msM2=msDone?0:Math.ceil(Math.max(0,msG-accSaved)/avgB);
+    var msD=msDone?null:new Date(now.getFullYear(),now.getMonth()+msM2,1);
+    ih+='<div class="insight-ms'+(msDone?' reached':'')+'">'
+      +'<div class="insight-ms-check '+(msDone?'done':'todo')+'">'+  (msDone?'\u2713':ms.pct+'%')+'</div>'
+      +'<div class="insight-ms-body"><div class="insight-ms-ttl">'+ms.lbl+'</div>'
+      +'<div class="insight-ms-date">'+(msDone?'Alcanzado \u2713':(MONTHS[msD.getMonth()]+' '+msD.getFullYear()))+'</div></div>'
+      +'<div class="insight-ms-right"><div class="insight-ms-pct'+(msDone?' done':'')+'">'+ms.pct+'%</div>'
+      +'<div class="insight-ms-amt">'+fmtMoney(msG)+'</div></div></div>';
+  });
+  ih+='</div></div>';
+  insEl.innerHTML=ih;
+}
+
+/* ── Goals sheet ── */
+var goalsType='monthly';
+function setGoalsType(t){
+  goalsType=t;
+  var cm=document.getElementById('goalCardMon');
+  var ca=document.getElementById('goalCardAnn');
+  if(cm)cm.className='goal-type-card'+(t==='monthly'?' selected':'');
+  if(ca)ca.className='goal-type-card'+(t==='annual'?' selected':'');
+  var el=document.getElementById('goalsCurrVal');
+  if(!el)return;
+  var s=loadSettings(),gARS=t==='annual'?s.annualGoal:s.monthlyGoal;
+  el.textContent=gARS>0?'Meta actual: '+fmtMoney(gARS):'Sin meta configurada';
+}
+function renderGoalsSheet(){
+  var s=loadSettings();
+  goalsType=s.goalType||'monthly';
+  setGoalsType(goalsType);
+  var gARS=goalsType==='annual'?s.annualGoal:s.monthlyGoal;
+  var inp=document.getElementById('goalsAmt');
+  if(inp)inp.value=gARS>0?addDots(String(Math.round(gARS))):'';
+  renderGoalsLimits();
+}
+function renderGoalsLimits(){
+  var lel=document.getElementById('goalsLimitsList');
+  if(!lel)return;
+  var cats=getAllCats('expense'),lims=loadCatLimits(),h='';
+  cats.forEach(function(c){
+    var stored=lims[c.id]||0,disp=stored>0?addDots(String(Math.round(stored))):'';
+    h+='<div class="gl-item">'
+      +'<span class="gl-em">'+c.emoji+'</span>'
+      +'<span class="gl-nm">'+escHtml(c.label)+'</span>'
+      +'<span class="gl-sym">$</span>'
+      +'<input class="gl-inp" id="gli_'+c.id+'" type="text" inputmode="decimal" placeholder="\u2014" value="'+escHtml(disp)+'" oninput="fmtAmtInput(this)">'
+      +'</div>';
+  });
+  lel.innerHTML=h;
+}
+function saveAllLimits(){
+  var cats=getAllCats('expense'),lims={};
+  cats.forEach(function(c){
+    var inp=document.getElementById('gli_'+c.id);
+    if(!inp)return;
+    var v=parseFloat((inp.value||'').replace(/\./g,''))||0;
+    if(v>0)lims[c.id]=v;
+  });
+  saveCatLimits(lims);
+  showToast('L\u00edmites guardados \u2713');
+  renderMonthly();
+}
+
+/* ── Override buildCategoryCard with limit bars ── */
+function buildCategoryCard(expCats,catTotals,totE){
+  if(!expCats.length)return'';
+  var lims=loadCatLimits();
+  var donut=buildDonutSvg(expCats,catTotals,totE,100);
+  var donutHtml='<div class="cc-donut-wrap">'+donut
+    +'<div class="cc-donut-center">'
+    +'<span class="cc-donut-n">'+expCats.length+'</span>'
+    +'<span class="cc-donut-s">categ.</span>'
+    +'</div></div>';
+  var rows='';
+  expCats.forEach(function(c,i){
+    var a=catTotals[c.id]||0,pct=Math.round((a/totE)*100);
+    if(pct<=0)return;
+    var col=CAT_COLS_CHART[i%CAT_COLS_CHART.length];
+    var lim=lims[c.id]||0,limHtml='';
+    if(lim>0){
+      var lpct=Math.min(100,Math.round((a/lim)*100));
+      var lcol=lpct>=100?'#FF4444':lpct>=80?'#FC7E24':'#3BF759';
+      limHtml='<div class="cc-lim-wrap">'
+        +'<div class="cc-lim-bar"><div class="cc-lim-fill" style="width:'+lpct+'%;background:'+lcol+'"></div></div>'
+        +'<span class="cc-lim-pct" style="color:'+lcol+'">'+lpct+'%</span>'
+        +'</div>';
+    }
+    var over=lim>0&&a>=lim;
+    rows+='<div class="cc-row">'
+      +'<div class="cc-dot" style="background:'+col+'"></div>'
+      +'<span class="cc-em">'+c.emoji+'</span>'
+      +'<div style="flex:1;min-width:0"><span class="cc-nm">'+escHtml(c.label)+'</span>'+limHtml+'</div>'
+      +'<div class="cc-right">'
+      +'<span class="cc-pct" style="color:'+col+'">'+pct+'%</span>'
+      +'<span class="cc-amt'+(over?' cc-over':'')+'">'+fmtMoney(a)+(over?' \u26a0':'')+'</span>'
+      +'</div></div>';
+  });
+  return'<div class="cc-card">'+donutHtml+'<div class="cc-rows">'+rows+'</div></div>';
+}
+/* over-limit style */
+(function(){var s=document.createElement('style');s.textContent='.cc-over{color:var(--red-dk)!important;font-weight:800!important;}';document.head.appendChild(s);})();
 </script>
 
 </body>
