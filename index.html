@@ -1853,6 +1853,170 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 }
 .onb-cur-name { font-size: 13px; color: rgba(255,255,255,.6); font-weight: 600; }
 
+
+/* ============================================================
+   REPORTS SCREEN — FULL REDESIGN
+   ============================================================ */
+
+/* Header */
+.rp-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px 12px; gap: 10px;
+}
+.rp-title { font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--t1); }
+.rp-period-pills { display: flex; gap: 4px; }
+.rp-pill {
+  padding: 6px 11px; border-radius: 20px; border: 1.5px solid rgba(177,177,248,.3);
+  background: transparent; color: var(--t3); font-size: 12px; font-weight: 700;
+  cursor: pointer; font-family: var(--sans); transition: all .15s; white-space: nowrap;
+}
+.rp-pill.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.rp-pill:active  { transform: scale(.94); }
+
+/* Section card base */
+.rp-card {
+  margin: 0 16px 12px;
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); border-radius: var(--r3);
+  box-shadow: var(--shdw-sm); overflow: hidden;
+}
+.rp-card-dark { background: var(--navy); border-color: rgba(255,255,255,.08); }
+.rp-sec-lbl {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--t3); font-weight: 700;
+}
+.rp-sec-lbl-dark { color: rgba(255,255,255,.4); }
+
+/* ── 2. HERO ── */
+.rp-hero-inner { padding: 22px 22px 18px; }
+.rp-hero-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+.rp-hero-score-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.rp-hero-ring {
+  width: 86px; height: 86px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.rp-hero-ring::after {
+  content: ''; position: absolute;
+  width: 66px; height: 66px; border-radius: 50%;
+  background: var(--navy);
+}
+.rp-hero-score-num {
+  position: relative; z-index: 1;
+  font-family: var(--display); font-size: 26px; font-weight: 800; color: #fff; line-height: 1;
+}
+.rp-hero-score-lbl { font-size: 10px; color: rgba(255,255,255,.4); letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
+.rp-hero-right { flex: 1; padding-left: 20px; }
+.rp-hero-bal { font-family: var(--display); font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -1.5px; line-height: 1; margin-bottom: 4px; }
+.rp-hero-period { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 600; margin-bottom: 12px; }
+.rp-hero-compare {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 20px;
+  font-size: 12px; font-weight: 700;
+}
+.rp-hero-compare.up   { background: rgba(22,163,74,.2);  color: #4ade80; }
+.rp-hero-compare.down { background: rgba(220,38,38,.2);  color: #f87171; }
+.rp-hero-compare.flat { background: rgba(177,177,248,.15); color: rgba(255,255,255,.5); }
+/* Hero stats row */
+.rp-hero-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.08); border-radius: 12px; overflow: hidden; }
+.rp-hero-stat { padding: 12px 10px; background: rgba(255,255,255,.05); text-align: center; }
+.rp-hero-stat-val { font-family: var(--display); font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -.3px; }
+.rp-hero-stat-lbl { font-size: 9px; color: rgba(255,255,255,.35); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-top: 3px; }
+
+/* ── 3. INSIGHTS ── */
+.rp-insights-scroll { display: flex; gap: 10px; padding: 14px 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.rp-insights-scroll::-webkit-scrollbar { display: none; }
+.rp-insight-card {
+  flex-shrink: 0; padding: 14px 16px; border-radius: 14px;
+  width: 200px;
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); box-shadow: var(--shdw-sm);
+}
+.rp-ic-icon { font-size: 22px; margin-bottom: 8px; }
+.rp-ic-text { font-size: 13px; font-weight: 600; color: var(--t1); line-height: 1.4; }
+.rp-ic-sub  { font-size: 11px; color: var(--t3); margin-top: 4px; font-weight: 500; }
+
+/* ── 4. SPENDING BREAKDOWN ── */
+.rp-spending-inner { padding: 18px 18px 14px; }
+.rp-spending-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.rp-donut-wrap { position: relative; flex-shrink: 0; }
+.rp-donut-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; pointer-events: none; }
+.rp-donut-total { font-family: var(--display); font-size: 14px; font-weight: 800; color: var(--t1); line-height: 1; }
+.rp-donut-lbl { font-size: 9px; color: var(--t3); font-weight: 700; letter-spacing: .5px; margin-top: 2px; }
+.rp-cat-list { flex: 1; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.rp-cat-row { display: flex; align-items: center; gap: 8px; }
+.rp-cat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.rp-cat-name { flex: 1; font-size: 12px; font-weight: 600; color: var(--t2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rp-cat-pct { font-family: var(--display); font-size: 12px; font-weight: 800; color: var(--t1); flex-shrink: 0; }
+.rp-cat-amt { font-size: 11px; color: var(--t3); flex-shrink: 0; min-width: 60px; text-align: right; }
+
+/* ── 5. TREND ── */
+.rp-trend-inner { padding: 18px 18px 14px; }
+.rp-trend-legend { display: flex; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.rp-trend-leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--t3); }
+.rp-trend-leg-dot { width: 10px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+.rp-trend-interp { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; }
+.rp-trend-fact { font-size: 12px; color: var(--t2); font-weight: 500; padding: 6px 10px; background: rgba(177,177,248,.08); border-radius: 8px; border-left: 3px solid var(--periwinkle); }
+
+/* ── 6. CATEGORY PERFORMANCE ── */
+.rp-perf-inner { padding: 16px 18px 14px; }
+.rp-perf-row { padding: 11px 0; border-bottom: 1px solid rgba(177,177,248,.12); }
+.rp-perf-row:last-child { border-bottom: none; }
+.rp-perf-top { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.rp-perf-em { font-size: 15px; flex-shrink: 0; }
+.rp-perf-name { flex: 1; font-size: 13px; font-weight: 600; color: var(--t1); }
+.rp-perf-pct { font-family: var(--display); font-size: 13px; font-weight: 800; flex-shrink: 0; }
+.rp-perf-amts { display: flex; justify-content: space-between; font-size: 11px; color: var(--t3); margin-bottom: 5px; font-weight: 500; }
+.rp-perf-track { height: 7px; background: rgba(177,177,248,.15); border-radius: 4px; overflow: hidden; }
+.rp-perf-fill  { height: 100%; border-radius: 4px; transition: width .5s ease; }
+.rp-perf-empty { font-size: 12px; color: var(--t4); padding: 8px 0; font-weight: 500; }
+
+/* ── 7. GOALS ── */
+.rp-goals-inner { padding: 18px 22px 18px; }
+.rp-goal-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
+.rp-goal-lbl { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); }
+.rp-goal-pct { font-family: var(--display); font-size: 22px; font-weight: 800; color: #fff; }
+.rp-goal-amounts { font-size: 12px; color: rgba(255,255,255,.45); margin-bottom: 14px; }
+.rp-goal-track { height: 10px; background: rgba(255,255,255,.12); border-radius: 5px; overflow: hidden; margin-bottom: 16px; }
+.rp-goal-fill  { height: 100%; border-radius: 5px; transition: width .6s ease; }
+.rp-goal-milestones { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.rp-ms {
+  padding: 10px 12px; border-radius: 10px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; gap: 8px;
+}
+.rp-ms.done { background: rgba(74,222,128,.12); border-color: rgba(74,222,128,.25); }
+.rp-ms-check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,.25); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: transparent; flex-shrink: 0; }
+.rp-ms.done .rp-ms-check { background: rgba(74,222,128,.35); border-color: transparent; color: #4ade80; }
+.rp-ms-body {}
+.rp-ms-lbl { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.7); }
+.rp-ms-val { font-size: 10px; color: rgba(255,255,255,.35); font-weight: 500; }
+.rp-goal-empty { font-size: 13px; color: rgba(255,255,255,.4); padding: 8px 0; }
+.rp-goal-cta {
+  width: 100%; margin-top: 14px; padding: 12px; border-radius: var(--r4); border: none;
+  background: rgba(255,255,255,.12); color: rgba(255,255,255,.8);
+  font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--sans); transition: all .12s;
+}
+.rp-goal-cta:active { background: rgba(255,255,255,.2); }
+
+/* ── 8. HEATMAP ── */
+.rp-heatmap-inner { padding: 16px 18px 14px; }
+.rp-heatmap-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; }
+.rp-hm-day {
+  aspect-ratio: 1; border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 700; color: rgba(35,63,120,.5);
+  transition: transform .1s;
+}
+.rp-hm-day:active { transform: scale(.9); }
+.rp-hm-none { background: rgba(177,177,248,.08); color: rgba(177,177,248,.3); }
+.rp-hm-lo   { background: rgba(22,163,74,.18); color: #15803d; }
+.rp-hm-mid  { background: rgba(234,179,8,.2);  color: #a16207; }
+.rp-hm-hi   { background: rgba(220,38,38,.18); color: #b91c1c; }
+.rp-hm-fut  { background: rgba(177,177,248,.05); color: rgba(177,177,248,.2); }
+.rp-hm-legend { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 10px; color: var(--t4); font-weight: 600; flex-wrap: wrap; }
+.rp-hm-leg-chip { width: 12px; height: 12px; border-radius: 3px; }
+
 </style>
 </head>
 <body>
@@ -2053,16 +2217,39 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 
   <!-- PROJECTED VIEW -->
   <div class="view" id="view-reportes">
-    <div class="view-header" style="margin-bottom:0">
-      <span class="view-title">Reportes</span>
-      <span style="font-size:10px;color:var(--t4);font-weight:600" id="projBasis"></span>
+    <!-- 1. HEADER -->
+    <div class="rp-header">
+      <span class="rp-title">Reportes</span>
+      <div class="rp-period-pills" id="rpPeriodPills">
+        <button class="rp-pill active" onclick="rpSetPeriod('month')">Mes</button>
+        <button class="rp-pill" onclick="rpSetPeriod('3m')">3M</button>
+        <button class="rp-pill" onclick="rpSetPeriod('6m')">6M</button>
+        <button class="rp-pill" onclick="rpSetPeriod('year')">Año</button>
+      </div>
     </div>
-    <div class="proj-card" id="projSummary"></div>
-    <div id="projChart" class="proj-chart-wrap"></div>
-    <div id="projChartInc" class="proj-chart-wrap" style="margin-top:10px"></div>
-    <div id="projChartExp" class="proj-chart-wrap" style="margin-top:10px"></div>
-    <div id="projChartScore" class="proj-chart-wrap" style="margin-top:10px"></div>
-    <div id="projInsight"></div>
+
+    <!-- 2. FINANCIAL HEALTH HERO -->
+    <div id="rpHero"></div>
+
+    <!-- 3. SMART INSIGHTS -->
+    <div id="rpInsights"></div>
+
+    <!-- 4. SPENDING BREAKDOWN -->
+    <div id="rpSpending"></div>
+
+    <!-- 5. INCOME VS EXPENSE TREND -->
+    <div id="rpTrend"></div>
+
+    <!-- 6. CATEGORY PERFORMANCE -->
+    <div id="rpCats"></div>
+
+    <!-- 7. GOALS + GAMIFICATION -->
+    <div id="rpGoals"></div>
+
+    <!-- 8. BEHAVIOR HEATMAP -->
+    <div id="rpHeatmap"></div>
+
+    <div style="height:24px"></div>
   </div>
 
   <!-- TRANSACTIONS VIEW -->
@@ -6250,6 +6437,386 @@ function showOnboarding(){
   var inp = document.getElementById('onbAmount');
   if(inp) inp.value = '';
 }
+</script>
+
+
+<script id="reportes-redesign">
+/* ==================================================================
+   REPORTS REDESIGN — full 8-section render
+   Replaces all previous renderReportes definitions.
+   ================================================================== */
+
+var rpPeriod = 'month';
+var RP_COLS  = ['#7979FF','#FF6666','#3BF759','#FC7E24','#DA879A','#5B90FD','#B1B1F8','#0E8A8E','#233F78','#FFE270'];
+
+/* ── Period pill UI ── */
+function rpSetPeriod(p){
+  rpPeriod = p;
+  document.querySelectorAll('.rp-pill').forEach(function(b){
+    b.classList.remove('active');
+    if(b.textContent==(p==='month'?'Mes':p==='3m'?'3M':p==='6m'?'6M':'Año'))
+      b.classList.add('active');
+  });
+  renderReportes();
+}
+
+/* ── Load aggregated data for the selected period ── */
+function rpLoadData(){
+  var now=new Date(), ny=now.getFullYear(), nm=now.getMonth();
+  var months=[];
+  if(rpPeriod==='month')  months=[[ny,nm]];
+  else if(rpPeriod==='3m') months=[[ny,nm],[ny,nm-1<0?11:nm-1],[ny,nm-2<0?10:nm-2]].map(function(p){return[p[0]+(p[1]<0?-1:0),(p[1]+12)%12];});
+  else if(rpPeriod==='6m') { for(var i=0;i<6;i++){var m2=nm-i,y2=ny+(m2<0?-1:0);m2=(m2+12)%12;months.push([y2,m2]);} }
+  else { for(var i=0;i<12;i++){var m3=(nm-i+12)%12,y3=ny+(nm-i<0?-1:0);months.push([y3,m3]);} }
+
+  var inc=0,exp=0,txAll=[];
+  var catTotals={};
+  var daySpend={};
+  months.forEach(function(ym){
+    injectRecurring(ym[0],ym[1]);
+    var txs=loadMonth(ym[0],ym[1]).transactions||[];
+    txs.forEach(function(t){
+      txAll.push(t);
+      if(t.type==='income') inc+=t.amount;
+      else { exp+=t.amount; catTotals[t.cat]=(catTotals[t.cat]||0)+t.amount; }
+      /* day key: "YYYY-M-D" */
+      var d=new Date(t.id);
+      var dk=d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate();
+      if(t.type==='expense') daySpend[dk]=(daySpend[dk]||0)+t.amount;
+    });
+  });
+  return {inc:inc,exp:exp,bal:inc-exp,txAll:txAll,catTotals:catTotals,daySpend:daySpend,months:months,n:months.length};
+}
+
+/* Load previous period for comparison */
+function rpLoadPrev(d){
+  var months=d.months, lastYM=months[months.length-1];
+  var prevMonths=[];
+  for(var i=0;i<d.n;i++){
+    var base=lastYM[1]-1-i, year=lastYM[0]+(base<0?-1:0);
+    prevMonths.push([year,(base+12)%12]);
+  }
+  var inc=0,exp=0;
+  prevMonths.forEach(function(ym){
+    var txs=loadMonth(ym[0],ym[1]).transactions||[];
+    txs.forEach(function(t){ if(t.type==='income')inc+=t.amount; else exp+=t.amount; });
+  });
+  return {inc:inc,exp:exp,bal:inc-exp};
+}
+
+/* ── HERO ── */
+function rpRenderHero(d, prev){
+  var el=document.getElementById('rpHero'); if(!el)return;
+  var score=GFX.computeScore();
+  var col=score>=80?'#4ade80':score>=50?'#fbbf24':'#f87171';
+  var balDiff=prev.bal!==0?Math.round(((d.bal-prev.bal)/Math.abs(prev.bal))*100):0;
+  var cmpClass=balDiff>5?'up':balDiff<-5?'down':'flat';
+  var cmpIcon=balDiff>0?'↑':'↓';
+  var sr=d.inc>0?Math.round(((d.inc-d.exp)/d.inc)*100):0;
+  var periodLabel=rpPeriod==='month'?MONTHS[new Date().getMonth()]+' '+new Date().getFullYear():
+                  rpPeriod==='3m'?'Últimos 3 meses':rpPeriod==='6m'?'Últimos 6 meses':'Año '+new Date().getFullYear();
+  var avgBal=d.bal/d.n;
+  el.innerHTML='<div class="rp-card rp-card-dark"><div class="rp-hero-inner">'
+    +'<div class="rp-hero-top">'
+    +'<div class="rp-hero-score-col">'
+    +'<div class="rp-hero-ring" style="background:conic-gradient('+col+' '+score+'%,rgba(255,255,255,.1) 0%)">'
+    +'<span class="rp-hero-score-num">'+score+'</span></div>'
+    +'<div class="rp-hero-score-lbl">Score</div></div>'
+    +'<div class="rp-hero-right">'
+    +'<div class="rp-hero-bal">'+(d.bal>=0?'':'-')+fmtMoney(d.bal)+'</div>'
+    +'<div class="rp-hero-period">Balance · '+periodLabel+'</div>'
+    +(prev.bal!==0?'<div class="rp-hero-compare '+cmpClass+'">'+cmpIcon+' '+Math.abs(balDiff)+'% vs período anterior</div>':'')
+    +'</div></div>'
+    +'<div class="rp-hero-stats">'
+    +'<div class="rp-hero-stat"><div class="rp-hero-stat-val positive">'+fmtMoney(d.inc)+'</div><div class="rp-hero-stat-lbl">Ingresos</div></div>'
+    +'<div class="rp-hero-stat"><div class="rp-hero-stat-val negative">'+fmtMoney(d.exp)+'</div><div class="rp-hero-stat-lbl">Gastos</div></div>'
+    +'<div class="rp-hero-stat"><div class="rp-hero-stat-val" style="color:'+(sr>=0?'#4ade80':'#f87171')+'">'+sr+'%</div><div class="rp-hero-stat-lbl">Ahorro</div></div>'
+    +'</div></div></div>';
+}
+
+/* ── INSIGHTS ── */
+function rpRenderInsights(d, prev){
+  var el=document.getElementById('rpInsights'); if(!el)return;
+  var insights=[];
+  /* Savings rate */
+  var sr=d.inc>0?Math.round(((d.inc-d.exp)/d.inc)*100):0;
+  if(sr>=30) insights.push({icon:'🏆',text:'Ahorrás el '+sr+'% de tus ingresos',sub:'Excelente disciplina financiera'});
+  else if(sr>0) insights.push({icon:'📈',text:'Ratio de ahorro: '+sr+'%',sub:'El objetivo saludable es 20%+'});
+  else insights.push({icon:'⚠️',text:'Gastos superan ingresos',sub:'Revisá tus límites por categoría'});
+  /* vs prev */
+  if(prev.exp>0){
+    var expDiff=Math.round(((d.exp-prev.exp)/prev.exp)*100);
+    if(expDiff>10) insights.push({icon:'📉',text:'Gastos subieron '+expDiff+'% vs período anterior',sub:'Identificá la categoría que más creció'});
+    else if(expDiff<-5) insights.push({icon:'✅',text:'Reduciste gastos un '+Math.abs(expDiff)+'%',sub:'Buen control del presupuesto'});
+  }
+  /* Best cat */
+  var cats=getAllCats('expense');
+  var lims=loadCatLimits();
+  var overCats=cats.filter(function(c){ return lims[c.id]&&(d.catTotals[c.id]||0)>=lims[c.id]; });
+  if(overCats.length>0) insights.push({icon:'🚨',text:overCats.length+' categoría'+(overCats.length>1?'s':'')+'  excedió el límite',sub:overCats.map(function(c){return c.label;}).join(', ')});
+  /* Goal progress */
+  var s=loadSettings(), goalARS=s.goalType==='annual'?s.annualGoal:(s.monthlyGoal*12);
+  if(goalARS>0){
+    var state=GFX.load(), pct=Math.min(100,Math.round((state.score/100)*100));
+    var accSaved=0;
+    for(var y=2024;y<=new Date().getFullYear();y++){
+      var mxM2=(y===new Date().getFullYear())?new Date().getMonth():11;
+      for(var mm=0;mm<=mxM2;mm++){
+        var txs3=loadMonth(y,mm).transactions||[];
+        accSaved+=txs3.filter(function(t){return t.type==='income';}).reduce(function(s2,t){return s2+t.amount;},0)
+                 -txs3.filter(function(t){return t.type==='expense';}).reduce(function(s2,t){return s2+t.amount;},0);
+      }
+    }
+    var gpct=Math.min(100,Math.round((accSaved/goalARS)*100));
+    insights.push({icon:'🎯',text:'Vas al '+gpct+'% de tu meta anual',sub:fmtMoney(accSaved)+' de '+fmtMoney(goalARS)});
+  }
+  /* Streak */
+  var sk=GFX.getStreakStatus();
+  if(sk.daily>=3) insights.push({icon:'🔥',text:sk.daily+' días seguidos registrando',sub:'Racha activa — seguí así'});
+
+  var h='<div class="rp-insights-scroll">';
+  insights.slice(0,5).forEach(function(ins){
+    h+='<div class="rp-insight-card">'
+      +'<div class="rp-ic-icon">'+ins.icon+'</div>'
+      +'<div class="rp-ic-text">'+ins.text+'</div>'
+      +'<div class="rp-ic-sub">'+ins.sub+'</div>'
+      +'</div>';
+  });
+  el.innerHTML=h+'</div>';
+}
+
+/* ── SPENDING BREAKDOWN ── */
+function rpRenderSpending(d){
+  var el=document.getElementById('rpSpending'); if(!el)return;
+  if(!d.exp){el.innerHTML='';return;}
+  var cats=getAllCats('expense');
+  var sorted=cats.filter(function(c){return d.catTotals[c.id]>0;})
+    .sort(function(a,b){return(d.catTotals[b.id]||0)-(d.catTotals[a.id]||0)});
+  var top=sorted.slice(0,5);
+  /* Donut */
+  var S=110,cx=55,cy=55,R=36,sw=14,circ=2*Math.PI*R;
+  var svg='<svg width="'+S+'" height="'+S+'" viewBox="0 0 '+S+' '+S+'" style="transform:rotate(-90deg)">';
+  var off=circ/4;
+  top.forEach(function(c,i){
+    var f=(d.catTotals[c.id]||0)/d.exp,len=f*circ;
+    svg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="'+RP_COLS[i]+'"'
+        +' stroke-width="'+sw+'" stroke-dasharray="'+len.toFixed(2)+' '+(circ-len).toFixed(2)+'"'
+        +' stroke-dashoffset="'+off.toFixed(2)+'"/>';
+    off-=len;
+  });
+  svg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+R+'" fill="none" stroke="rgba(177,177,248,.1)" stroke-width="'+sw+'"/></svg>';
+  var catRows='';
+  top.forEach(function(c,i){
+    var pct=Math.round((d.catTotals[c.id]||0)/d.exp*100);
+    catRows+='<div class="rp-cat-row">'
+      +'<div class="rp-cat-dot" style="background:'+RP_COLS[i]+'"></div>'
+      +'<span class="rp-cat-name">'+escHtml(c.label)+'</span>'
+      +'<span class="rp-cat-pct" style="color:'+RP_COLS[i]+'">'+pct+'%</span>'
+      +'<span class="rp-cat-amt">'+fmtMoney(d.catTotals[c.id]||0)+'</span>'
+      +'</div>';
+  });
+  el.innerHTML='<div class="rp-card"><div class="rp-spending-inner">'
+    +'<div class="rp-sec-lbl" style="margin-bottom:14px">Distribución de gastos</div>'
+    +'<div class="rp-spending-top">'
+    +'<div class="rp-donut-wrap">'+svg
+    +'<div class="rp-donut-center"><div class="rp-donut-total">'+fmtMoney(d.exp)+'</div><div class="rp-donut-lbl">total</div></div>'
+    +'</div>'
+    +'<div class="rp-cat-list">'+catRows+'</div>'
+    +'</div></div></div>';
+}
+
+/* ── TREND (line chart last 6 months) ── */
+function rpRenderTrend(){
+  var el=document.getElementById('rpTrend'); if(!el)return;
+  var now=new Date(),ny=now.getFullYear(),nm=now.getMonth();
+  var pts=[];
+  for(var i=5;i>=0;i--){
+    var m=(nm-i+12)%12, y=ny+(nm-i<0?-1:0);
+    injectRecurring(y,m);
+    var txs=loadMonth(y,m).transactions||[];
+    var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0);
+    var exp=txs.filter(function(t){return t.type==='expense';}).reduce(function(s,t){return s+t.amount;},0);
+    pts.push({m:m,y:y,inc:inc,exp:exp,sav:inc-exp});
+  }
+  var maxV=Math.max.apply(null,pts.reduce(function(a,p){return a.concat([p.inc,p.exp,Math.abs(p.sav)]);},[]));
+  if(!maxV) maxV=1;
+  var W=320,H=90,padX=12,padY=10;
+  function px(i){ return padX+(i/5)*(W-padX*2); }
+  function py(v){ return H-padY-(Math.max(0,v)/maxV)*(H-padY*2); }
+  function polyline(key,col,dashed){
+    var d=pts.map(function(p,i){return px(i).toFixed(1)+','+py(p[key]).toFixed(1);}).join(' ');
+    return '<polyline points="'+d+'" fill="none" stroke="'+col+'" stroke-width="2"'+(dashed?' stroke-dasharray="5,3"':'')+' stroke-linejoin="round" stroke-linecap="round"/>';
+  }
+  var svg='<svg viewBox="0 0 '+W+' '+(H+14)+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">';
+  /* Grid */
+  [0.5,1].forEach(function(f){
+    var y2=(H-padY-(f*(H-padY*2))).toFixed(1);
+    svg+='<line x1="'+padX+'" y1="'+y2+'" x2="'+(W-padX)+'" y2="'+y2+'" stroke="rgba(177,177,248,.15)" stroke-width="0.8"/>';
+  });
+  svg+=polyline('inc','#4ade80',false);
+  svg+=polyline('exp','#f87171',false);
+  svg+=polyline('sav','#818cf8',true);
+  /* Dots + month labels */
+  pts.forEach(function(p,i){
+    var cx2=px(i).toFixed(1);
+    svg+='<circle cx="'+cx2+'" cy="'+py(p.inc).toFixed(1)+'" r="3" fill="#4ade80"/>';
+    svg+='<circle cx="'+cx2+'" cy="'+py(p.exp).toFixed(1)+'" r="3" fill="#f87171"/>';
+    svg+='<text x="'+cx2+'" y="'+(H+11)+'" text-anchor="middle" font-size="7.5" font-family="var(--sans)" font-weight="700" fill="rgba(35,63,120,.5)">'+MONTHS_SHORT[p.m]+'</text>';
+  });
+  svg+='</svg>';
+  /* Interpretation */
+  var lastP=pts[5],prevP=pts[4];
+  var expChg=prevP.exp>0?Math.round(((lastP.exp-prevP.exp)/prevP.exp)*100):0;
+  var incChg=prevP.inc>0?Math.round(((lastP.inc-prevP.inc)/prevP.inc)*100):0;
+  var facts='';
+  if(Math.abs(expChg)>2) facts+='<div class="rp-trend-fact">'+(expChg>0?'📈 Gastos subieron':'📉 Gastos bajaron')+' '+Math.abs(expChg)+'% vs mes anterior</div>';
+  if(Math.abs(incChg)>2) facts+='<div class="rp-trend-fact">'+(incChg>0?'🟢 Ingresos crecieron':'🔴 Ingresos cayeron')+' '+Math.abs(incChg)+'% vs mes anterior</div>';
+  else facts+='<div class="rp-trend-fact">📊 Ingresos estables en los últimos meses</div>';
+  el.innerHTML='<div class="rp-card"><div class="rp-trend-inner">'
+    +'<div class="rp-sec-lbl" style="margin-bottom:10px">Ingresos vs Gastos — últimos 6 meses</div>'
+    +'<div class="rp-trend-legend">'
+    +'<div class="rp-trend-leg-item"><div class="rp-trend-leg-dot" style="background:#4ade80"></div>Ingresos</div>'
+    +'<div class="rp-trend-leg-item"><div class="rp-trend-leg-dot" style="background:#f87171"></div>Gastos</div>'
+    +'<div class="rp-trend-leg-item"><div class="rp-trend-leg-dot" style="background:#818cf8"></div>Ahorro</div>'
+    +'</div>'+svg
+    +'<div class="rp-trend-interp">'+facts+'</div>'
+    +'</div></div>';
+}
+
+/* ── CATEGORY PERFORMANCE ── */
+function rpRenderCats(d){
+  var el=document.getElementById('rpCats'); if(!el)return;
+  var lims=loadCatLimits(), limKeys=Object.keys(lims);
+  if(!limKeys.length){
+    el.innerHTML='<div class="rp-card"><div class="rp-perf-inner">'
+      +'<div class="rp-sec-lbl" style="margin-bottom:10px">Rendimiento por categoría</div>'
+      +'<div class="rp-perf-empty">Configurá límites de gasto en Metas para ver el rendimiento.</div>'
+      +'</div></div>';
+    return;
+  }
+  var cats=getAllCats('expense');
+  var rows='';
+  cats.filter(function(c){return lims[c.id]&&(d.catTotals[c.id]||0)>0;})
+    .sort(function(a,b){
+      var pa=(d.catTotals[b.id]||0)/lims[b.id], pb=(d.catTotals[a.id]||0)/lims[a.id];
+      return pa-pb;
+    })
+    .slice(0,6)
+    .forEach(function(c){
+      var spent=d.catTotals[c.id]||0, lim=lims[c.id];
+      var pct=Math.min(120,Math.round((spent/lim)*100));
+      var col=pct>=100?'#dc2626':pct>=80?'#c2410c':'#16a34a';
+      var label=pct>=100?'⚠ Excedido':pct>=80?'Cerca del límite':'Bajo control';
+      rows+='<div class="rp-perf-row">'
+        +'<div class="rp-perf-top">'
+        +'<span class="rp-perf-em">'+c.emoji+'</span>'
+        +'<span class="rp-perf-name">'+escHtml(c.label)+'</span>'
+        +'<span class="rp-perf-pct" style="color:'+col+'">'+pct+'%</span>'
+        +'</div>'
+        +'<div class="rp-perf-amts"><span>'+fmtMoney(spent)+' gastado</span><span>Límite: '+fmtMoney(lim)+'</span></div>'
+        +'<div class="rp-perf-track"><div class="rp-perf-fill" style="width:'+Math.min(100,pct)+'%;background:'+col+'"></div></div>'
+        +'</div>';
+    });
+  el.innerHTML='<div class="rp-card"><div class="rp-perf-inner">'
+    +'<div class="rp-sec-lbl" style="margin-bottom:4px">Rendimiento por categoría</div>'
+    +rows+'</div></div>';
+}
+
+/* ── GOALS + GAMIFICATION ── */
+function rpRenderGoals(){
+  var el=document.getElementById('rpGoals'); if(!el)return;
+  var s=loadSettings(), goalARS=s.goalType==='annual'?s.annualGoal:(s.monthlyGoal*12);
+  var state=GFX.load();
+  var now=new Date(), accSaved=0;
+  for(var y=2024;y<=now.getFullYear();y++){
+    for(var mm=0;mm<=(y===now.getFullYear()?now.getMonth():11);mm++){
+      var txs=loadMonth(y,mm).transactions||[];
+      accSaved+=txs.filter(function(t){return t.type==='income';}).reduce(function(s2,t){return s2+t.amount;},0)
+               -txs.filter(function(t){return t.type==='expense';}).reduce(function(s2,t){return s2+t.amount;},0);
+    }
+  }
+  var hasGoal=goalARS>0;
+  var gpct=hasGoal?Math.min(100,Math.max(0,Math.round((accSaved/goalARS)*100))):0;
+  var fillCol=gpct>=80?'#4ade80':gpct>=50?'#fbbf24':'#818cf8';
+  var msData=[{pct:25,lbl:'Primer cuarto'},{pct:50,lbl:'Mitad'},{pct:75,lbl:'Casi llegando'},{pct:100,lbl:'Meta alcanzada'}];
+  var msHtml='<div class="rp-goal-milestones">';
+  msData.forEach(function(ms){
+    var done=gpct>=ms.pct;
+    msHtml+='<div class="rp-ms'+(done?' done':'')+'">'
+      +'<div class="rp-ms-check">'+(done?'✓':'')+'</div>'
+      +'<div class="rp-ms-body"><div class="rp-ms-lbl">'+ms.lbl+'</div>'
+      +'<div class="rp-ms-val">'+ms.pct+'% · '+fmtMoney(goalARS*(ms.pct/100))+'</div>'
+      +'</div></div>';
+  });
+  msHtml+='</div>';
+  var inner=hasGoal
+    ? '<div class="rp-goal-head"><span class="rp-goal-lbl">Meta '+(s.goalType==='annual'?'anual':'mensual')+'</span><span class="rp-goal-pct">'+gpct+'%</span></div>'
+      +'<div class="rp-goal-amounts">'+fmtMoney(Math.max(0,accSaved))+' de '+fmtMoney(goalARS)+'</div>'
+      +'<div class="rp-goal-track"><div class="rp-goal-fill" style="width:'+gpct+'%;background:'+fillCol+'"></div></div>'
+      +msHtml
+    : '<div class="rp-goal-empty">Sin meta configurada.</div>'
+      +'<button class="rp-goal-cta" onclick="closeForm&&closeGoalsSheet&&openGoalsSheet()">Configurar meta</button>';
+  el.innerHTML='<div class="rp-card rp-card-dark"><div class="rp-goals-inner">'
+    +'<div class="rp-sec-lbl rp-sec-lbl-dark" style="margin-bottom:14px">Metas y gamificación</div>'
+    +inner+'</div></div>';
+}
+
+/* ── BEHAVIOR HEATMAP ── */
+function rpRenderHeatmap(){
+  var el=document.getElementById('rpHeatmap'); if(!el)return;
+  var now=new Date(), y=now.getFullYear(), m=now.getMonth();
+  var daysInMonth=new Date(y,m+1,0).getDate();
+  var firstDay=new Date(y,m,1).getDay(); /* 0=Sun */
+  /* Max daily spend for color scale */
+  var allSpends=[];
+  var ds={};
+  var txs=loadMonth(y,m).transactions||[];
+  txs.forEach(function(t){
+    if(t.type!=='expense') return;
+    var d=new Date(t.id), dk=d.getDate();
+    ds[dk]=(ds[dk]||0)+t.amount;
+  });
+  Object.keys(ds).forEach(function(k){ allSpends.push(ds[k]); });
+  var maxDay=allSpends.length?Math.max.apply(null,allSpends):1;
+  var grid='';
+  /* Day-of-week headers */
+  ['D','L','M','X','J','V','S'].forEach(function(d){ grid+='<div class="rp-hm-day" style="font-size:9px;color:var(--t4);font-weight:700;background:transparent">'+d+'</div>'; });
+  /* Empty cells before first day */
+  for(var i=0;i<firstDay;i++) grid+='<div class="rp-hm-day rp-hm-none"></div>';
+  for(var d2=1;d2<=daysInMonth;d2++){
+    var isFuture=d2>now.getDate()&&m===now.getMonth()&&y===now.getFullYear();
+    var spend=ds[d2]||0;
+    var cls='rp-hm-day ';
+    if(isFuture) cls+='rp-hm-fut';
+    else if(!spend) cls+='rp-hm-none';
+    else { var ratio=spend/maxDay; cls+=ratio>0.66?'rp-hm-hi':ratio>0.33?'rp-hm-mid':'rp-hm-lo'; }
+    grid+='<div class="'+cls+'">'+d2+'</div>';
+  }
+  el.innerHTML='<div class="rp-card"><div class="rp-heatmap-inner">'
+    +'<div class="rp-sec-lbl" style="margin-bottom:12px">Mapa de hábitos — '+MONTHS[m]+' '+y+'</div>'
+    +'<div class="rp-heatmap-grid">'+grid+'</div>'
+    +'<div class="rp-hm-legend">'
+    +'<div class="rp-hm-leg-chip" style="background:rgba(22,163,74,.2)"></div>Bajo'
+    +'<div class="rp-hm-leg-chip" style="margin-left:8px;background:rgba(234,179,8,.25)"></div>Medio'
+    +'<div class="rp-hm-leg-chip" style="margin-left:8px;background:rgba(220,38,38,.2)"></div>Alto'
+    +'<div class="rp-hm-leg-chip" style="margin-left:8px;background:rgba(177,177,248,.08)"></div>Sin gasto'
+    +'</div></div></div>';
+}
+
+/* ── MASTER RENDER ── */
+function renderReportes(){
+  var d    = rpLoadData();
+  var prev = rpLoadPrev(d);
+  rpRenderHero(d, prev);
+  rpRenderInsights(d, prev);
+  rpRenderSpending(d);
+  rpRenderTrend();
+  rpRenderCats(d);
+  rpRenderGoals();
+  rpRenderHeatmap();
+}
+
+console.log('[Reports] Redesign loaded.');
 </script>
 
 </body>
