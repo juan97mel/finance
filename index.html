@@ -332,8 +332,8 @@ body::after{
 }
 .proj-head{font-size:10px;letter-spacing:2px;color:var(--t3);text-transform:uppercase;margin-bottom:16px;font-weight:700;}
 .proj-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(177,177,248,.18);}
-.proj-row:last-child{border-bottom:none;}.proj-row.sub{opacity:.65;}
-.proj-lbl{font-size:13px;color:var(--t2);font-weight:500;}
+.proj-row:last-child{border-bottom:none;}.proj-row.sub{opacity:1;}
+.proj-lbl{font-size:13px;color:var(--t2);font-weight:600;}
 .proj-val{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:-.3px;}
 .proj-note{font-size:10px;color:var(--t4);margin-top:2px;text-align:right;font-weight:500;}
 .proj-months{padding:0 16px;}
@@ -1316,132 +1316,70 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 .pm-ver-mas:active { opacity: .75; }
 
 
-/* ===== FORM MONTH SELECTOR ======================================= */
-.tx-month-row {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 12px 14px;
-  background: rgba(255,255,255,.6);
-  border: 1.5px solid rgba(177,177,248,.3);
-  border-radius: var(--r-md);
-  margin-bottom: 9px;
+/* ===== PROJ CHART ================================================= */
+.proj-chart-wrap {
+  margin: 12px 16px 0;
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); border-radius: var(--r3); box-shadow: var(--shdw-sm); overflow: hidden;
 }
-.tx-month-lbl {
-  font-size: 13px; font-weight: 600; color: var(--t2);
-  white-space: nowrap; padding-top: 3px; flex-shrink: 0;
+.proj-chart-hdr {
+  padding: 16px 20px 0; display: flex; align-items: center; justify-content: space-between;
 }
-.tx-month-pills {
-  display: flex; flex-wrap: wrap; gap: 5px; flex: 1;
+.proj-chart-ttl {
+  font-family: var(--display); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--navy-mid); font-weight: 700;
 }
-.tx-month-pill {
-  padding: 4px 11px; border-radius: var(--r4);
-  border: 1.5px solid rgba(177,177,248,.3);
-  background: transparent; color: var(--t3);
-  font-size: 12px; font-weight: 700; cursor: pointer;
-  font-family: var(--sans); transition: all .12s; white-space: nowrap;
-}
-.tx-month-pill.active {
-  background: var(--navy); border-color: var(--navy); color: #fff;
-}
-.tx-month-pill.cur-pill-mark {
-  border-color: var(--periwinkle); color: var(--periwinkle);
-}
-.tx-month-pill.active.cur-pill-mark {
-  background: var(--periwinkle); border-color: var(--periwinkle); color: #fff;
-}
-.tx-month-pill:active { transform: scale(.95); }
-
-
-/* ===== HOME MONTH NAV ============================================= */
-.home-month-nav {
+.proj-chart-legend { display: flex; gap: 12px; }
+.proj-legend-item {
   display: flex; align-items: center; gap: 4px;
+  font-size: 10px; color: var(--t3); font-weight: 600;
 }
-.home-nav-btn {
-  background: none; border: none; cursor: pointer;
-  font-size: 20px; color: var(--navy-mid); padding: 2px 6px;
-  line-height: 1; transition: opacity .12s; border-radius: 6px;
-}
-.home-nav-btn:active { opacity: .5; }
-.home-period { min-width: 80px; text-align: center; }
+.proj-legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+.proj-chart-canvas-wrap { padding: 10px 12px 14px; }
 
-
-/* ===== PROJECTION REDESIGN v2 ===================================== */
-
-/* Summary card rows — bigger values, better spacing */
-.proj-card { padding: 22px 22px 18px; }
-.proj-head { margin-bottom: 20px; font-size: 11px; }
-.proj-row  { padding: 14px 0; }
-.proj-lbl  { font-size: 14px; }
-.proj-val  { font-size: 20px; }
-.proj-note { font-size: 11px; }
-.proj-row.sub .proj-val { font-size: 15px; }
-.proj-row.sub { opacity: 1; }
-.proj-row.sub .proj-lbl { color: rgba(255,255,255,.45); font-size: 13px; }
-
-/* ── Insight card ── */
+/* ===== IMPROVED INSIGHT CARD ====================================== */
 .proj-insight-card {
   margin: 12px 16px 0;
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(177,177,248,.3);
-  border-radius: var(--r3); overflow: hidden;
+  background: rgba(255,255,255,.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(177,177,248,.3); border-radius: var(--r3); overflow: hidden;
   box-shadow: 0 4px 24px rgba(35,63,120,.10);
 }
-/* Goal reached / summary banner */
-.insight-banner {
-  padding: 22px 22px 18px;
-  border-bottom: 1px solid rgba(177,177,248,.2);
-}
+.insight-banner { padding: 22px 22px 18px; border-bottom: 1px solid rgba(177,177,248,.2); }
 .insight-eyebrow {
   font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--navy-mid); font-weight: 700; margin-bottom: 10px;
   display: flex; align-items: center; gap: 6px;
 }
-.insight-eyebrow-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--periwinkle); flex-shrink: 0;
-}
+.insight-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--periwinkle); flex-shrink: 0; }
 .insight-headline {
   font-family: var(--display); font-size: 32px; font-weight: 800;
   letter-spacing: -1.5px; line-height: 1; margin-bottom: 6px;
 }
-.insight-tagline {
-  font-size: 13px; color: var(--t3); font-weight: 500; line-height: 1.5;
-}
-/* Progress section */
+.insight-tagline { font-size: 13px; color: var(--t3); font-weight: 500; line-height: 1.5; }
 .insight-prog-section { padding: 18px 22px 0; }
 .insight-prog-top {
   display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;
 }
 .insight-prog-lbl { font-size: 11px; color: var(--t3); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
-.insight-prog-pct { font-family: var(--display); font-size: 14px; font-weight: 800; color: var(--t1); }
-.insight-track {
-  height: 10px; background: rgba(177,177,248,.18);
-  border-radius: 5px; overflow: hidden; margin-bottom: 18px; position: relative;
-}
-.insight-fill {
-  height: 100%; border-radius: 5px;
-  transition: width .6s cubic-bezier(.32,.72,0,1);
-}
-/* Milestone rows */
+.insight-prog-pct { font-family: var(--display); font-size: 13px; font-weight: 800; color: var(--t1); }
+.insight-track { height: 10px; background: rgba(177,177,248,.18); border-radius: 5px; overflow: hidden; margin-bottom: 18px; }
+.insight-fill { height: 100%; border-radius: 5px; transition: width .6s cubic-bezier(.32,.72,0,1); }
 .insight-milestones { border-top: 1px solid rgba(177,177,248,.2); }
 .insight-ms {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 22px;
+  display: flex; align-items: center; gap: 14px; padding: 14px 22px;
   border-bottom: 1px solid rgba(177,177,248,.12);
-  transition: background .12s;
 }
 .insight-ms:last-child { border-bottom: none; }
 .insight-ms.reached { background: rgba(59,247,89,.05); }
 .insight-ms-check {
   width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
 }
 .insight-ms-check.done { background: rgba(59,247,89,.2); color: var(--green-dk); }
-.insight-ms-check.todo { background: rgba(177,177,248,.15); color: var(--t3); }
+.insight-ms-check.todo { background: rgba(177,177,248,.15); color: var(--t3); font-size: 10px; }
 .insight-ms-body { flex: 1; min-width: 0; }
-.insight-ms-ttl {
-  font-size: 14px; font-weight: 700; color: var(--t1); margin-bottom: 2px;
-}
+.insight-ms-ttl { font-size: 14px; font-weight: 700; color: var(--t1); margin-bottom: 2px; }
 .insight-ms-date { font-size: 12px; color: var(--t3); font-weight: 500; }
 .insight-ms-right { text-align: right; flex-shrink: 0; }
 .insight-ms-pct {
@@ -1451,11 +1389,7 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 }
 .insight-ms-pct.done { background: rgba(59,247,89,.2); color: var(--green-dk); }
 .insight-ms-amt { font-family: var(--display); font-size: 12px; font-weight: 800; color: var(--t2); }
-
-/* No-goal / warning states */
-.insight-empty {
-  padding: 32px 22px; text-align: center;
-}
+.insight-empty { padding: 32px 22px; text-align: center; }
 .insight-empty-icon { font-size: 36px; margin-bottom: 12px; }
 .insight-empty-ttl { font-size: 16px; font-weight: 700; color: var(--t1); margin-bottom: 6px; }
 .insight-empty-sub { font-size: 13px; color: var(--t3); margin-bottom: 18px; line-height: 1.5; }
@@ -1464,7 +1398,23 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
   background: var(--navy); color: #fff; font-size: 14px; font-weight: 700;
   cursor: pointer; font-family: var(--sans); transition: all .12s;
 }
-.insight-cta-btn:active { opacity: .85; transform: scale(.98); }
+
+
+/* ===== PROJ CARD FINAL OVERRIDE (navy bg, full contrast) ============ */
+.proj-card {
+  background: var(--navy) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 22px 22px 18px !important;
+}
+.proj-head { color: rgba(255,255,255,.4) !important; margin-bottom: 20px !important; font-size: 11px !important; }
+.proj-row { border-bottom-color: rgba(255,255,255,.09) !important; padding: 13px 0 !important; }
+.proj-lbl { color: rgba(255,255,255,.85) !important; font-size: 14px !important; font-weight: 500 !important; }
+.proj-row.sub .proj-lbl { color: rgba(255,255,255,.55) !important; font-size: 12px !important; }
+.proj-val { font-size: 18px !important; }
+.proj-row.sub .proj-val { font-size: 14px !important; }
+.proj-note { color: rgba(255,255,255,.35) !important; font-size: 11px !important; }
 
 </style>
 </head>
@@ -1515,11 +1465,7 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
   <div class="view active" id="view-monthly">
     <div class="topbar topbar-clean">
       <span class="app-name">Mis Finanzas</span>
-      <div class="home-month-nav">
-        <button class="home-nav-btn" onclick="changeMonth(-1)">&#8249;</button>
-        <span class="home-period" id="monthLabel"></span>
-        <button class="home-nav-btn" onclick="changeMonth(1)">&#8250;</button>
-      </div>
+      <span class="home-period" id="monthLabel"></span>
     </div>
 
     <div class="hero-card">
@@ -1599,12 +1545,13 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
   </div>
 
   <!-- PROJECTED VIEW -->
-  <div class="view" id="view-projected">
+  <div class="view" id="view-reportes">
     <div class="view-header" style="margin-bottom:0">
-      <span class="view-title">Proyecci&#243;n</span>
+      <span class="view-title">Reportes</span>
       <span style="font-size:10px;color:var(--t4);font-weight:600" id="projBasis"></span>
     </div>
     <div class="proj-card" id="projSummary"></div>
+    <div id="projChart" class="proj-chart-wrap"></div>
     <div id="projInsight"></div>
   </div>
 
@@ -1702,8 +1649,8 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
   <button class="tab-add-btn" id="tab-add" onclick="openForm('expense')">
     <div class="tab-add-inner"><span class="tab-add-plus">+</span></div>
   </button>
-  <button class="tab-btn" onclick="setTab('projected')" id="tab-projected">
-    <span class="tab-icon">&#8599;</span><span class="tab-lbl">Proyecc.</span><div class="tab-dot"></div>
+  <button class="tab-btn" onclick="setTab('reportes')" id="tab-reportes">
+    <span class="tab-icon">&#8599;</span><span class="tab-lbl">Reportes</span><div class="tab-dot"></div>
   </button>
   <button class="tab-btn" onclick="setTab('cuenta')" id="tab-cuenta">
     <span class="tab-icon">&#9711;</span><span class="tab-lbl">Cuenta</span><div class="tab-dot"></div>
@@ -2095,9 +2042,9 @@ function renderGoal(monthBalance){
 
 function renderAnnual(){document.getElementById('yearLabel').textContent=viewYear;var totI=0,totE=0,sums=[];for(var m=0;m<12;m++){injectRecurring(viewYear,m);var txs=loadMonth(viewYear,m).transactions||[];var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0);var exp=txs.filter(function(t){return t.type==='expense';}).reduce(function(s,t){return s+t.amount;},0);totI+=inc;totE+=exp;sums.push({m:m,i:inc,e:exp,b:inc-exp});}var bal=totI-totE;document.getElementById('annTotals').innerHTML='<div><div class="at-label">Ingresos</div><div class="at-value positive">'+fmtMoney(totI)+'</div></div><div><div class="at-label">Egresos</div><div class="at-value negative">'+fmtMoney(totE)+'</div></div><div><div class="at-label">Balance</div><div class="at-value '+(bal>=0?'positive':'negative')+'">'+(bal<0?'-':'')+fmtMoney(bal)+'</div></div>';var mx=1;sums.forEach(function(s){if(s.i>mx)mx=s.i;if(s.e>mx)mx=s.e;});var gh='';sums.forEach(function(s){var ic=(s.m===curMonth&&viewYear===curYear),hd=s.i>0||s.e>0,ip=Math.round((s.i/mx)*100),ep=Math.round((s.e/mx)*100),bc=s.b>=0?'var(--green)':'var(--red)',bAmt=fmtMoneyAt(Math.abs(s.b),viewYear,s.m),iAmt=fmtMoneyAt(s.i,viewYear,s.m),eAmt=fmtMoneyAt(s.e,viewYear,s.m);gh+='<div class="ann-row" onclick="goToMonth('+s.m+')" style="'+(ic?'border-color:var(--periwinkle)':'')+'"><span class="ann-mon'+(ic?' ann-cur':'')+'">'+MONTHS_SHORT[s.m]+'</span><div class="ann-bars"><div class="ann-bg"><div class="ann-fill ann-inc" style="width:'+ip+'%"></div></div><div class="ann-bg"><div class="ann-fill ann-exp" style="width:'+ep+'%"></div></div></div><div class="ann-right"><div class="ann-bal" style="color:'+(hd?bc:'var(--t4)')+'">'+(hd?((s.b>=0?'+':'-')+bAmt):'\u2014')+'</div>'+(hd?'<div class="ann-det">'+iAmt+' / '+eAmt+'</div>':'')+'</div></div>';});document.getElementById('annGrid').innerHTML=gh;}
 
-function renderProjected(){var real=[];for(var m=0;m<12;m++){injectRecurring(curYear,m);var txs=loadMonth(curYear,m).transactions||[];if(!txs.length)continue;var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0),fixed=txs.filter(function(t){return t.type==='expense'&&isFixedExpenseCat(t.cat);}).reduce(function(s,t){return s+t.amount;},0),vari=txs.filter(function(t){return t.type==='expense'&&!isFixedExpenseCat(t.cat);}).reduce(function(s,t){return s+t.amount;},0);if(inc>0||fixed>0||vari>0)real.push({m:m,inc:inc,fixed:fixed,vari:vari});}var n=real.length,avgI=n>0?real.reduce(function(s,d){return s+d.inc;},0)/n:0,avgF=n>0?real.reduce(function(s,d){return s+d.fixed;},0)/n:0,avgV=n>0?real.reduce(function(s,d){return s+d.vari;},0)/n:0,avgE=avgF+avgV,pI=avgI*12,pF=avgF*12,pV=avgV*12,pE=pF+pV,pB=pI-pE,sr=pI>0?Math.round(((pI-pE)/pI)*100):0;document.getElementById('projBasis').textContent=n>0?'Basado en '+n+' mes'+(n!==1?'es':''):'';if(!n){document.getElementById('projSummary').innerHTML='<div class="empty-state" style="padding:20px 0">Registr\u00e1 al menos un mes para ver la proyecci\u00f3n</div>';document.getElementById('projMonths').innerHTML='';return;}document.getElementById('projSummary').innerHTML='<div class="proj-head">Proyecci\u00f3n \u00b7 '+curYear+'</div><div class="proj-row"><span class="proj-lbl">Ingresos</span><div><div class="proj-val positive">'+fmtMoney(pI)+'</div><div class="proj-note">'+fmtMoney(avgI)+'/mes</div></div></div><div class="proj-row sub"><span class="proj-lbl">Gastos fijos</span><div><div class="proj-val negative">'+fmtMoney(pF)+'</div><div class="proj-note">'+fmtMoney(avgF)+'/mes</div></div></div><div class="proj-row sub"><span class="proj-lbl">Gastos variables</span><div><div class="proj-val negative">'+fmtMoney(pV)+'</div><div class="proj-note">'+fmtMoney(avgV)+'/mes</div></div></div><div class="proj-row"><span class="proj-lbl">Balance proyectado</span><div><div class="proj-val '+(pB>=0?'positive':'negative')+'">'+(pB<0?'-':'')+fmtMoney(pB)+'</div><div class="proj-note">Tasa de ahorro: '+sr+'%</div></div></div>';var mx=Math.max(avgI,avgE,1);real.forEach(function(d){if(d.inc>mx)mx=d.inc;if(d.fixed+d.vari>mx)mx=d.fixed+d.vari;});var ph='';for(var m=0;m<12;m++){var r=null;for(var k=0;k<real.length;k++){if(real[k].m===m){r=real[k];break;}}var isR=r!==null,inc=isR?r.inc:avgI,exp=isR?(r.fixed+r.vari):avgE,b=inc-exp,ip=Math.round((inc/mx)*100),ep=Math.round((exp/mx)*100);ph+='<div class="pm-row"><span class="pm-name '+(isR?'is-real':'is-proj')+'">'+MONTHS_SHORT[m]+'</span><div class="pm-bars"><div class="pm-bar-bg"><div class="pm-fill '+(isR?'pm-ri':'pm-pi')+'" style="width:'+ip+'%"></div></div><div class="pm-bar-bg"><div class="pm-fill '+(isR?'pm-re':'pm-pe')+'" style="width:'+ep+'%"></div></div></div><span class="pm-bal" style="color:'+(b>=0?'var(--green)':'var(--red)')+'">'+(b<0?'-':'+')+fmtMoney(b)+'</span></div>';}ph+='<div class="pm-foot">* gris = proyectado \u00b7 fijos = alquiler, servicios, impuestos, prepaga</div>';document.getElementById('projMonths').innerHTML=ph;}
+function renderReportes(){var real=[];for(var m=0;m<12;m++){injectRecurring(curYear,m);var txs=loadMonth(curYear,m).transactions||[];if(!txs.length)continue;var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0),fixed=txs.filter(function(t){return t.type==='expense'&&isFixedExpenseCat(t.cat);}).reduce(function(s,t){return s+t.amount;},0),vari=txs.filter(function(t){return t.type==='expense'&&!isFixedExpenseCat(t.cat);}).reduce(function(s,t){return s+t.amount;},0);if(inc>0||fixed>0||vari>0)real.push({m:m,inc:inc,fixed:fixed,vari:vari});}var n=real.length,avgI=n>0?real.reduce(function(s,d){return s+d.inc;},0)/n:0,avgF=n>0?real.reduce(function(s,d){return s+d.fixed;},0)/n:0,avgV=n>0?real.reduce(function(s,d){return s+d.vari;},0)/n:0,avgE=avgF+avgV,pI=avgI*12,pF=avgF*12,pV=avgV*12,pE=pF+pV,pB=pI-pE,sr=pI>0?Math.round(((pI-pE)/pI)*100):0;document.getElementById('projBasis').textContent=n>0?'Basado en '+n+' mes'+(n!==1?'es':''):'';if(!n){document.getElementById('projSummary').innerHTML='<div class="empty-state" style="padding:20px 0">Registr\u00e1 al menos un mes para ver la proyecci\u00f3n</div>';document.getElementById('projMonths').innerHTML='';return;}document.getElementById('projSummary').innerHTML='<div class="proj-head">Proyecci\u00f3n \u00b7 '+curYear+'</div><div class="proj-row"><span class="proj-lbl">Ingresos</span><div><div class="proj-val positive">'+fmtMoney(pI)+'</div><div class="proj-note">'+fmtMoney(avgI)+'/mes</div></div></div><div class="proj-row sub"><span class="proj-lbl">Gastos fijos</span><div><div class="proj-val negative">'+fmtMoney(pF)+'</div><div class="proj-note">'+fmtMoney(avgF)+'/mes</div></div></div><div class="proj-row sub"><span class="proj-lbl">Gastos variables</span><div><div class="proj-val negative">'+fmtMoney(pV)+'</div><div class="proj-note">'+fmtMoney(avgV)+'/mes</div></div></div><div class="proj-row"><span class="proj-lbl">Balance proyectado</span><div><div class="proj-val '+(pB>=0?'positive':'negative')+'">'+(pB<0?'-':'')+fmtMoney(pB)+'</div><div class="proj-note">Tasa de ahorro: '+sr+'%</div></div></div>';var mx=Math.max(avgI,avgE,1);real.forEach(function(d){if(d.inc>mx)mx=d.inc;if(d.fixed+d.vari>mx)mx=d.fixed+d.vari;});var ph='';for(var m=0;m<12;m++){var r=null;for(var k=0;k<real.length;k++){if(real[k].m===m){r=real[k];break;}}var isR=r!==null,inc=isR?r.inc:avgI,exp=isR?(r.fixed+r.vari):avgE,b=inc-exp,ip=Math.round((inc/mx)*100),ep=Math.round((exp/mx)*100);ph+='<div class="pm-row"><span class="pm-name '+(isR?'is-real':'is-proj')+'">'+MONTHS_SHORT[m]+'</span><div class="pm-bars"><div class="pm-bar-bg"><div class="pm-fill '+(isR?'pm-ri':'pm-pi')+'" style="width:'+ip+'%"></div></div><div class="pm-bar-bg"><div class="pm-fill '+(isR?'pm-re':'pm-pe')+'" style="width:'+ep+'%"></div></div></div><span class="pm-bal" style="color:'+(b>=0?'var(--green)':'var(--red)')+'">'+(b<0?'-':'+')+fmtMoney(b)+'</span></div>';}ph+='<div class="pm-foot">* gris = proyectado \u00b7 fijos = alquiler, servicios, impuestos, prepaga</div>';document.getElementById('projMonths').innerHTML=ph;}
 
-function setTab(t){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('view-'+t).classList.add('active');document.getElementById('tab-'+t).classList.add('active');if(t==='monthly')renderMonthly();else if(t==='annual')renderAnnual();else renderProjected();}
+function setTab(t){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('view-'+t).classList.add('active');document.getElementById('tab-'+t).classList.add('active');if(t==='monthly')renderMonthly();else if(t==='annual')renderAnnual();else renderReportes();}
 function changeMonth(d){curMonth+=d;if(curMonth>11){curMonth=0;curYear++;}if(curMonth<0){curMonth=11;curYear--;}renderMonthly();}
 function changeYear(d){viewYear+=d;renderAnnual();}
 function goToMonth(m){curMonth=m;curYear=viewYear;setTab('monthly');}
@@ -2436,7 +2383,7 @@ function setTab(t){
   if(t==='monthly')renderMonthly();
   else if(t==='transactions')renderTransactionsView();
   else if(t==='annual')renderAnnual();
-  else if(t==='projected')renderProjected();
+  else if(t==='reportes')renderReportes();
   else if(t==='cuenta')renderCuenta();
 }
 function changeMonth(d){
@@ -4483,129 +4430,65 @@ function renderCuenta(){
 
 
 
-
-
-
-<script id="form-cur-month">
-/* ==================================================================
-   Form always saves to curYear/curMonth (whatever month is visible).
-   Navigate home to any past month, then tap + to add there.
-   ================================================================== */
-
-function openForm(t){
-  t = t || 'expense';
-  formType = t;
-  setFormType(t);
-  editingTxId = null;
-  recActive   = false;
-  document.getElementById('amountSym').textContent = currencySymbol();
-  document.getElementById('txAmount').value = '';
-  document.getElementById('txDesc').value   = '';
-  var sc=document.getElementById('txSubCat'); if(sc) sc.value='';
-  var rd=document.getElementById('txRecDay'); if(rd) rd.value='';
-  var track=document.getElementById('recToggleTrack'); if(track) track.className='rec-toggle-track';
-  var lbl=document.querySelector('.rec-form-lbl'); if(lbl) lbl.className='rec-form-lbl';
-  var wrap=document.getElementById('recDayWrap'); if(wrap) wrap.style.display='none';
-  refreshCatSelect();
-  updateSubcatSelect();
-  document.getElementById('ncPanel').classList.remove('open');
-  document.getElementById('formOverlay').classList.add('open');
-  setTimeout(function(){ document.getElementById('txAmount').focus(); }, 200);
-}
-
-function editTx(id){
-  var data=loadMonth(curYear,curMonth);
-  var tx=(data.transactions||[]).filter(function(t){return t.id===id;})[0];
-  if(!tx)return;
-  editingTxId=id; formType=tx.type;
-  setFormType(tx.type);
-  recActive=false;
-  var track=document.getElementById('recToggleTrack'); if(track) track.className='rec-toggle-track';
-  var lbl2=document.querySelector('.rec-form-lbl'); if(lbl2) lbl2.className='rec-form-lbl';
-  var wrap=document.getElementById('recDayWrap'); if(wrap) wrap.style.display='none';
-  document.getElementById('amountSym').textContent=currencySymbol();
-  refreshCatSelect();
-  document.getElementById('ncPanel').classList.remove('open');
-  document.getElementById('formOverlay').classList.add('open');
-  setTimeout(function(){
-    document.getElementById('txCat').value=tx.cat;
-    updateSubcatSelect();
-    var sc=document.getElementById('txSubCat');
-    if(sc&&tx.subcat){
-      var found=false;
-      for(var i=0;i<sc.options.length;i++){if(sc.options[i].value===tx.subcat){found=true;break;}}
-      if(!found){var opt=document.createElement('option');opt.value=tx.subcat;opt.textContent=tx.subcat;sc.appendChild(opt);}
-      sc.value=tx.subcat;
-    }
-    var s=loadSettings();
-    var rawAmt=s.currency==='USD'
-      ? Math.round((tx.amount/getRateForMonth(curYear,curMonth))*100)/100
-      : Math.round(tx.amount);
-    document.getElementById('txAmount').value=addDots(String(rawAmt));
-    var catLbl=getCat(tx.type,tx.cat).label;
-    document.getElementById('txDesc').value=(tx.desc&&tx.desc!==catLbl)?tx.desc:'';
-    var sb=document.getElementById('submitBtn'); if(sb) sb.textContent='Guardar cambios';
-  },60);
-}
-
-function addTx(){
-  var cat    = document.getElementById('txCat').value;
-  var amt    = parseAmtInput();
-  var rawDesc= document.getElementById('txDesc').value.trim();
-  var scEl   = document.getElementById('txSubCat');
-  var subcat = scEl ? scEl.value.trim() : '';
-  var desc   = rawDesc || getCat(formType,cat).label;
-  if(!amt||amt<=0){ document.getElementById('txAmount').focus(); return; }
-
-  var data = loadMonth(curYear, curMonth);
-  if(!data.transactions) data.transactions=[];
-
-  if(editingTxId!==null){
-    for(var i=0;i<data.transactions.length;i++){
-      if(data.transactions[i].id===editingTxId){
-        var tx=data.transactions[i];
-        tx.type=formType; tx.desc=desc; tx.cat=cat; tx.subcat=subcat; tx.amount=toARS(amt);
-        break;
-      }
-    }
-    editingTxId=null;
-    showToast('Cambios guardados \u2713');
-  }else{
-    var now=new Date(), txId;
-    var isCurMonth=(curYear===now.getFullYear()&&curMonth===now.getMonth());
-    if(isCurMonth){
-      txId=Date.now();
-    }else{
-      /* Past month: use mid-month timestamp so sorting is correct */
-      txId=new Date(curYear,curMonth,15,12,0,0).getTime()+Math.floor(Math.random()*86400000);
-    }
-    data.transactions.push({id:txId,type:formType,desc:desc,cat:cat,subcat:subcat,amount:toARS(amt)});
-    if(recActive){
-      var dayEl=document.getElementById('txRecDay');
-      var day=dayEl?parseInt(dayEl.value)||1:1;
-      day=Math.max(1,Math.min(28,day));
-      var items=loadRecurring();
-      items.push({id:'r_'+Date.now(),type:formType,desc:desc,cat:cat,subcat:subcat,amount:toARS(amt),day:day});
-      saveRecurring(items);
-      showToast(formType==='income'?'Ingreso recurrente \u2713':'Gasto recurrente \u2713');
-    }else{
-      showToast((formType==='income'?'Ingreso':'Gasto')+' agregado \u2713');
-    }
+<script id="proj-v2">
+function renderProjChart(el,real,avgI,avgE){
+  if(!el)return;
+  var now=new Date(),months=[];
+  for(var m=0;m<12;m++){
+    var rd=null;for(var k=0;k<real.length;k++){if(real[k].m===m){rd=real[k];break;}}
+    var isR=rd!==null;
+    var isFut=(m>now.getMonth()&&curYear===now.getFullYear())||curYear>now.getFullYear();
+    months.push({m:m,inc:isR?rd.inc:avgI,exp:isR?rd.exp:avgE,isR:isR,isFut:isFut&&!isR});
   }
-  saveMonth(curYear,curMonth,data);
-  closeForm();
-  renderMonthly();
-  var av=document.querySelector('.view.active');
-  if(av&&av.id==='view-transactions') renderTransactionsView();
+  var maxV=Math.max.apply(null,months.reduce(function(a,d){return a.concat([d.inc,d.exp]);},[]))||1;
+  var H=160,W=360,slotW=W/12,bw=8,gap=3;
+
+  /* Build SVG */
+  var svg='<svg viewBox="0 0 '+W+' '+(H+16)+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;overflow:visible">';
+
+  /* Horizontal grid + amount labels */
+  [0.25,0.5,0.75,1].forEach(function(f){
+    var y=(H*(1-f)).toFixed(1);
+    svg+='<line x1="0" y1="'+y+'" x2="'+W+'" y2="'+y+'" stroke="rgba(177,177,248,.18)" stroke-width="0.8" stroke-dasharray="3,3"/>';
+    var labelAmt=Math.round(maxV*f);
+    var labelStr=labelAmt>=1000000?(labelAmt/1000000).toFixed(1)+'M':labelAmt>=1000?Math.round(labelAmt/1000)+'k':''+labelAmt;
+    svg+='<text x="2" y="'+(parseFloat(y)-2)+'" font-size="6.5" font-family="var(--sans)" font-weight="600" fill="rgba(177,177,248,.45)">'+labelStr+'</text>';
+  });
+
+  /* Bars */
+  months.forEach(function(d,i){
+    var cx=(i+0.5)*slotW;
+    var a=d.isFut?0.28:0.92;
+    var incH=Math.max(2,(d.inc/maxV)*(H-4));
+    var expH=Math.max(2,(d.exp/maxV)*(H-4));
+
+    /* Income bar (left of center) */
+    var ix=cx-bw-gap/2;
+    svg+='<rect x="'+ix.toFixed(1)+'" y="'+(H-incH).toFixed(1)+'" width="'+bw+'" height="'+incH.toFixed(1)+'"'
+        +' rx="3" fill="rgba(59,247,89,'+a+')"/>';
+    /* Expense bar (right of center) */
+    var ex=cx+gap/2;
+    svg+='<rect x="'+ex.toFixed(1)+'" y="'+(H-expH).toFixed(1)+'" width="'+bw+'" height="'+expH.toFixed(1)+'"'
+        +' rx="3" fill="rgba(255,102,102,'+a+')"/>';
+
+    /* Month label */
+    var lblA=d.isFut?0.3:0.55;
+    svg+='<text x="'+cx.toFixed(1)+'" y="'+(H+11)+'" text-anchor="middle"'
+        +' font-size="7" font-family="var(--sans)" font-weight="700" fill="rgba(35,63,120,'+lblA+')">'+MONTHS_SHORT[d.m]+'</text>';
+  });
+
+  svg+='</svg>';
+
+  el.innerHTML='<div class="proj-chart-hdr"><span class="proj-chart-ttl">Ingresos vs Gastos · '+curYear+'</span>'
+    +'<div class="proj-chart-legend">'
+    +'<div class="proj-legend-item"><div class="proj-legend-dot" style="background:#3BF759"></div>Ingresos</div>'
+    +'<div class="proj-legend-item"><div class="proj-legend-dot" style="background:#FF6666"></div>Gastos</div>'
+    +'</div></div>'
+    +'<div class="proj-chart-canvas-wrap" style="padding:10px 16px 14px">'+svg+'</div>';
 }
-</script>
 
 
-<script id="proj-final">
-/* ==================================================================
-   PROJECTION — summary card + goal insight
-   ================================================================== */
-function renderProjected(){
+function renderReportes(){
   var real=[];
   for(var m=0;m<12;m++){
     injectRecurring(curYear,m);
@@ -4613,128 +4496,75 @@ function renderProjected(){
     if(!txs.length)continue;
     var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0),
         exp=txs.filter(function(t){return t.type==='expense';}).reduce(function(s,t){return s+t.amount;},0);
-    if(inc>0||exp>0) real.push({m:m,inc:inc,exp:exp});
+    if(inc>0||exp>0)real.push({m:m,inc:inc,exp:exp});
   }
   var n=real.length;
   var avgI=n>0?real.reduce(function(s,d){return s+d.inc;},0)/n:0;
   var avgE=n>0?real.reduce(function(s,d){return s+d.exp;},0)/n:0;
-  var avgB=avgI-avgE;
-  var pI=avgI*12, pE=avgE*12, pB=pI-pE;
-  var sr=pI>0?Math.round(((pI-pE)/pI)*100):0;
-
+  var avgB=avgI-avgE,pI=avgI*12,pE=avgE*12,pB=pI-pE,sr=pI>0?Math.round(((pI-pE)/pI)*100):0;
   var basisEl=document.getElementById('projBasis');
-  if(basisEl) basisEl.textContent=n>0?'Basado en '+n+' mes'+(n!==1?'es':''):'';
-
-  var summaryEl=document.getElementById('projSummary');
-  var insightEl=document.getElementById('projInsight');
-
+  if(basisEl)basisEl.textContent=n>0?'Basado en '+n+' mes'+(n!==1?'es':''):'';
+  var sumEl=document.getElementById('projSummary');
+  var chartEl=document.getElementById('projChart');
+  var insEl=document.getElementById('projInsight');
+  if(!sumEl)return;
   if(!n){
-    summaryEl.innerHTML='<div style="text-align:center;padding:28px 0;color:rgba(255,255,255,.4);font-size:14px">'
-      +'Registr\u00e1 al menos un mes para ver la proyecci\u00f3n</div>';
-    insightEl.innerHTML='';
-    return;
+    sumEl.innerHTML='<div style="text-align:center;padding:28px 0;color:rgba(255,255,255,.4);font-size:14px">Registr\u00e1 al menos un mes para ver la proyecci\u00f3n</div>';
+    if(chartEl)chartEl.innerHTML=''; if(insEl)insEl.innerHTML=''; return;
   }
-
-  /* ── Summary card ── */
-  summaryEl.innerHTML=
-    '<div class="proj-head">Proyecci\u00f3n anual '+curYear+'</div>'
-    +'<div class="proj-row"><span class="proj-lbl">Ingresos proyectados</span>'
-    +'<div><div class="proj-val positive">'+fmtMoney(pI)+'</div>'
-    +'<div class="proj-note">'+fmtMoney(avgI)+'/mes</div></div></div>'
-    +'<div class="proj-row sub"><span class="proj-lbl">Gastos proyectados</span>'
-    +'<div><div class="proj-val negative">'+fmtMoney(pE)+'</div>'
-    +'<div class="proj-note">'+fmtMoney(avgE)+'/mes</div></div></div>'
-    +'<div class="proj-row"><span class="proj-lbl">Balance proyectado</span>'
-    +'<div><div class="proj-val '+(pB>=0?'positive':'negative')+'">'+(pB<0?'-':'')+fmtMoney(pB)+'</div>'
-    +'<div class="proj-note">Ahorro '+sr+'%</div></div></div>';
-
-  /* ── Insight: when do I hit my goal? ── */
+  sumEl.innerHTML='<div class="proj-head">Proyecci\u00f3n anual '+curYear+'</div>'
+    +'<div class="proj-row"><span class="proj-lbl">Ingresos proyectados</span><div><div class="proj-val positive">'+fmtMoney(pI)+'</div><div class="proj-note">'+fmtMoney(avgI)+'/mes</div></div></div>'
+    +'<div class="proj-row sub"><span class="proj-lbl">Gastos proyectados</span><div><div class="proj-val negative">'+fmtMoney(pE)+'</div><div class="proj-note">'+fmtMoney(avgE)+'/mes</div></div></div>'
+    +'<div class="proj-row"><span class="proj-lbl">Balance proyectado</span><div><div class="proj-val '+(pB>=0?'positive':'negative')+'">'+(pB<0?'-':'')+fmtMoney(pB)+'</div><div class="proj-note">Ahorro '+sr+'%</div></div></div>';
+  renderProjChart(chartEl,real,avgI,avgE);
+  /* Insight */
   var s=loadSettings();
-  var goalARS = s.goalType==='annual' ? s.annualGoal : (s.monthlyGoal*12);
-
-  /* Current accrued savings */
-  var now=new Date();
-  var accSaved=0;
+  var goalARS=s.goalType==='annual'?s.annualGoal:(s.monthlyGoal*12);
+  var now=new Date(),accSaved=0;
   for(var y=2024;y<=now.getFullYear();y++){
-    var maxM2=(y===now.getFullYear())?now.getMonth():11;
-    for(var mm=0;mm<=maxM2;mm++){
-      var txs3=loadMonth(y,mm).transactions||[];
-      var mi=txs3.filter(function(t){return t.type==='income';}).reduce(function(s2,t){return s2+t.amount;},0);
-      var me=txs3.filter(function(t){return t.type==='expense';}).reduce(function(s2,t){return s2+t.amount;},0);
-      accSaved+=mi-me;
+    var mxM=(y===now.getFullYear())?now.getMonth():11;
+    for(var mm=0;mm<=mxM;mm++){
+      var txs2=loadMonth(y,mm).transactions||[];
+      accSaved+=txs2.filter(function(t){return t.type==='income';}).reduce(function(s2,t){return s2+t.amount;},0)
+               -txs2.filter(function(t){return t.type==='expense';}).reduce(function(s2,t){return s2+t.amount;},0);
     }
   }
-
-  /* No goal configured */
   if(!goalARS||goalARS<=0){
-    insightEl.innerHTML='<div class="proj-insight-card"><div class="insight-empty">'
-      +'<div class="insight-empty-icon">\uD83C\uDFAF</div>'
-      +'<div class="insight-empty-ttl">Sin meta configurada</div>'
-      +'<div class="insight-empty-sub">Config\u00far\u00e1 una meta de ahorro para ver cu\u00e1ndo la alcanc\u00e1s seg\u00fan tus proyecciones.</div>'
-      +'<button class="insight-cta-btn" onclick="openGoalsSheet()">Configurar meta</button>'
-      +'</div></div>';
+    insEl.innerHTML='<div class="proj-insight-card"><div class="insight-empty"><div class="insight-empty-icon">\uD83C\uDFAF</div><div class="insight-empty-ttl">Sin meta configurada</div><div class="insight-empty-sub">Configur\u00e1 una meta para ver cu\u00e1ndo la alcanz\u00e1s.</div><button class="insight-cta-btn" onclick="openGoalsSheet()">Configurar meta</button></div></div>';
     return;
   }
-
-  /* Negative savings */
   if(avgB<=0){
-    insightEl.innerHTML='<div class="proj-insight-card"><div class="insight-empty">'
-      +'<div class="insight-empty-icon">\u26A0\uFE0F</div>'
-      +'<div class="insight-empty-ttl">Gastos superiores a ingresos</div>'
-      +'<div class="insight-empty-sub">Con el ritmo actual no hay ahorro proyectado. Revis\u00e1 tus gastos para llegar a la meta.</div>'
-      +'</div></div>';
+    insEl.innerHTML='<div class="proj-insight-card"><div class="insight-empty"><div class="insight-empty-icon">\u26A0\uFE0F</div><div class="insight-empty-ttl">Sin ahorro proyectado</div><div class="insight-empty-sub">Los gastos superan los ingresos. Revis\u00e1 tu presupuesto.</div></div></div>';
     return;
   }
-
   var pct=Math.min(100,Math.max(0,Math.round((accSaved/goalARS)*100)));
   var fillCol=pct>=80?'#3BF759':pct>=50?'#FFE270':'#7979FF';
-  var remaining=Math.max(0,goalARS-accSaved);
-  var monthsLeft=remaining>0?Math.ceil(remaining/avgB):0;
-  var targetDate=new Date(now.getFullYear(),now.getMonth()+monthsLeft,1);
-  var targetName=monthsLeft===0?'Meta alcanzada':MONTHS[targetDate.getMonth()]+' '+targetDate.getFullYear();
+  var rem=Math.max(0,goalARS-accSaved),mLeft=rem>0?Math.ceil(rem/avgB):0;
+  var tDate=new Date(now.getFullYear(),now.getMonth()+mLeft,1);
+  var tName=mLeft===0?'\u00a1Meta alcanzada!':MONTHS[tDate.getMonth()]+' '+tDate.getFullYear();
   var reached=accSaved>=goalARS;
-
-  /* Banner */
-  var ih='<div class="proj-insight-card">'
-    +'<div class="insight-banner">'
-    +'<div class="insight-eyebrow"><span class="insight-eyebrow-dot"></span>Cu\u00e1ndo llegás a la meta</div>'
-    +'<div class="insight-headline" style="color:'+(reached?'var(--green-dk)':pct>=50?'var(--navy)':'var(--t1)')+'">'+targetName+'</div>'
-    +'<div class="insight-tagline">'
-    +(reached?'Lograste tu meta de ahorro de '+fmtMoney(goalARS)
-      :'Ahorrando '+fmtMoney(avgB)+'/mes · '+(monthsLeft===1?'1 mes más':monthsLeft+' meses más'))
-    +'</div></div>';
-
-  /* Progress bar */
-  ih+='<div class="insight-prog-section">'
-    +'<div class="insight-prog-top"><span class="insight-prog-lbl">Progreso actual</span>'
-    +'<span class="insight-prog-pct">'+fmtMoney(accSaved)+' / '+fmtMoney(goalARS)+'</span></div>'
-    +'<div class="insight-track"><div class="insight-fill" style="width:'+pct+'%;background:'+fillCol+'"></div></div>'
-    +'</div>';
-
-  /* Milestones */
-  ih+='<div class="insight-milestones">';
-  [{pct:25,lbl:'Primer cuarto'},{pct:50,lbl:'Mitad del camino'},{pct:75,lbl:'Casi llegando'},{pct:100,lbl:'Meta completa'}]
-  .forEach(function(ms){
-    var msGoal=goalARS*(ms.pct/100);
-    var msDone=accSaved>=msGoal;
-    var msRem=Math.max(0,msGoal-accSaved);
-    var msMonths=msDone?0:Math.ceil(msRem/avgB);
-    var msDate=msDone?null:new Date(now.getFullYear(),now.getMonth()+msMonths,1);
-    var msDateStr=msDone?'Alcanzado \u2713':(MONTHS[msDate.getMonth()]+' '+msDate.getFullYear());
+  var ih='<div class="proj-insight-card"><div class="insight-banner">'
+    +'<div class="insight-eyebrow"><span class="insight-eyebrow-dot"></span>Cu\u00e1ndo lleg\u00e1s a la meta</div>'
+    +'<div class="insight-headline" style="color:'+(reached?'var(--green-dk)':'var(--navy)')+'">'+tName+'</div>'
+    +'<div class="insight-tagline">'+(reached?'Meta de '+fmtMoney(goalARS)+' alcanzada':'Ahorrando '+fmtMoney(avgB)+'/mes \u00b7 '+(mLeft===1?'1 mes m\u00e1s':mLeft+' meses m\u00e1s'))+'</div></div>'
+    +'<div class="insight-prog-section"><div class="insight-prog-top"><span class="insight-prog-lbl">Progreso</span><span class="insight-prog-pct">'+fmtMoney(accSaved)+' / '+fmtMoney(goalARS)+'</span></div>'
+    +'<div class="insight-track"><div class="insight-fill" style="width:'+pct+'%;background:'+fillCol+'"></div></div></div>'
+    +'<div class="insight-milestones">';
+  [{pct:25,lbl:'Primer cuarto'},{pct:50,lbl:'Mitad del camino'},{pct:75,lbl:'Casi llegando'},{pct:100,lbl:'Meta completa'}].forEach(function(ms){
+    var msG=goalARS*(ms.pct/100),msDone=accSaved>=msG;
+    var msM=msDone?0:Math.ceil(Math.max(0,msG-accSaved)/avgB);
+    var msD=msDone?null:new Date(now.getFullYear(),now.getMonth()+msM,1);
     ih+='<div class="insight-ms'+(msDone?' reached':'')+'">'
       +'<div class="insight-ms-check '+(msDone?'done':'todo')+'">'+(msDone?'\u2713':ms.pct+'%')+'</div>'
-      +'<div class="insight-ms-body">'
-      +'<div class="insight-ms-ttl">'+ms.lbl+'</div>'
-      +'<div class="insight-ms-date">'+msDateStr+'</div>'
-      +'</div>'
-      +'<div class="insight-ms-right">'
-      +'<div class="insight-ms-pct '+(msDone?'done':'')+'">'+ms.pct+'%</div>'
-      +'<div class="insight-ms-amt">'+fmtMoney(msGoal)+'</div>'
-      +'</div></div>';
+      +'<div class="insight-ms-body"><div class="insight-ms-ttl">'+ms.lbl+'</div>'
+      +'<div class="insight-ms-date">'+(msDone?'Alcanzado \u2713':(MONTHS[msD.getMonth()]+' '+msD.getFullYear()))+'</div></div>'
+      +'<div class="insight-ms-right"><div class="insight-ms-pct'+(msDone?' done':'')+'">'+(msDone?'\u2713':ms.pct+'%')+'</div>'
+      +'<div class="insight-ms-amt">'+fmtMoney(msG)+'</div></div></div>';
   });
   ih+='</div></div>';
-  insightEl.innerHTML=ih;
+  insEl.innerHTML=ih;
 }
+</script>
 
 </body>
 </html>
