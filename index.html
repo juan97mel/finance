@@ -2017,6 +2017,170 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 .rp-hm-legend { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 10px; color: var(--t4); font-weight: 600; flex-wrap: wrap; }
 .rp-hm-leg-chip { width: 12px; height: 12px; border-radius: 3px; }
 
+
+/* ===== ANNUAL GOAL SHEET ========================================== */
+.goal-annual-wrap { padding: 4px 0 18px; }
+.goal-annual-icon { font-size: 48px; text-align: center; margin-bottom: 14px; line-height: 1; }
+.goal-annual-ttl  {
+  font-family: var(--display); font-size: 22px; font-weight: 800;
+  color: var(--t1); text-align: center; margin-bottom: 8px; letter-spacing: -.5px;
+}
+.goal-annual-sub  { font-size: 13px; color: var(--t3); text-align: center; line-height: 1.55; margin-bottom: 4px; }
+.goal-annual-hint {
+  font-size: 12px; color: var(--t3); margin-top: 8px; min-height: 18px;
+  font-weight: 500; text-align: center;
+}
+.goal-monthly-needed {
+  margin: 14px 0 18px;
+  border-radius: var(--r2); overflow: hidden;
+}
+.gmn-card {
+  background: rgba(121,121,255,.08); border: 1.5px solid rgba(121,121,255,.2);
+  border-radius: var(--r2); padding: 14px 16px;
+}
+.gmn-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.gmn-lbl { font-size: 12px; color: var(--t3); font-weight: 600; }
+.gmn-val { font-family: var(--display); font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -.5px; }
+.gmn-sub { font-size: 11px; color: var(--t3); font-weight: 500; }
+.gmn-bar-wrap { margin-top: 10px; }
+.gmn-bar-lbl { display: flex; justify-content: space-between; font-size: 10px; color: var(--t3); font-weight: 600; margin-bottom: 4px; }
+.gmn-track { height: 8px; background: rgba(177,177,248,.2); border-radius: 4px; overflow: hidden; }
+.gmn-fill  { height: 100%; border-radius: 4px; transition: width .5s ease; }
+.gmn-status { margin-top: 8px; font-size: 11px; font-weight: 700; }
+.gmn-status.on-track { color: #15803d; }
+.gmn-status.behind   { color: #b91c1c; }
+.gmn-status.ahead    { color: #1d4ed8; }
+
+
+.gpb-b { color: var(--periwinkle) !important; }
+.goal-status { font-size: 11px; color: rgba(255,255,255,.65); font-weight: 600; flex: 1; padding-right: 8px; line-height: 1.3; }
+
+
+/* ===== SMART NARRATIVE ============================================ */
+#heroNarrative {
+  margin-top: 10px; min-height: 0;
+}
+.narrative-line {
+  font-size: 12px; color: rgba(255,255,255,.6); font-weight: 500;
+  line-height: 1.4; padding: 0 2px;
+  display: flex; align-items: center; gap: 5px;
+}
+.narrative-dot {
+  width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,.4);
+}
+.narrative-line.good  .narrative-dot { background: #4ade80; }
+.narrative-line.warn  .narrative-dot { background: #fbbf24; }
+.narrative-line.bad   .narrative-dot { background: #f87171; }
+.narrative-line.info  .narrative-dot { background: rgba(255,255,255,.4); }
+
+/* ===== FINANCIAL PROGRESS CARD ==================================== */
+.hpc-card {
+  margin: 4px 16px 12px;
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-bdr); border-radius: var(--r3);
+  box-shadow: var(--shdw-sm); overflow: hidden;
+}
+.hpc-inner { padding: 14px 16px; }
+.hpc-eyebrow {
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--t4); font-weight: 700; margin-bottom: 10px;
+}
+.hpc-cols { display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; gap: 0; }
+.hpc-divider { background: rgba(177,177,248,.2); margin: 2px 0; }
+.hpc-col { padding: 0 10px; text-align: center; }
+.hpc-col:first-child { padding-left: 0; text-align: left; }
+.hpc-col:last-child  { padding-right: 0; text-align: right; }
+.hpc-lbl { font-size: 9px; color: var(--t4); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 4px; }
+.hpc-val { font-family: var(--display); font-size: 14px; font-weight: 800; letter-spacing: -.3px; color: var(--t1); line-height: 1; }
+.hpc-val.pos { color: #16a34a; }
+.hpc-val.neg { color: #dc2626; }
+.hpc-val.neu { color: var(--navy-mid); }
+.hpc-trend {
+  margin-top: 12px; padding-top: 10px;
+  border-top: 1px solid rgba(177,177,248,.15);
+  display: flex; align-items: center; gap: 6px;
+}
+.hpc-trend-icon { font-size: 13px; flex-shrink: 0; }
+.hpc-trend-text { font-size: 12px; color: var(--t2); font-weight: 600; flex: 1; }
+.hpc-trend-badge {
+  font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 20px; flex-shrink: 0;
+}
+.hpc-trend-badge.better { background: rgba(22,163,74,.1);  color: #15803d; }
+.hpc-trend-badge.worse  { background: rgba(220,38,38,.1);  color: #b91c1c; }
+.hpc-trend-badge.same   { background: rgba(177,177,248,.15); color: var(--navy-mid); }
+
+
+/* ===== CUENTA YTD CARD ============================================ */
+.cst-breakdown {
+  margin-top: 10px; display: flex; flex-direction: column; gap: 6px;
+}
+.cst-month-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.cst-month-lbl {
+  font-size: 11px; color: var(--t3); font-weight: 600; width: 32px; flex-shrink: 0;
+}
+.cst-month-track {
+  flex: 1; height: 5px; background: rgba(177,177,248,.18); border-radius: 3px; overflow: hidden;
+}
+.cst-month-fill { height: 100%; border-radius: 3px; }
+.cst-month-amt {
+  font-family: var(--display); font-size: 11px; font-weight: 800;
+  min-width: 64px; text-align: right; flex-shrink: 0;
+}
+.cst-ytd-rate {
+  margin-top: 10px; font-size: 11px; color: var(--t3); font-weight: 500;
+  display: flex; align-items: center; gap: 5px;
+}
+.cst-ytd-rate-val { font-weight: 700; }
+
+
+/* ===== GOAL DEADLINE PICKER ======================================= */
+.goal-deadline-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-top: 10px; margin-bottom: 4px;
+}
+.goal-deadline-lbl {
+  font-size: 12px; font-weight: 600; color: var(--t3);
+  padding-top: 5px; flex-shrink: 0; white-space: nowrap;
+}
+.goal-deadline-pills {
+  display: flex; flex-wrap: wrap; gap: 5px; flex: 1;
+}
+.goal-dl-pill {
+  padding: 4px 11px; border-radius: 20px;
+  border: 1.5px solid rgba(177,177,248,.3);
+  background: transparent; color: var(--t3);
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  font-family: var(--sans); transition: all .12s; white-space: nowrap;
+}
+.goal-dl-pill.active {
+  background: var(--navy); border-color: var(--navy); color: #fff;
+}
+.goal-dl-pill:active { transform: scale(.95); }
+
+
+/* ===== GOAL DEADLINE — NATIVE INPUT =============================== */
+.goal-deadline-native {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 12px; margin-bottom: 4px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.6);
+  border: 1.5px solid rgba(177,177,248,.3);
+  border-radius: var(--r2);
+}
+.goal-deadline-lbl {
+  font-size: 13px; font-weight: 600; color: var(--t2); flex-shrink: 0;
+}
+.goal-deadline-input {
+  border: none; background: transparent;
+  font-family: var(--display); font-size: 13px; font-weight: 700;
+  color: var(--navy); text-align: right; outline: none; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  padding: 0; margin: 0; flex-shrink: 0;
+}
+
 </style>
 </head>
 <body>
@@ -2152,6 +2316,8 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
       <!-- Accrued breakdown — shown in acumulado mode -->
       <div id="heroAccrued" style="display:none"></div>
       <div id="heroGoal"></div>
+      <!-- Smart Narrative — one-line financial read -->
+      <div id="heroNarrative"></div>
     </div>
 
 
@@ -2306,9 +2472,10 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
       <input class="f-input" id="editPhone" placeholder="Tel&#233;fono" type="tel" maxlength="20" autocomplete="off" inputmode="tel"/>
       <button class="goals-save-btn" onclick="saveProfile()">Guardar perfil</button>
     </div>
-    <div class="cuenta-stat-card">
+    <div class="cuenta-stat-card" id="cuentaYTDCard">
       <div class="cst-lbl">Ahorro acumulado 2026</div>
       <div class="cst-val" id="cuentaYTD">&#8212;</div>
+      <div class="cst-breakdown" id="cuentaYTDBreakdown"></div>
     </div>
     <div class="sec-head"><span class="sec-lbl">Configuraci&#243;n</span></div>
     <div class="cuenta-menu">
@@ -2316,12 +2483,16 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
         <span class="cr-left"><span class="cr-icon">&#127919;</span><span class="cr-label">Metas y objetivos</span></span>
         <span class="cr-arrow">&#8250;</span>
       </button>
-      <button class="cuenta-row" onclick="openSettings('recurring')">
+      <button class="cuenta-row" onclick="openRecurSheet()">
         <span class="cr-left"><span class="cr-icon">&#128257;</span><span class="cr-label">Recurrentes</span></span>
         <span class="cr-arrow">&#8250;</span>
       </button>
-      <button class="cuenta-row" onclick="openSettings('cats')">
+      <button class="cuenta-row" onclick="openCatsSheet()">
         <span class="cr-left"><span class="cr-icon">&#127991;</span><span class="cr-label">Categor&#237;as y sub-categor&#237;as</span></span>
+        <span class="cr-arrow">&#8250;</span>
+      </button>
+      <button class="cuenta-row" onclick="openSettings('general')">
+        <span class="cr-left"><span class="cr-icon">&#128176;</span><span class="cr-label">Monedas y tipo de cambio</span></span>
         <span class="cr-arrow">&#8250;</span>
       </button>
       <button class="cuenta-row cr-danger" onclick="lockApp()">
@@ -2416,15 +2587,10 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
 <div class="overlay" id="settingsOverlay">
   <div class="sheet">
     <div class="handle"></div>
-    <div class="sheet-hdr"><span class="sheet-ttl">Configuraci&#243;n</span><button class="close-btn" onclick="closeSettings()">&#215;</button></div>
-    <div class="stg-tabs">
-      <button class="stg-tab active" id="stgTabGen" onclick="setStgTab('general')">General</button>
-      <button class="stg-tab" id="stgTabRec" onclick="setStgTab('recurring')">Recurrentes</button>
-      <button class="stg-tab" id="stgTabCats" onclick="setStgTab('cats')">Categor&#237;as</button>
-    </div>
+    <div class="sheet-hdr"><span class="sheet-ttl">Monedas</span><button class="close-btn" onclick="closeSettings()">&#215;</button></div>
     <div id="stgPanelGeneral">
       <div class="stg-row">
-        <span class="stg-lbl">Moneda</span>
+        <span class="stg-lbl">Moneda principal</span>
         <div class="pill-toggle"><button class="pill-opt" id="curARS" onclick="setCurrencyPill('ARS')">ARS</button><button class="pill-opt" id="curUSD" onclick="setCurrencyPill('USD')">USD</button></div>
       </div>
       <div class="stg-row" id="usdMsRow" style="display:none">
@@ -2440,17 +2606,9 @@ select.f-input{cursor:pointer;}select.f-input option{background:#fff;color:var(-
           </div>
         </div>
       </div>
-      <div class="stg-row">
-        <span class="stg-lbl">Tipo de meta</span>
-        <div class="pill-toggle"><button class="pill-opt" id="goalTypeMon" onclick="setStgGoalType('monthly')">Mensual</button><button class="pill-opt" id="goalTypeAnn" onclick="setStgGoalType('annual')">Anual 2026</button></div>
-      </div>
-      <div class="stg-row">
-        <span class="stg-lbl" id="goalInputLabel">Meta mensual</span>
-        <input class="f-input" id="goalInput" type="number" placeholder="0" min="0" inputmode="decimal" style="margin-bottom:4px"/>
-        <div class="stg-hint">Monto en la moneda seleccionada</div>
-      </div>
       <button class="submit-btn" style="background:var(--lav-lt);color:var(--navy);box-shadow:none;margin-top:0;border:1.5px solid rgba(177,177,248,.5)" onclick="saveSettings()">Guardar cambios</button>
     </div>
+    <!-- Hidden panels kept for JS compatibility -->
     <div id="stgPanelRecurring" style="display:none">
       <!-- List of existing recurring items -->
       <div id="recurList"></div>
@@ -4482,30 +4640,24 @@ function renderMonthly(){
       <button class="close-btn" onclick="closeGoalsSheet()">&#215;</button>
     </div>
 
-    <!-- Goal type cards -->
-    <div class="goal-type-cards" id="goalTypeCards">
-      <button class="goal-type-card" id="goalCardMon" onclick="setGoalsType('monthly')">
-        <span class="gtc-icon">&#128197;</span>
-        <span class="gtc-lbl">Meta mensual</span>
-        <span class="gtc-desc">Cuánto quer&#233;s ahorrar por mes</span>
-        <span class="gtc-check" id="gtcCheckMon"></span>
-      </button>
-      <button class="goal-type-card" id="goalCardAnn" onclick="setGoalsType('annual')">
-        <span class="gtc-icon">&#127942;</span>
-        <span class="gtc-lbl">Meta anual 2026</span>
-        <span class="gtc-desc">Objetivo total para el a&#241;o</span>
-        <span class="gtc-check" id="gtcCheckAnn"></span>
-      </button>
-    </div>
-
-    <!-- Amount input -->
-    <div class="goals-section" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
-      <div class="goals-amt-wrap">
+    <!-- Annual goal — single input -->
+    <div class="goal-annual-wrap">
+      <div class="goal-annual-icon">&#127942;</div>
+      <div class="goal-annual-ttl" id="goalSheetTitle">Meta de ahorro</div>
+      <div class="goal-annual-sub">La app calcula cu&#225;nto necesit&#225;s ahorrar cada mes para llegar a tiempo.</div>
+      <div class="goals-amt-wrap" style="margin-top:18px">
         <span class="goals-amt-sym">$</span>
         <input class="f-input goals-amt-inp" id="goalsAmt" type="text" inputmode="decimal"
-               placeholder="0" autocomplete="off" oninput="fmtAmtInput(this)"/>
+               placeholder="0" autocomplete="off" oninput="updateGoalSheetPreview()"/>
       </div>
-      <div class="goals-curr-val" id="goalsCurrVal"></div>
+      <!-- Deadline: native month picker styled as a single row -->
+      <div class="goal-deadline-native">
+        <span class="goal-deadline-lbl">&#128197; Fecha l&#237;mite</span>
+        <input class="goal-deadline-input" id="goalDeadlineInput" type="month"
+               onchange="onDeadlineInputChange(this.value)"/>
+      </div>
+      <div class="goal-annual-hint" id="goalAnnualHint"></div>
+      <div class="goal-monthly-needed" id="goalMonthlyNeeded"></div>
       <button class="goals-save-btn" onclick="saveGoalFromSheet()">Guardar meta</button>
     </div>
 
@@ -6629,19 +6781,20 @@ function rpRenderSpending(d){
 function rpRenderTrend(){
   var el=document.getElementById('rpTrend'); if(!el)return;
   var now=new Date(),ny=now.getFullYear(),nm=now.getMonth();
+  /* Always show Jan → current month of the current year */
   var pts=[];
-  for(var i=5;i>=0;i--){
-    var m=(nm-i+12)%12, y=ny+(nm-i<0?-1:0);
-    injectRecurring(y,m);
-    var txs=loadMonth(y,m).transactions||[];
+  for(var m=0;m<=nm;m++){
+    injectRecurring(ny,m);
+    var txs=loadMonth(ny,m).transactions||[];
     var inc=txs.filter(function(t){return t.type==='income';}).reduce(function(s,t){return s+t.amount;},0);
     var exp=txs.filter(function(t){return t.type==='expense';}).reduce(function(s,t){return s+t.amount;},0);
-    pts.push({m:m,y:y,inc:inc,exp:exp,sav:inc-exp});
+    pts.push({m:m,y:ny,inc:inc,exp:exp,sav:inc-exp});
   }
   var maxV=Math.max.apply(null,pts.reduce(function(a,p){return a.concat([p.inc,p.exp,Math.abs(p.sav)]);},[]));
   if(!maxV) maxV=1;
   var W=320,H=90,padX=12,padY=10;
-  function px(i){ return padX+(i/5)*(W-padX*2); }
+  var nPts=pts.length;
+  function px(i){ return padX+(nPts>1?(i/(nPts-1))*(W-padX*2):W/2); }
   function py(v){ return H-padY-(Math.max(0,v)/maxV)*(H-padY*2); }
   function polyline(key,col,dashed){
     var d=pts.map(function(p,i){return px(i).toFixed(1)+','+py(p[key]).toFixed(1);}).join(' ');
@@ -6665,7 +6818,7 @@ function rpRenderTrend(){
   });
   svg+='</svg>';
   /* Interpretation */
-  var lastP=pts[5],prevP=pts[4];
+  var lastP=pts[pts.length-1],prevP=pts.length>1?pts[pts.length-2]:pts[0];
   var expChg=prevP.exp>0?Math.round(((lastP.exp-prevP.exp)/prevP.exp)*100):0;
   var incChg=prevP.inc>0?Math.round(((lastP.inc-prevP.inc)/prevP.inc)*100):0;
   var facts='';
@@ -6673,7 +6826,7 @@ function rpRenderTrend(){
   if(Math.abs(incChg)>2) facts+='<div class="rp-trend-fact">'+(incChg>0?'🟢 Ingresos crecieron':'🔴 Ingresos cayeron')+' '+Math.abs(incChg)+'% vs mes anterior</div>';
   else facts+='<div class="rp-trend-fact">📊 Ingresos estables en los últimos meses</div>';
   el.innerHTML='<div class="rp-card"><div class="rp-trend-inner">'
-    +'<div class="rp-sec-lbl" style="margin-bottom:10px">Ingresos vs Gastos — últimos 6 meses</div>'
+    +'<div class="rp-sec-lbl" style="margin-bottom:10px">Ingresos vs Gastos · '+ny+'</div>'
     +'<div class="rp-trend-legend">'
     +'<div class="rp-trend-leg-item"><div class="rp-trend-leg-dot" style="background:#4ade80"></div>Ingresos</div>'
     +'<div class="rp-trend-leg-item"><div class="rp-trend-leg-dot" style="background:#f87171"></div>Gastos</div>'
@@ -6817,6 +6970,1043 @@ function renderReportes(){
 }
 
 console.log('[Reports] Redesign loaded.');
+</script>
+
+
+<script id="swipe-nav">
+/* ==================================================================
+   SWIPE NAVIGATION
+   Horizontal swipe on the main view area switches tabs.
+   Ignores: scrollable horizontal content, overlays, form, inputs.
+   ================================================================== */
+
+(function(){
+  var TABS     = ['monthly','transactions','reportes','cuenta'];
+  var MIN_X    = 50;   /* min horizontal distance to count as swipe */
+  var MAX_Y    = 80;   /* max vertical drift allowed */
+  var MAX_DUR  = 400;  /* ms — ignore slow drags */
+
+  var tx0=0, ty0=0, t0=0, active=false;
+
+  function currentIndex(){
+    return TABS.indexOf(typeof currentTab !== 'undefined' ? currentTab : 'monthly');
+  }
+
+  /* Determine if the touch started inside a horizontally scrollable container */
+  function isScrollableH(el){
+    while(el && el !== document.body){
+      var style = window.getComputedStyle(el);
+      var overflow = style.overflowX;
+      if((overflow==='auto'||overflow==='scroll') && el.scrollWidth > el.clientWidth+4) return true;
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  /* Ignore touches that start on overlays, sheets, form, input elements */
+  function isIgnored(el){
+    while(el && el !== document.body){
+      var id = el.id || '';
+      var cls = el.className || '';
+      if(id==='formOverlay'||id==='pinScreen'||id==='onboardingScreen'||id==='splashScreen') return true;
+      if(typeof cls === 'string' && (
+        cls.indexOf('overlay')>-1 ||
+        cls.indexOf('sheet')>-1  ||
+        cls.indexOf('bottom-nav')>-1
+      )) return true;
+      el = el.parentElement;
+    }
+    return false;
+  }
+
+  document.addEventListener('touchstart', function(e){
+    var t = e.touches[0];
+    if(isIgnored(e.target) || isScrollableH(e.target)){ active=false; return; }
+    tx0=t.clientX; ty0=t.clientY; t0=Date.now(); active=true;
+  }, {passive:true});
+
+  document.addEventListener('touchmove', function(e){
+    if(!active) return;
+    var dy = Math.abs(e.touches[0].clientY - ty0);
+    /* Cancel if mainly vertical */
+    if(dy > MAX_Y) active=false;
+  }, {passive:true});
+
+  document.addEventListener('touchend', function(e){
+    if(!active){ active=false; return; }
+    active=false;
+    var dx = e.changedTouches[0].clientX - tx0;
+    var dy = Math.abs(e.changedTouches[0].clientY - ty0);
+    var dt = Date.now() - t0;
+    if(Math.abs(dx) < MIN_X || dy > MAX_Y || dt > MAX_DUR) return;
+    var idx = currentIndex();
+    if(dx < 0 && idx < TABS.length-1){
+      /* Swipe left → next tab */
+      setTab(TABS[idx+1]);
+    } else if(dx > 0 && idx > 0){
+      /* Swipe right → previous tab */
+      setTab(TABS[idx-1]);
+    }
+  }, {passive:true});
+
+  console.log('[Swipe] Navigation enabled on', TABS.length, 'tabs.');
+})();
+</script>
+
+
+<!-- RECURRENTES SHEET -->
+<div class="overlay" id="recurSheetOverlay">
+  <div class="sheet">
+    <div class="handle"></div>
+    <div class="sheet-hdr">
+      <span class="sheet-ttl">Recurrentes</span>
+      <button class="close-btn" onclick="closeRecurSheet()">&#215;</button>
+    </div>
+    <div id="recurSheetList"></div>
+    <div class="rec-form-card" id="recurSheetFormCard">
+      <div class="rec-form-hdr">
+        <span class="rec-form-title" id="recurSheetFormTitle">Nuevo recurrente</span>
+        <button class="close-btn" id="recurSheetCancelBtn" onclick="cancelRecurSheetForm()" style="display:none">&#215;</button>
+      </div>
+      <div class="rec-type-row" style="margin-bottom:9px">
+        <button class="rec-type-btn" id="recurSheetTypeInc" onclick="setRecurSheetType('income')">Ingreso</button>
+        <button class="rec-type-btn rt-e active" id="recurSheetTypeExp" onclick="setRecurSheetType('expense')">Gasto</button>
+      </div>
+      <input class="f-input" id="recurSheetDesc" placeholder="Descripci&#243;n" maxlength="60" autocomplete="off"/>
+      <select class="f-input" id="recurSheetCat"></select>
+      <div class="amt-wrap" style="margin-bottom:9px">
+        <span class="amt-sym">$</span>
+        <input class="f-input amt-input" id="recurSheetAmt" type="text" inputmode="decimal"
+               placeholder="0" autocomplete="off" oninput="fmtAmtInput(this)"/>
+      </div>
+      <div class="stg-row" style="padding:0 0 10px">
+        <span class="stg-lbl">D&#237;a del mes</span>
+        <input class="f-input" id="recurSheetDay" type="number" min="1" max="28" placeholder="1"
+               style="width:70px;margin-bottom:0;text-align:center" inputmode="numeric"/>
+      </div>
+      <input type="hidden" id="recurSheetEditId" value=""/>
+      <button class="submit-btn s-expense" id="recurSheetSubmitBtn" onclick="saveRecurSheetItem()" style="margin-top:6px">Agregar recurrente</button>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORÍAS SHEET -->
+<div class="overlay" id="catsSheetOverlay">
+  <div class="sheet">
+    <div class="handle"></div>
+    <div class="sheet-hdr">
+      <span class="sheet-ttl">Categor&#237;as</span>
+      <button class="close-btn" onclick="closeCatsSheet()">&#215;</button>
+    </div>
+    <div class="cat-tab-row">
+      <button class="cat-tab active" id="catsSheetTabExp" onclick="setCatsSheetTab('expense')">Gastos</button>
+      <button class="cat-tab" id="catsSheetTabInc" onclick="setCatsSheetTab('income')">Ingresos</button>
+    </div>
+    <div id="catsSheetTree"></div>
+    <div class="cat-add-section">
+      <div class="cat-add-ttl">Nueva categor&#237;a</div>
+      <div class="cat-add-row">
+        <input class="ca-emoji" id="catsSheetEmoji" maxlength="4" placeholder="&#127991;"/>
+        <input class="ca-name" id="catsSheetName" maxlength="30" placeholder="Nombre..."/>
+        <button class="ca-save" onclick="saveCatsSheetCat()">+</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script id="cuenta-sheets">
+/* ==================================================================
+   Dedicated sheets for Recurrentes + Categorías from Cuenta.
+   Simplified openSettings = Monedas only.
+   ================================================================== */
+
+/* ── Monedas sheet (simplified openSettings) ── */
+function openSettings(tab){
+  var s = loadSettings();
+  stgCurSel = s.currency;
+  document.getElementById('curARS').className = 'pill-opt' + (s.currency==='ARS' ? ' active' : '');
+  document.getElementById('curUSD').className = 'pill-opt' + (s.currency==='USD' ? ' active' : '');
+  document.getElementById('usdMsRow').style.display = s.currency==='USD' ? 'block' : 'none';
+  renderMilestones();
+  var mSel = document.getElementById('msMonth');
+  if(mSel){
+    mSel.innerHTML = MONTH_NAMES.map(function(n,i){ return '<option value="'+(i+1)+'">'+n+'</option>'; }).join('');
+    mSel.value = new Date().getMonth()+1;
+  }
+  var msYr = document.getElementById('msYear'); if(msYr) msYr.value = new Date().getFullYear();
+  /* Always show only the general/monedas panel */
+  var pg = document.getElementById('stgPanelGeneral'); if(pg) pg.style.display = 'block';
+  var pr = document.getElementById('stgPanelRecurring'); if(pr) pr.style.display = 'none';
+  var pc = document.getElementById('stgPanelCats'); if(pc) pc.style.display = 'none';
+  document.getElementById('settingsOverlay').classList.add('open');
+}
+
+function saveSettings(){
+  var s = loadSettings();
+  s.currency = stgCurSel;
+  persistSettings(s);
+  syncCurrencyPill(s.currency);
+  showToast('Moneda guardada \u2713');
+  closeSettings();
+  renderMonthly();
+}
+
+/* ── RECURRENTES SHEET ── */
+var _recurSheetType = 'expense';
+var _recurSheetEditId = null;
+
+function openRecurSheet(){
+  _recurSheetEditId = null;
+  _recurSheetType = 'expense';
+  setRecurSheetType('expense');
+  renderRecurSheetList();
+  resetRecurSheetForm();
+  document.getElementById('recurSheetOverlay').classList.add('open');
+}
+function closeRecurSheet(){
+  document.getElementById('recurSheetOverlay').classList.remove('open');
+}
+document.getElementById('recurSheetOverlay').addEventListener('click', function(e){
+  if(e.target === this) closeRecurSheet();
+});
+
+function setRecurSheetType(t){
+  _recurSheetType = t;
+  var bi = document.getElementById('recurSheetTypeInc');
+  var be = document.getElementById('recurSheetTypeExp');
+  if(bi) bi.className = 'rec-type-btn' + (t==='income' ? ' rt-i active' : '');
+  if(be) be.className = 'rec-type-btn rt-e' + (t==='expense' ? ' active' : '');
+  var cats = getAllCats(t);
+  var sel = document.getElementById('recurSheetCat');
+  if(sel) sel.innerHTML = cats.map(function(c){ return '<option value="'+c.id+'">'+c.emoji+' '+c.label+'</option>'; }).join('');
+  var sb = document.getElementById('recurSheetSubmitBtn');
+  if(sb) sb.className = 'submit-btn ' + (t==='income' ? 's-income' : 's-expense');
+}
+
+function renderRecurSheetList(){
+  var items = loadRecurring();
+  var el = document.getElementById('recurSheetList');
+  if(!el) return;
+  if(!items.length){ el.innerHTML = '<div class="rec-empty">Sin recurrentes configurados</div>'; return; }
+  var h = '';
+  items.forEach(function(item){
+    var cat = getCat(item.type, item.cat);
+    h += '<div class="rec-item">'
+      + '<div class="rec-dot ' + (item.type==='income' ? 'rec-dot-i' : 'rec-dot-e') + '"></div>'
+      + '<div class="rec-info">'
+      + '<div class="rec-desc">' + cat.emoji + ' ' + escHtml(item.desc) + '</div>'
+      + '<div class="rec-meta">' + escHtml(cat.label) + ' \u00b7 D\u00eda ' + item.day + '</div>'
+      + '</div>'
+      + '<span class="rec-amt ' + (item.type==='income' ? 'positive' : 'negative') + '">'
+      + (item.type==='income' ? '+' : '-') + fmtMoney(item.amount) + '</span>'
+      + '<button class="rec-del" onclick="delRecurSheetItem(\'' + item.id + '\')">&#215;</button>'
+      + '</div>';
+  });
+  el.innerHTML = h;
+}
+
+function resetRecurSheetForm(){
+  _recurSheetEditId = null;
+  var d = document.getElementById('recurSheetDesc'); if(d) d.value = '';
+  var a = document.getElementById('recurSheetAmt');  if(a) a.value = '';
+  var day = document.getElementById('recurSheetDay'); if(day) day.value = '';
+  var ei = document.getElementById('recurSheetEditId'); if(ei) ei.value = '';
+  var cb = document.getElementById('recurSheetCancelBtn'); if(cb) cb.style.display = 'none';
+  var ti = document.getElementById('recurSheetFormTitle'); if(ti) ti.textContent = 'Nuevo recurrente';
+  var sb = document.getElementById('recurSheetSubmitBtn'); if(sb) sb.textContent = 'Agregar recurrente';
+  setRecurSheetType('expense');
+}
+
+function cancelRecurSheetForm(){ resetRecurSheetForm(); }
+
+function saveRecurSheetItem(){
+  var desc = (document.getElementById('recurSheetDesc') || {}).value || '';
+  var cat  = (document.getElementById('recurSheetCat')  || {}).value || '';
+  var day  = parseInt((document.getElementById('recurSheetDay') || {}).value) || 1;
+  var amt  = parseFloat(((document.getElementById('recurSheetAmt') || {}).value || '').replace(/\./g,'')) || 0;
+  desc = desc.trim();
+  if(!desc){ var d = document.getElementById('recurSheetDesc'); if(d) d.focus(); return; }
+  if(!amt || amt <= 0){ var a = document.getElementById('recurSheetAmt'); if(a) a.focus(); return; }
+  day = Math.max(1, Math.min(28, day));
+  var items = loadRecurring();
+  var editId = (document.getElementById('recurSheetEditId') || {}).value || '';
+  if(editId){
+    items = items.map(function(r){ return r.id === editId ? {id:r.id,type:_recurSheetType,desc:desc,cat:cat,amount:toARS(amt),day:day} : r; });
+    showToast('Recurrente actualizado \u2713');
+  } else {
+    items.push({id:'r_'+Date.now(), type:_recurSheetType, desc:desc, cat:cat, amount:toARS(amt), day:day});
+    showToast('Recurrente agregado \u2713');
+  }
+  saveRecurring(items);
+  renderRecurSheetList();
+  resetRecurSheetForm();
+}
+
+function delRecurSheetItem(id){
+  if(!confirm('\u00bfEliminar este recurrente?')) return;
+  saveRecurring(loadRecurring().filter(function(r){ return r.id !== id; }));
+  renderRecurSheetList();
+  showToast('Eliminado');
+}
+
+/* ── CATEGORÍAS SHEET ── */
+var _catsSheetType = 'expense';
+
+function openCatsSheet(){
+  _catsSheetType = 'expense';
+  setCatsSheetTab('expense');
+  document.getElementById('catsSheetOverlay').classList.add('open');
+}
+function closeCatsSheet(){
+  document.getElementById('catsSheetOverlay').classList.remove('open');
+}
+document.getElementById('catsSheetOverlay').addEventListener('click', function(e){
+  if(e.target === this) closeCatsSheet();
+});
+
+function setCatsSheetTab(t){
+  _catsSheetType = t;
+  var te = document.getElementById('catsSheetTabExp');
+  var ti = document.getElementById('catsSheetTabInc');
+  if(te) te.className = 'cat-tab' + (t==='expense' ? ' active' : '');
+  if(ti) ti.className = 'cat-tab' + (t==='income' ? ' active' : '');
+  var ei = document.getElementById('catsSheetEmoji'); if(ei) ei.value = '';
+  var nm = document.getElementById('catsSheetName');  if(nm) nm.value = '';
+  renderCatsSheetTree();
+}
+
+function renderCatsSheetTree(){
+  var el = document.getElementById('catsSheetTree'); if(!el) return;
+  var cats = getAllCats(_catsSheetType);
+  if(!cats.length){ el.innerHTML = '<div class="rec-empty">Sin categor\u00edas</div>'; return; }
+  var h = '';
+  cats.forEach(function(c){
+    h += '<div class="cat-mgr-item">'
+      + '<span class="cm-emoji">' + c.emoji + '</span>'
+      + '<span class="cm-name">' + escHtml(c.label) + '</span>'
+      + (c.isDefault ? '<span class="cm-badge">DEFAULT</span>'
+          : '<button class="cm-del" onclick="delCatsSheetCat(\'' + c.id + '\')">&#215;</button>')
+      + '</div>';
+  });
+  el.innerHTML = h;
+}
+
+function delCatsSheetCat(id){
+  if(!confirm('\u00bfEliminar esta categor\u00eda?')) return;
+  deleteCustomCat(_catsSheetType, id);
+  renderCatsSheetTree();
+  showToast('Categor\u00eda eliminada');
+}
+
+function saveCatsSheetCat(){
+  var emoji = (document.getElementById('catsSheetEmoji') || {}).value || '';
+  var name  = ((document.getElementById('catsSheetName')  || {}).value || '').trim();
+  if(!name){ var n = document.getElementById('catsSheetName'); if(n) n.focus(); return; }
+  addCustomCat(_catsSheetType, emoji.trim() || '\u2022', name);
+  var ei = document.getElementById('catsSheetEmoji'); if(ei) ei.value = '';
+  var nm = document.getElementById('catsSheetName');  if(nm) nm.value = '';
+  renderCatsSheetTree();
+  showToast('Categor\u00eda creada \u2713');
+}
+
+console.log('[Sheets] Recurrentes + Categorías dedicated sheets loaded.');
+</script>
+
+
+<script id="goal-engine">
+/* ==================================================================
+   ANNUAL GOAL ENGINE
+   Single annual goal. Dynamic monthly target based on:
+   - How much saved so far this year
+   - Months remaining
+   - Historical avg savings rate
+   ================================================================== */
+
+/* ── Compute how much the user needs to save THIS month ── */
+function goalComputeMonthlyNeeded(){
+  var s       = loadSettings();
+  var annual  = s.annualGoal || 0;
+  if(!annual) return null;
+
+  var now     = new Date();
+  var curM    = now.getMonth();   /* 0-indexed */
+  var monthsLeft = 12 - curM;     /* including this month */
+
+  /* Saved so far this year (months 0 to curM-1 = already closed months) */
+  var savedSoFar = 0;
+  for(var m = 0; m < curM; m++){
+    var txs = loadMonth(now.getFullYear(), m).transactions || [];
+    var inc = txs.filter(function(t){ return t.type==='income'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    var exp = txs.filter(function(t){ return t.type==='expense'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    savedSoFar += (inc - exp);
+  }
+
+  var remaining   = annual - savedSoFar;
+  var neededNow   = monthsLeft > 0 ? Math.ceil(remaining / monthsLeft) : remaining;
+
+  /* On-track target: proportional to current month */
+  var onTrackTarget = Math.round((annual / 12) * curM); /* what should be saved by end of prev month */
+  var pctProgress   = annual > 0 ? Math.min(150, Math.round((savedSoFar / annual) * 100)) : 0;
+  var pctOnTrack    = annual > 0 ? Math.min(150, Math.round((onTrackTarget / annual) * 100)) : 0;
+  var diff          = pctProgress - pctOnTrack;
+
+  return {
+    annual:       annual,
+    savedSoFar:   Math.max(0, savedSoFar),
+    remaining:    remaining,
+    neededNow:    neededNow,
+    monthsLeft:   monthsLeft,
+    pctProgress:  pctProgress,
+    pctOnTrack:   pctOnTrack,
+    diff:         diff,
+    onTrack:      diff >= -5,   /* within 5% = ok */
+    ahead:        diff > 5
+  };
+}
+
+/* ── Update the live preview inside the goals sheet ── */
+function updateGoalSheetPreview(){
+  var inp   = document.getElementById('goalsAmt');
+  var hint  = document.getElementById('goalAnnualHint');
+  var panel = document.getElementById('goalMonthlyNeeded');
+  if(!inp || !hint || !panel) return;
+
+  var raw = parseFloat((inp.value||'').replace(/\./g,'')) || 0;
+  if(!raw){ hint.textContent = ''; panel.innerHTML = ''; return; }
+
+  var now        = new Date();
+  var curM       = now.getMonth();
+  var monthsLeft = 12 - curM;
+
+  /* Saved so far this year */
+  var savedSoFar = 0;
+  for(var m = 0; m < curM; m++){
+    var txs = loadMonth(now.getFullYear(), m).transactions || [];
+    var inc = txs.filter(function(t){ return t.type==='income'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    var exp = txs.filter(function(t){ return t.type==='expense'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    savedSoFar += (inc - exp);
+  }
+  savedSoFar = Math.max(0, savedSoFar);
+
+  var remaining = raw - savedSoFar;
+  var needed    = monthsLeft > 0 ? Math.ceil(remaining / monthsLeft) : remaining;
+  var pct       = Math.min(100, Math.round((savedSoFar / raw) * 100));
+  var barCol    = pct >= 80 ? '#16a34a' : pct >= 40 ? '#7979FF' : '#dc2626';
+
+  hint.textContent = 'Meta anual · ' + MONTHS[now.getFullYear ? 11 : 11];
+
+  var statusTxt, statusCls;
+  var onTrackAmt  = Math.round((raw / 12) * curM);
+  var diff        = savedSoFar - onTrackAmt;
+  if(remaining <= 0){
+    statusTxt = '🏆 ¡Meta alcanzada!'; statusCls = 'on-track';
+  } else if(diff >= 0){
+    statusTxt = '✓ Vas ' + fmtMoney(diff) + ' adelante del ritmo ideal'; statusCls = 'ahead';
+  } else {
+    statusTxt = '↗ Necesitás recuperar ' + fmtMoney(Math.abs(diff)); statusCls = 'behind';
+  }
+
+  panel.innerHTML = '<div class="gmn-card">'
+    + '<div class="gmn-row">'
+    + '<span class="gmn-lbl">Necesitás ahorrar este mes</span>'
+    + '<span class="gmn-val">' + (needed > 0 ? fmtMoney(needed) : '¡Meta lista!') + '</span>'
+    + '</div>'
+    + '<div class="gmn-sub">Llevas ' + fmtMoney(savedSoFar) + ' ahorrado · ' + monthsLeft + ' mes' + (monthsLeft!==1?'es':'') + ' restante' + (monthsLeft!==1?'s':'') + '</div>'
+    + '<div class="gmn-bar-wrap">'
+    + '<div class="gmn-bar-lbl"><span>' + pct + '% del año</span><span>' + fmtMoney(raw) + '</span></div>'
+    + '<div class="gmn-track"><div class="gmn-fill" style="width:' + Math.min(100,pct) + '%;background:' + barCol + '"></div></div>'
+    + '</div>'
+    + '<div class="gmn-status ' + statusCls + '">' + statusTxt + '</div>'
+    + '</div>';
+}
+
+/* ── Wire input → live preview ── */
+(function(){
+  document.addEventListener('input', function(e){
+    if(e.target && e.target.id === 'goalsAmt') updateGoalSheetPreview();
+  });
+})();
+
+/* ── Override renderGoalsSheet ── */
+function renderGoalsSheet(){
+  var s = loadSettings();
+  /* Always treat stored goal as annual */
+  var annualGoal = s.annualGoal || (s.monthlyGoal ? s.monthlyGoal * 12 : 0);
+  var inp = document.getElementById('goalsAmt');
+  if(inp) inp.value = annualGoal > 0 ? addDots(String(Math.round(annualGoal))) : '';
+  updateGoalSheetPreview();
+  renderGoalsLimits();
+}
+
+/* ── Override saveGoalFromSheet ── */
+function saveGoalFromSheet(){
+  var raw = parseFloat((document.getElementById('goalsAmt').value||'').replace(/\./g,'')) || 0;
+  if(raw <= 0){ showToast('Ingres\u00e1 un monto'); return; }
+  var s = loadSettings();
+  s.annualGoal  = raw;
+  s.monthlyGoal = 0;
+  s.goalType    = 'annual';
+  persistSettings(s);
+  showToast('Meta guardada \u2713');
+  closeGoalsSheet();
+  renderMonthly();
+}
+
+/* ── Override renderGoal (hero card) ── */
+function renderGoal(monthBalance){
+  var el = document.getElementById('heroGoal');
+  if(!el) return;
+  var d = goalComputeMonthlyNeeded();
+  if(!d){
+    el.innerHTML = '<div class="goal-cta" onclick="openGoalsSheet()">'
+      + '<span class="goal-cta-txt">Configurar meta de ahorro</span>'
+      + '<span class="goal-cta-arr">\u203a</span></div>';
+    return;
+  }
+
+  var barPct = Math.min(100, d.pctProgress);
+  var barCol = d.remaining <= 0 ? '#16a34a'
+             : d.onTrack         ? '#7979FF'
+             : '#dc2626';
+
+  var statusLine;
+  if(d.remaining <= 0){
+    statusLine = '\uD83C\uDFC6 Meta alcanzada este a\u00f1o';
+  } else if(d.neededNow <= 0){
+    statusLine = '\u2713 No necesit\u00e1s ahorrar m\u00e1s este mes';
+  } else if(d.ahead){
+    statusLine = '\u2191 Vas adelante \u00b7 pod\u00e9s ahorrar menos este mes';
+  } else if(d.onTrack){
+    statusLine = 'Ahorrá ' + fmtMoney(d.neededNow) + ' este mes para llegar';
+  } else {
+    statusLine = '\u26a0 Ahorrá ' + fmtMoney(d.neededNow) + ' este mes para no quedar atr\u00e1s';
+  }
+
+  el.innerHTML =
+    '<div class="goal-hdr">'
+    + '<span class="goal-lbl">Meta ' + new Date().getFullYear() + '</span>'
+    + '<span class="goal-badge ' + (d.remaining<=0?'gpb-g':d.onTrack?'gpb-b':'gpb-r') + '">'
+    + d.pctProgress + '%</span>'
+    + '</div>'
+    + '<div class="goal-track"><div class="goal-fill" style="width:' + barPct + '%;background:' + barCol + '"></div></div>'
+    + '<div class="goal-foot">'
+    + '<span class="goal-status">' + statusLine + '</span>'
+    + '<span class="goal-edit" onclick="openGoalsSheet()">' + fmtMoney(d.annual) + ' \u00b7 editar</span>'
+    + '</div>';
+}
+
+console.log('[Goal] Annual engine loaded.');
+</script>
+
+
+<script id="daily-companion">
+/* ==================================================================
+   DAILY COMPANION — 3 layers
+   1. Smart Narrative  — one contextual line in hero
+   2. Financial Progress Card — vs prev month + historical avg
+   3. Both wired into renderMonthly, zero new navigation
+   ================================================================== */
+
+/* ── helpers ── */
+function _dcGetMonthData(y, m){
+  injectRecurring(y, m);
+  var txs = loadMonth(y, m).transactions || [];
+  var inc = txs.filter(function(t){ return t.type==='income'; })
+               .reduce(function(a,t){ return a+t.amount; }, 0);
+  var exp = txs.filter(function(t){ return t.type==='expense'; })
+               .reduce(function(a,t){ return a+t.amount; }, 0);
+  return { inc:inc, exp:exp, bal:inc-exp, txCount:txs.length };
+}
+
+function _dcSavingsRate(d){
+  return d.inc > 0 ? Math.round(((d.inc - d.exp) / d.inc) * 100) : 0;
+}
+
+/* ── 1. SMART NARRATIVE ── */
+function renderNarrative(){
+  var el = document.getElementById('heroNarrative');
+  if(!el) return;
+
+  var now = new Date();
+  var cur = _dcGetMonthData(curYear, curMonth);
+  var isCurMonth = (curYear === now.getFullYear() && curMonth === now.getMonth());
+
+  /* Get prev month for comparison */
+  var prevM = curMonth === 0 ? 11 : curMonth - 1;
+  var prevY = curMonth === 0 ? curYear - 1 : curYear;
+  var prev  = _dcGetMonthData(prevY, prevM);
+
+  var msg = '', tone = 'info';
+
+  if(!cur.txCount){
+    el.innerHTML = ''; return;
+  }
+
+  var sr     = _dcSavingsRate(cur);
+  var prevSr = _dcSavingsRate(prev);
+  var lims   = loadCatLimits();
+  var limKeys = Object.keys(lims);
+
+  /* Check overruns */
+  var catTotals = {};
+  loadMonth(curYear, curMonth).transactions
+    .filter(function(t){ return t.type==='expense'; })
+    .forEach(function(t){ catTotals[t.cat] = (catTotals[t.cat]||0) + t.amount; });
+  var overCount = limKeys.filter(function(k){ return (catTotals[k]||0) > lims[k]; }).length;
+
+  /* Pick most relevant narrative */
+  if(cur.bal < 0){
+    msg = 'Los gastos superan los ingresos este mes'; tone = 'bad';
+  } else if(overCount > 0){
+    msg = overCount === 1
+      ? 'Superaste el l\u00edmite en 1 categor\u00eda este mes'
+      : 'Superaste l\u00edmites en ' + overCount + ' categor\u00edas';
+    tone = 'warn';
+  } else if(prev.inc > 0 && sr > prevSr + 5){
+    msg = 'Mejor ratio de ahorro que el mes pasado (' + sr + '% vs ' + prevSr + '%)'; tone = 'good';
+  } else if(sr >= 30){
+    msg = 'Excelente control \u2014 ahorrando el ' + sr + '% de tus ingresos'; tone = 'good';
+  } else if(sr >= 15 && isCurMonth){
+    msg = 'Vas bien este mes \u00b7 ' + sr + '% de ahorro hasta ahora'; tone = 'good';
+  } else if(prev.inc > 0 && cur.exp < prev.exp * 0.9){
+    msg = 'Gastos m\u00e1s bajos que el mes anterior \u2014 buen trabajo'; tone = 'good';
+  } else if(prev.inc > 0 && cur.exp > prev.exp * 1.15){
+    msg = 'Gastos m\u00e1s altos que el mes pasado'; tone = 'warn';
+  } else if(isCurMonth && cur.txCount >= 3){
+    var streak = GFX.getStreakStatus();
+    if(streak.daily >= 5){
+      msg = streak.daily + ' d\u00edas registrando seguido \u2014 muy buen h\u00e1bito'; tone = 'good';
+    } else {
+      msg = 'Todo bajo control este mes'; tone = 'info';
+    }
+  }
+
+  if(!msg){ el.innerHTML = ''; return; }
+
+  el.innerHTML = '<div class="narrative-line ' + tone + '">'
+    + '<span class="narrative-dot"></span>'
+    + msg
+    + '</div>';
+}
+
+/* ── 2. FINANCIAL PROGRESS CARD ── */
+function renderProgressCard(){
+  var el = document.getElementById('homeProgressCard');
+  if(!el) return;
+
+  var prevM = curMonth === 0 ? 11 : curMonth - 1;
+  var prevY = curMonth === 0 ? curYear - 1 : curYear;
+  var cur   = _dcGetMonthData(curYear, curMonth);
+  var prev  = _dcGetMonthData(prevY, prevM);
+
+  /* Historical average: last 3 closed months */
+  var now = new Date();
+  var histData = [];
+  for(var i = 2; i <= 4; i++){
+    var hm = curMonth - i; var hy = curYear;
+    if(hm < 0){ hm += 12; hy -= 1; }
+    /* only include months that have data AND are in the past */
+    if(hy > now.getFullYear() || (hy === now.getFullYear() && hm >= now.getMonth())) continue;
+    var d = _dcGetMonthData(hy, hm);
+    if(d.txCount > 0) histData.push(d);
+  }
+  var avgBal = histData.length
+    ? histData.reduce(function(s,d){ return s+d.bal; }, 0) / histData.length
+    : null;
+  var avgSr  = histData.length
+    ? histData.reduce(function(s,d){ return s+_dcSavingsRate(d); }, 0) / histData.length
+    : null;
+
+  /* Don't show if no previous data at all */
+  if(!prev.txCount && !histData.length){ el.innerHTML = ''; return; }
+
+  var curSr  = _dcSavingsRate(cur);
+  var prevSr = _dcSavingsRate(prev);
+
+  /* vs prev month */
+  var balDiff  = prev.bal !== 0 ? Math.round(((cur.bal - prev.bal) / Math.abs(prev.bal)) * 100) : null;
+  var srDiff   = prev.inc > 0 ? curSr - prevSr : null;
+
+  /* Trend sentence */
+  var trendIcon, trendText, trendBadge, trendCls;
+  if(balDiff !== null){
+    if(balDiff >= 10){
+      trendIcon = '📈'; trendText = 'Mejor balance que ' + MONTHS_SHORT[prevM];
+      trendBadge = '+' + balDiff + '%'; trendCls = 'better';
+    } else if(balDiff <= -10){
+      trendIcon = '📉'; trendText = 'Balance m\u00e1s bajo que ' + MONTHS_SHORT[prevM];
+      trendBadge = balDiff + '%'; trendCls = 'worse';
+    } else {
+      trendIcon = '📊'; trendText = 'Balance similar a ' + MONTHS_SHORT[prevM];
+      trendBadge = (balDiff >= 0 ? '+' : '') + balDiff + '%'; trendCls = 'same';
+    }
+  } else {
+    trendIcon = '📊'; trendText = 'Primer mes con datos';
+    trendBadge = ''; trendCls = 'same';
+  }
+
+  function srClass(v){ return v >= 20 ? 'pos' : v >= 0 ? 'neu' : 'neg'; }
+  function balClass(v){ return v >= 0 ? 'pos' : 'neg'; }
+
+  var html2 = '<div class="hpc-card"><div class="hpc-inner">'
+    + '<div class="hpc-eyebrow">Comparativa mensual</div>'
+    + '<div class="hpc-cols">'
+    /* Current */
+    + '<div class="hpc-col">'
+    + '<div class="hpc-lbl">Este mes</div>'
+    + '<div class="hpc-val ' + balClass(cur.bal) + '">' + (cur.bal >= 0 ? '+' : '') + fmtMoney(cur.bal) + '</div>'
+    + (cur.inc > 0 ? '<div class="hpc-lbl" style="margin-top:3px">' + curSr + '% ahorro</div>' : '')
+    + '</div>'
+    + '<div class="hpc-divider"></div>'
+    /* Prev */
+    + '<div class="hpc-col">'
+    + '<div class="hpc-lbl">' + MONTHS_SHORT[prevM] + '</div>'
+    + '<div class="hpc-val ' + (prev.txCount ? balClass(prev.bal) : 'neu') + '">'
+    + (prev.txCount ? (prev.bal >= 0 ? '+' : '') + fmtMoney(prev.bal) : '—')
+    + '</div>'
+    + (prev.inc > 0 ? '<div class="hpc-lbl" style="margin-top:3px">' + prevSr + '% ahorro</div>' : '')
+    + '</div>'
+    + '<div class="hpc-divider"></div>'
+    /* Avg */
+    + '<div class="hpc-col">'
+    + '<div class="hpc-lbl">Promedio</div>'
+    + '<div class="hpc-val ' + (avgBal !== null ? balClass(avgBal) : 'neu') + '">'
+    + (avgBal !== null ? (avgBal >= 0 ? '+' : '') + fmtMoney(avgBal) : '—')
+    + '</div>'
+    + (avgSr !== null ? '<div class="hpc-lbl" style="margin-top:3px">' + Math.round(avgSr) + '% ahorro</div>' : '')
+    + '</div>'
+    + '</div>'
+    /* Trend */
+    + '<div class="hpc-trend">'
+    + '<span class="hpc-trend-icon">' + trendIcon + '</span>'
+    + '<span class="hpc-trend-text">' + trendText + '</span>'
+    + (trendBadge ? '<span class="hpc-trend-badge ' + trendCls + '">' + trendBadge + '</span>' : '')
+    + '</div>'
+    + '</div></div>';
+
+  el.innerHTML = html2;
+}
+
+/* ── Wire both into renderMonthly ── */
+(function(){
+  var _orig = renderMonthly;
+  renderMonthly = function(){
+    _orig();
+    try{ renderNarrative(); }catch(e){}
+    try{ renderProgressCard(); }catch(e){}
+  };
+})();
+
+console.log('[Companion] Daily pulse + progress card loaded.');
+</script>
+
+
+<script id="cuenta-ytd-v2">
+/* Richer YTD savings card in Cuenta */
+(function(){
+  var _orig = renderCuenta;
+  renderCuenta = function(){
+    _orig();
+    try{ renderCuentaYTD(); } catch(e){}
+  };
+})();
+
+function renderCuentaYTD(){
+  var now = new Date();
+  var year = now.getFullYear();
+  var curMo = now.getMonth(); /* 0-indexed, current month */
+
+  /* Collect per-month balances Jan→current */
+  var months = [];
+  var totalSaved = 0;
+  var totalInc = 0, totalExp = 0;
+  for(var m = 0; m <= curMo; m++){
+    injectRecurring(year, m);
+    var txs = loadMonth(year, m).transactions || [];
+    var inc = txs.filter(function(t){ return t.type==='income'; })
+                 .reduce(function(a,t){ return a+t.amount; }, 0);
+    var exp = txs.filter(function(t){ return t.type==='expense'; })
+                 .reduce(function(a,t){ return a+t.amount; }, 0);
+    var bal = inc - exp;
+    if(inc > 0 || exp > 0){
+      months.push({ m: m, bal: bal, inc: inc, exp: exp });
+    }
+    totalSaved += bal;
+    totalInc   += inc;
+    totalExp   += exp;
+  }
+
+  /* Update main value */
+  var valEl = document.getElementById('cuentaYTD');
+  if(valEl){
+    valEl.textContent = (totalSaved < 0 ? '-' : '') + fmtMoney(Math.abs(totalSaved));
+    valEl.className   = 'cst-val ' + (totalSaved >= 0 ? 'positive' : 'negative');
+  }
+
+  var breakdown = document.getElementById('cuentaYTDBreakdown');
+  if(!breakdown || !months.length) return;
+
+  /* Scale: max absolute balance for bar width */
+  var maxAbs = Math.max.apply(null, months.map(function(d){ return Math.abs(d.bal); })) || 1;
+
+  /* Savings rate YTD */
+  var sr = totalInc > 0 ? Math.round(((totalInc - totalExp) / totalInc) * 100) : null;
+
+  /* Avg monthly savings */
+  var avgMo = months.length > 0 ? Math.round(totalSaved / months.length) : 0;
+
+  var h = '';
+  months.forEach(function(d){
+    var pct     = Math.min(100, Math.round((Math.abs(d.bal) / maxAbs) * 100));
+    var col     = d.bal >= 0 ? '#16a34a' : '#dc2626';
+    var amtStr  = (d.bal >= 0 ? '+' : '-') + fmtMoney(Math.abs(d.bal));
+    h += '<div class="cst-month-row">'
+      + '<span class="cst-month-lbl">' + MONTHS_SHORT[d.m] + '</span>'
+      + '<div class="cst-month-track">'
+      + '<div class="cst-month-fill" style="width:' + pct + '%;background:' + col + '"></div>'
+      + '</div>'
+      + '<span class="cst-month-amt" style="color:' + col + '">' + amtStr + '</span>'
+      + '</div>';
+  });
+
+  /* Summary line */
+  if(sr !== null || avgMo !== 0){
+    h += '<div class="cst-ytd-rate">';
+    if(sr !== null){
+      h += '\uD83D\uDCCA Ahorro promedio: <span class="cst-ytd-rate-val">' + sr + '%</span>';
+    }
+    if(avgMo !== 0 && months.length > 1){
+      h += ' \u00b7 ' + fmtMoney(Math.abs(avgMo)) + '/mes';
+    }
+    h += '</div>';
+  }
+
+  breakdown.innerHTML = h;
+}
+</script>
+
+
+<script id="goal-deadline">
+/* ==================================================================
+   GOAL DEADLINE ENGINE
+   User picks a target month. Monthly needed recalculates accordingly.
+   ================================================================== */
+
+var goalDeadlineMonth = 11; /* 0-indexed, default December */
+var goalDeadlineYear  = new Date().getFullYear();
+
+/* ── Build deadline pills: every remaining month of the year ── */
+function buildDeadlinePills(){
+  /* Set the native month input value */
+  var inp = document.getElementById('goalDeadlineInput');
+  if(!inp) return;
+  var y = goalDeadlineYear;
+  var m = String(goalDeadlineMonth + 1).padStart(2, '0');
+  inp.value = y + '-' + m;
+  /* Min = current month */
+  var now = new Date();
+  inp.min = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0');
+}
+
+function onDeadlineInputChange(val){
+  if(!val) return;
+  var parts = val.split('-');
+  goalDeadlineYear  = parseInt(parts[0]);
+  goalDeadlineMonth = parseInt(parts[1]) - 1; /* back to 0-indexed */
+  updateGoalSheetPreview();
+}
+
+/* selectGoalDeadline removed — using native input */
+
+/* ── Override renderGoalsSheet ── */
+function renderGoalsSheet(){
+  var s = loadSettings();
+  var annualGoal = s.annualGoal || (s.monthlyGoal ? s.monthlyGoal * 12 : 0);
+
+  /* Restore saved deadline or default to December */
+  var now = new Date();
+  goalDeadlineMonth = s.goalDeadlineMonth !== undefined ? s.goalDeadlineMonth : 11;
+  goalDeadlineYear  = s.goalDeadlineYear  !== undefined ? s.goalDeadlineYear  : now.getFullYear();
+
+  /* Update title */
+  var ttl = document.getElementById('goalSheetTitle');
+  if(ttl) ttl.textContent = 'Meta de ahorro ' + goalDeadlineYear;
+
+  var inp = document.getElementById('goalsAmt');
+  if(inp) inp.value = annualGoal > 0 ? addDots(String(Math.round(annualGoal))) : '';
+
+  buildDeadlinePills();
+  updateGoalSheetPreview();
+  renderGoalsLimits();
+}
+
+/* ── Override saveGoalFromSheet ── */
+function saveGoalFromSheet(){
+  var raw = parseFloat((document.getElementById('goalsAmt').value||'').replace(/\./g,'')) || 0;
+  if(raw <= 0){ showToast('Ingres\u00e1 un monto'); return; }
+  var s = loadSettings();
+  s.annualGoal        = raw;
+  s.monthlyGoal       = 0;
+  s.goalType          = 'annual';
+  s.goalDeadlineMonth = goalDeadlineMonth;
+  s.goalDeadlineYear  = goalDeadlineYear;
+  persistSettings(s);
+  showToast('Meta guardada \u2713');
+  closeGoalsSheet();
+  renderMonthly();
+}
+
+/* ── Override goalComputeMonthlyNeeded — deadline aware ── */
+function goalComputeMonthlyNeeded(){
+  var s       = loadSettings();
+  var annual  = s.annualGoal || 0;
+  if(!annual) return null;
+
+  var now      = new Date();
+  var curM     = now.getMonth();
+  var curY     = now.getFullYear();
+  var deadM    = s.goalDeadlineMonth !== undefined ? s.goalDeadlineMonth : 11;
+  var deadY    = s.goalDeadlineYear  !== undefined ? s.goalDeadlineYear  : curY;
+
+  /* Months remaining INCLUDING this month, up to and including deadline */
+  var monthsLeft = (deadY - curY) * 12 + (deadM - curM) + 1;
+  if(monthsLeft < 1) monthsLeft = 1;
+
+  /* Total months span Jan of start year → deadline */
+  var totalMonths = (deadY - curY) * 12 + deadM + 1; /* from Jan curY to deadM deadY */
+
+  /* Saved so far: all closed months from Jan curY to last month */
+  var savedSoFar = 0;
+  for(var m = 0; m < curM; m++){
+    var txs = loadMonth(curY, m).transactions || [];
+    var inc = txs.filter(function(t){ return t.type==='income'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    var exp = txs.filter(function(t){ return t.type==='expense'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    savedSoFar += (inc - exp);
+  }
+
+  var remaining  = annual - savedSoFar;
+  var neededNow  = monthsLeft > 0 ? Math.ceil(remaining / monthsLeft) : remaining;
+
+  /* On-track: how many months elapsed vs total span */
+  var elapsed    = curM; /* Jan=0 → curM months elapsed */
+  var onTrackAmt = totalMonths > 0 ? Math.round((annual / totalMonths) * elapsed) : 0;
+  var pctProgress = annual > 0 ? Math.min(150, Math.round((savedSoFar / annual) * 100)) : 0;
+  var pctOnTrack  = annual > 0 ? Math.min(150, Math.round((onTrackAmt  / annual) * 100)) : 0;
+  var diff        = pctProgress - pctOnTrack;
+
+  var deadLabel = MONTHS[deadM] + (deadY !== curY ? ' ' + deadY : '');
+
+  return {
+    annual:      annual,
+    savedSoFar:  Math.max(0, savedSoFar),
+    remaining:   remaining,
+    neededNow:   neededNow,
+    monthsLeft:  monthsLeft,
+    pctProgress: pctProgress,
+    pctOnTrack:  pctOnTrack,
+    diff:        diff,
+    onTrack:     diff >= -5,
+    ahead:       diff > 5,
+    deadLabel:   deadLabel
+  };
+}
+
+/* ── Override updateGoalSheetPreview ── */
+function updateGoalSheetPreview(){
+  var inp   = document.getElementById('goalsAmt');
+  var hint  = document.getElementById('goalAnnualHint');
+  var panel = document.getElementById('goalMonthlyNeeded');
+  if(!inp || !hint || !panel) return;
+
+  var raw = parseFloat((inp.value||'').replace(/\./g,'')) || 0;
+  if(!raw){ hint.textContent = ''; panel.innerHTML = ''; return; }
+
+  var now    = new Date();
+  var curM   = now.getMonth(), curY = now.getFullYear();
+  var deadM  = goalDeadlineMonth, deadY = goalDeadlineYear;
+  var monthsLeft = (deadY - curY) * 12 + (deadM - curM) + 1;
+  if(monthsLeft < 1) monthsLeft = 1;
+
+  /* Saved so far */
+  var savedSoFar = 0;
+  for(var m = 0; m < curM; m++){
+    var txs = loadMonth(curY, m).transactions || [];
+    var inc = txs.filter(function(t){ return t.type==='income'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    var exp = txs.filter(function(t){ return t.type==='expense'; }).reduce(function(a,t){ return a+t.amount; }, 0);
+    savedSoFar += (inc - exp);
+  }
+  savedSoFar = Math.max(0, savedSoFar);
+
+  var remaining = raw - savedSoFar;
+  var needed    = monthsLeft > 0 ? Math.ceil(remaining / monthsLeft) : remaining;
+  var pct       = Math.min(100, Math.round((savedSoFar / raw) * 100));
+  var barCol    = pct >= 80 ? '#16a34a' : pct >= 40 ? '#7979FF' : '#dc2626';
+
+  var deadLabel = MONTHS_SHORT[deadM] + (deadY !== curY ? ' ' + deadY : '');
+  hint.textContent = 'Para ' + deadLabel + ' \u00b7 ' + monthsLeft + ' mes' + (monthsLeft!==1?'es':'') + ' restante' + (monthsLeft!==1?'s':'');
+
+  /* Update sheet title */
+  var ttl = document.getElementById('goalSheetTitle');
+  if(ttl) ttl.textContent = 'Meta de ahorro ' + (deadY !== curY ? deadY : deadY);
+
+  var onTrackAmt = Math.round((raw / ((deadY - curY)*12 + deadM + 1)) * curM);
+  var diff       = savedSoFar - onTrackAmt;
+  var statusTxt, statusCls;
+  if(remaining <= 0){
+    statusTxt = '\uD83C\uDFC6 \u00a1Meta alcanzada!'; statusCls = 'on-track';
+  } else if(diff >= 0){
+    statusTxt = '\u2713 Vas ' + fmtMoney(diff) + ' adelante del ritmo'; statusCls = 'ahead';
+  } else {
+    statusTxt = '\u2197 Necesit\u00e1s recuperar ' + fmtMoney(Math.abs(diff)); statusCls = 'behind';
+  }
+
+  panel.innerHTML = '<div class="gmn-card">'
+    + '<div class="gmn-row">'
+    + '<span class="gmn-lbl">Necesit\u00e1s ahorrar este mes</span>'
+    + '<span class="gmn-val">' + (needed > 0 ? fmtMoney(needed) : '\u00a1Meta lista!') + '</span>'
+    + '</div>'
+    + '<div class="gmn-sub">Llevas ' + fmtMoney(savedSoFar) + ' ahorrado</div>'
+    + '<div class="gmn-bar-wrap">'
+    + '<div class="gmn-bar-lbl"><span>' + pct + '% completado</span><span>' + fmtMoney(raw) + '</span></div>'
+    + '<div class="gmn-track"><div class="gmn-fill" style="width:' + Math.min(100,pct) + '%;background:' + barCol + '"></div></div>'
+    + '</div>'
+    + '<div class="gmn-status ' + statusCls + '">' + statusTxt + '</div>'
+    + '</div>';
+}
+
+/* ── Override renderGoal (hero) to show deadline label ── */
+function renderGoal(monthBalance){
+  var el = document.getElementById('heroGoal');
+  if(!el) return;
+  var d = goalComputeMonthlyNeeded();
+  if(!d){
+    el.innerHTML = '<div class="goal-cta" onclick="openGoalsSheet()">'
+      + '<span class="goal-cta-txt">Configurar meta de ahorro</span>'
+      + '<span class="goal-cta-arr">\u203a</span></div>';
+    return;
+  }
+  var barPct = Math.min(100, d.pctProgress);
+  var barCol = d.remaining <= 0 ? '#16a34a' : d.onTrack ? '#7979FF' : '#dc2626';
+  var statusLine;
+  if(d.remaining <= 0)       statusLine = '\uD83C\uDFC6 Meta alcanzada';
+  else if(d.neededNow <= 0)  statusLine = '\u2713 No necesit\u00e1s ahorrar m\u00e1s este mes';
+  else if(d.ahead)           statusLine = '\u2191 Vas adelante \u00b7 buen ritmo';
+  else if(d.onTrack)         statusLine = 'Ahorrá ' + fmtMoney(d.neededNow) + ' este mes para llegar a ' + d.deadLabel;
+  else                       statusLine = '\u26a0 Ahorrá ' + fmtMoney(d.neededNow) + ' este mes para no quedar atr\u00e1s';
+
+  el.innerHTML = '<div class="goal-hdr">'
+    + '<span class="goal-lbl">Meta \u00b7 ' + d.deadLabel + '</span>'
+    + '<span class="goal-badge ' + (d.remaining<=0?'gpb-g':d.onTrack?'gpb-b':'gpb-r') + '">' + d.pctProgress + '%</span>'
+    + '</div>'
+    + '<div class="goal-track"><div class="goal-fill" style="width:' + barPct + '%;background:' + barCol + '"></div></div>'
+    + '<div class="goal-foot">'
+    + '<span class="goal-status">' + statusLine + '</span>'
+    + '<span class="goal-edit" onclick="openGoalsSheet()">' + fmtMoney(d.annual) + ' \u00b7 editar</span>'
+    + '</div>';
+}
+
+console.log('[Goal] Deadline engine loaded.');
 </script>
 
 </body>
